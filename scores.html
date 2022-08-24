@@ -28,6 +28,7 @@ div.cf{overflow: scroll;background: #9aceff; margin: 0; padding: 20px; position:
 b.slash{color:grey}
 h3.hed{font-size: 150%; font-family: times; box-shadow: 0px 9px 7px 0px #78aec6; padding: 15px;}
 .sko{font-weight: lighter;}
+input#confirm{width: 20px; height: 20px;}
 
 </style>
 
@@ -141,9 +142,9 @@ h3.hed{font-size: 150%; font-family: times; box-shadow: 0px 9px 7px 0px #78aec6;
 <center>
 <h3 class="hed">Please select the number/type of games you played</h3>
 
+<input oninput="gamechange3()" id="gnc" type="radio" name="gn" checked="true" value="6"><label for=""> 6 Games to 11</label><br>
+<input oninput="gamechange2()" id="gnb" type="radio" name="gn" value="3"><label for=""> 3 Games to 15</label><br>
 <input oninput="gamechange1()" id="gna" type="radio" name="gn" value="3"><label for=""> 3 Games to 11</label><br>
-<input oninput="gamechange2()" id="gnb" type="radio" name="gn" checked="true" value="3"><label for=""> 3 Games to 15</label><br>
-<input oninput="gamechange3()" id="gnc" type="radio" name="gn" value="6"><label for=""> 6 Games to 11</label><br>
 
 <br><br>
 
