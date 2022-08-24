@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groups | Sonoma Pickleball Ladder</title>
+    <style>
+      html, body { min-height:100%; }
+      iframe{ height: 100%; width: 100%; margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 0px; outline: none; }
+    </style>
+  </head>
+  <body onload="setrefresh()">
+  <iframe id="groups" src="https://sheet.zohopublic.com/sheet/publishedsheet/f88864aadc1cff54f51714b5b4a7295b6739cfc431d8be80966a179695b11425?type=grid&mode=embed"></iframe>
+  <script type="text/javascript">
+    function  setrefresh() {
+      setInterval(refresh, 600000)
+      function refresh() {
+        document.getElementById('groups').src='https://sheet.zohopublic.com/sheet/publishedsheet/f88864aadc1cff54f51714b5b4a7295b6739cfc431d8be80966a179695b11425?type=grid&mode=embed';
+      }
+    }
+  </script>
+  </body>
+</html>
