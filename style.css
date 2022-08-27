@@ -4,8 +4,8 @@ a.nav {display: inline-block; font-size: 1rem; margin: 8px; padding: 6px 12px; b
 a.nav:hover{background: rgba(130, 234, 123, 0.4);}
 iframe{min-height: 400px; width: 100%; border: 0px; outline: none; overflow: auto; scrollbar-width: none; -moz-scrollbars: none;}
 iframe::-webkit-scrollbar {display: none;}
-table{max-width: 100%; overflow: scroll;}
-table.standard, td {border: 1px ridge black;outline: none;}
+table{max-width: 100%; overflow: scroll;border-collapse: collapse;}
+table.standard, td {border: 3px ridge black;outline: none;}
 hide{display:none;}
 h3.under{text-decoration: underline;}
 input.var{min-width: 0px; max-width: 20px;outline: none; border: none; height: 100%;background: transparent;}
@@ -19,6 +19,7 @@ a.black{background: #90acf5}
 a.white{background:#ace1f3}
 a.plain{text-decoration: none; color: inherit;}
 .hidden{display:none;}
+td{padding: 3px;}
 td.head{font-family: cursive; background: orange; color: teal}
 td.move{background:#88ae90;}
 span.info{color: brown; font-family: times; border: 1.5px solid #78aeff; padding: 5px;}
