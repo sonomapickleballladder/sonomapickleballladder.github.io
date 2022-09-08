@@ -22,6 +22,7 @@ a.plain{text-decoration: none; color: inherit;}
 td{padding: 3px;}
 td.head{font-family: cursive; background: orange; color: teal}
 td.move{background:#88ae90;}
+#wkcalc{font-weight: bold; color: blue;}
 span.info{color: brown; font-family: times; border: 1.5px solid #78aeff; padding: 5px;}
 code.mrk{font-family: inherit; word-wrap: break-word;}
 code.thin{font-size: 87.5%; word-wrap: break-word;}
