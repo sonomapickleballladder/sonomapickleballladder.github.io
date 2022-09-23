@@ -1,1 +1,23 @@
-Page is currently under construction and not available. Please check back later.
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats | Sonoma Pickleball Ladder</title>
+    <style>
+      html, body { min-height:100%; }
+      iframe{ height: 100%; width: 100%; margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 0px; outline: none; }
+    </style>
+  </head>
+  <body onload="setrefresh()">
+  <iframe id="stats" src="https://sheet.zohopublic.com/sheet/publishedsheet/5b0a0182336ed7e704c5836c9288d238d0bb47e525ef8be9c55e41dd1b86a2e4?type=grid&mode=embed"></iframe>
+  <script type="text/javascript">
+    function  setrefresh() {
+      setInterval(refresh, 600000)
+      function refresh() {
+        document.getElementById('stats').src='https://sheet.zohopublic.com/sheet/publishedsheet/5b0a0182336ed7e704c5836c9288d238d0bb47e525ef8be9c55e41dd1b86a2e4?type=grid&mode=embed';      }
+    }
+  </script>
+  </body>
+</html>
