@@ -13,13 +13,17 @@
   <body>
 
 
-    <img id='calendarim' src="" alt="image not found">
+    <img id='calendarim'>
 
     <script src="week.js" charset="utf-8"></script>
     <script type="text/javascript">
       let week = wk;
-      document.getElementById('calendarim').src='gcpngs/gcw'+week+'.png';
-    </script>
+      try {
+        document.getElementById('calendarim').src='gcpngs/gcw'+week+'.png';
+      } catch (e) {
+        document.getElementById('calendarim').alt='image not found';
+      }
+      </script>
 
     <!--<script type="text/javascript">
        window.onload = function() {
