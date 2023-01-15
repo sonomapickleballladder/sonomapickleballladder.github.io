@@ -6,32 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 <title>Submit Scores | Sonoma Pickleball Ladder</title>
-<style media="screen">
-html,body{min-height: 100%; display: flex;
-    align-items: center;
-    justify-content: center;}
-input.score{max-width: calc(10% + 10px); text-align:center; max-width: calc(5% + 30px); border-width:0px 0px 2px 0px; outline: none; margin: 0px 5px;background: transparent;}
-code{padding:0px; margin: 0px 0px; font-size: 90%;width: 25%;   word-break: break-all; }
-select{padding: 8px 12px; outline: none}
-input {margin: 5px 0px; padding: 5px;}
-button.submit{background: #6aebd1; margin: 10px; padding: 10px; min-width: calc(40vw + 100px);}
-div.hid{display:none;}
-div.cf{overflow: scroll;background: #9aceff; margin: 0; padding: 20px; position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
-.next{background: #acfb24; margin: 10px; padding: 10px; min-width: calc(40vw + 100px); cursor: pointer;}
-.next2{background: #acfb24; margin: 10px; padding: 10px; min-width: calc(20vw + 100px); cursor: pointer;}
-.back{background: #07ae45; margin: 10px; padding: 10px; min-width: calc(20vw + 100px); cursor: pointer;}
-.con{width: 25%;}
-.ge{display: block; min-width: 100vw;}
-.cwe{max-width: 33%; display: inline;margin: auto;}
-.cn{ margin: 0; padding: 10px; min-height: 100%;display: grid;
-    place-items: center;}
-b.slash{color:grey}
-h3.hed{font-size: 150%; font-family: times; box-shadow: 0px 9px 7px 0px #78aec6; padding: 15px;}
-.sko{font-weight: lighter;}
-input#confirm{width: 20px; height: 20px;}
-
-</style>
-
+<style media="screen">html,body{min-height: 100%; display: flex; align-items: center; justify-content: center}input.score{max-width: calc(10% + 10px); text-align:center; max-width: calc(5% + 30px); border-width:0px 0px 2px 0px; outline: none; margin: 0px 5px;background: transparent}code{padding:0px; margin: 0px 0px; font-size: 90%;width: 25%; word-break: break-all;}select{padding: 8px 12px; outline: none}input{margin: 5px 0px; padding: 5px}button.submit{background: #6aebd1; margin: 10px; padding: 10px; min-width: calc(40vw + 100px)}div.hid{display:none}div.cf{overflow: scroll;background: #9aceff; margin: 0; padding: 20px; position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%)}.next{background: #acfb24; margin: 10px; padding: 10px; min-width: calc(40vw + 100px); cursor: pointer}.next2{background: #acfb24; margin: 10px; padding: 10px; min-width: calc(20vw + 100px); cursor: pointer}.back{background: #07ae45; margin: 10px; padding: 10px; min-width: calc(20vw + 100px); cursor: pointer}.con{width: 25%}.ge{display: block; min-width: 100vw}.cwe{max-width: 33%; display: inline;margin: auto}.cn{ margin: 0; padding: 10px; min-height: 100%;display: grid; place-items: center}b.slash{color:grey}h3.hed{font-size: 150%; font-family: times; box-shadow: 0px 9px 7px 0px #78aec6; padding: 15px}.sko{font-weight: lighter}input#confirm{width: 20px; height: 20px}</style>
+<script src="js/functions.js"></script>
 </head>
 
 <body onload="populate();gamechange1();gamechange2();gamechange3();gamechange4()">
@@ -41,7 +17,7 @@ input#confirm{width: 20px; height: 20px;}
 
 <center>
     <h3 class="hed">Please choose one of the score submission methods below</h3>
-      <a class="plain" href="https://cryptpad.fr/sheet/#/2/sheet/edit/OGZF7TQ5hdgy2QwmVRqx1n-f/embed/"><button class="back" tabindex="-1" type="button" name="button">Directly into Spreadsheet (requires computer and decent internet connection)</button></a>
+      <a class="plain" href="https://cryptpad.fr/sheet/#/2/sheet/view/fyudVkveQ3xdaodEtHrzuvk3BEvHexerTas1Quv-CpE/embed/"><button class="back" tabindex="-1" type="button" name="button">Directly into Spreadsheet (requires computer and decent internet connection)</button></a>
       <br>
       <button onclick="prev1()" class="next2" type="button" name="button">Form submission (better for mobile devices)</button>
 
@@ -51,17 +27,17 @@ input#confirm{width: 20px; height: 20px;}
 
 <div class="hid cn" id="show0">
   <center>
-  <h3 class="hed">Please select the appropriate week</h3>
-  <select id="week" class="" name="">
-  <option id="wkcalc" value=""></option>
-  <option value="Week 1">Week 1</option>
-  <option value="Week 2">Week 2</option>
-  <option value="Week 3">Week 3</option>
-  <option value="Week 4">Week 4</option>
-  <option value="Week 5">Week 5</option>
-  <option value="Week 6">Week 6</option>
-  <option value="Week 7">Week 7</option>
-  <option value="Week 8">Week 8</option>
+  <h3 class="hed">Please select the appropriate round</h3>
+  <select id="round" class="" name="">
+  <option style="background-color: rgb(238, 222, 143)" currentround value="">Round null</option>
+  <option value="Round 1">Round 1</option>
+  <option value="Round 2">Round 2</option>
+  <option value="Round 3">Round 3</option>
+  <option value="Round 4">Round 4</option>
+  <option value="Round 5">Round 5</option>
+  <option value="Round 6">Round 6</option>
+  <option value="Round 7">Round 7</option>
+  <option value="Round 8">Round 8</option>
 
   </select>
 
@@ -325,7 +301,7 @@ input#confirm{width: 20px; height: 20px;}
 
   <br><br><hr>
 <br>
-  <input id="confirm" type="checkbox" name="" value=""><label for=""> By checking this box, you are confirming that the information you provided is correct and that you have verified these scores with everyone in your group.</label>
+  <input id="confirm" type="checkbox" name="" value=""><label for="confirm"> By checking this box, you are confirming that the information you provided is correct and that you have verified these scores with everyone in your group.</label>
 <br><br>
   <button onclick="next4()" class="back" tabindex="-1" type="button" name="button">← Back</button>
   <button onclick="next5()" class="next2" type="button" name="button">Next →</button>
@@ -422,15 +398,12 @@ function prev1() {
 document.getElementById('show-1').classList.toggle('hid');
 document.getElementById('show0').classList.toggle('hid');
 
-wkcalc.innerHTML="Week "+wk;
-wkcalc.value=wkcalc.innerHTML;
-
 }
 
 function next0() {
 
-  if(document.getElementById('week').value.length>0){
-  let week = document.getElementById('week');
+  if(document.getElementById('round').value.length>0){
+  let round = document.getElementById('round');
   document.getElementById('show0').classList.toggle('hid');
   document.getElementById('show1').classList.toggle('hid');
   }
@@ -508,7 +481,7 @@ function next4() {
   document.getElementById('show4').classList.toggle('hid');
   document.getElementById('show5').classList.toggle('hid');
 
-  document.getElementById('rweek').innerHTML="Week: "+week.value;
+  document.getElementById('rweek').innerHTML="Round: "+round.value;
     document.getElementById('rgroup').innerHTML="Group: "+group.value;
     document.getElementById('confirm').checked=false;
 
@@ -555,7 +528,7 @@ function swism() {
 
 function assemble() {
 let maillink = document.createElement('a');
-maillink.href=('mailto:SPLscoresubmissions@riseup.net?subject='+week.value+','+thnsp+group.value+'&body='+
+maillink.href=('mailto:SPLscoresubmissions@riseup.net?subject='+round.value+','+thnsp+group.value+'&body='+
 p1.value+cl+lb+
 lb+
 s1a.value+lb+
@@ -602,7 +575,7 @@ else{return false;}
 
 
 function copyscores() {
-let scoretext="Email to SPLscoresubmissions@riseup.net"+"\n"+"Week: "+week.value+"\n"+"Group: "+group.value+"\n"+"\n"+
+let scoretext="Email to SPLscoresubmissions@riseup.net"+"\n"+"Round: "+round.value+"\n"+"Group: "+group.value+"\n"+"\n"+
 p1.value+cl+"\n"+
 "\n"+
 s1a.value+"\n"+
@@ -681,65 +654,7 @@ document.getElementById('g6b').innerHTML=document.getElementById('p3').value+"<b
 
 </script>
 
-
-<script type="text/javascript">
-
-let d = new Date();
-let year = d.getFullYear();
-let month = d.getMonth() + 1;
-let day = d.getDate();
-let wk;
-let wkcalc=document.getElementById('wkcalc');
-
-if (month==9){
-  if(day>4&&day<=11){
-    wk="1";
-  }
-  if(day>11&&day<=18){
-    wk="2";
-  }
-  if(day>18&&day<=25){
-    wk="3";
-  }
-  if(day>25){
-    wk="4";
-  }
-}
-
-if (month==10){
-  if(day<=2){
-    wk="4";
-  }
-  if(day>2&&day<=9){
-    wk="5";
-  }
-  if(day>9&&day<=16){
-    wk="";
-  }
-  if(day>16&&day<=23){
-    wk="6";
-  }
-  if(day>23&&day<=30){
-    wk="7";
-  }
-  if(day>30){
-    wk="8";
-  }
-
-}
-
-if (month==11){
-  if(day<=6){
-    wk="8";
-  }
-
-}
-
-
-</script>
-
-
-
+<script src="js/round.js"></script>
 
 
 

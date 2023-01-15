@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Sub Form | Sonoma Pickleball Ladder</title>
+   <link rel="stylesheet" href="style.css">
+   <script src="js/functions.js"></script>
+   <script src="js/round.js"></script>
+   <script src="js/subform.js"></script>
+   <style>
+    html, body {
+        height: 100%;
+        margin: 0px;
+        font-size: 1.25rem;
+      }
+      .container {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      section {
+        flex: 1;
+        padding: 0px 8px;
+      }
+      </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="main">
+
+    <center>
+      <h1>&#129692;&nbsp;Sub Form&nbsp;&#129692;</h1>
+    </center>
+    <hr>
+
+    <h3 class="under">Round you are offering to be a Sub for:</h3>
+    <p>
+      <select id="round" class="" name="">
+      <option style="background-color: rgb(238, 222, 143)" id="wkcalc" nextround value="">Round null</option>
+      <option value="Round 1">Round 1</option>
+      <option value="Round 2">Round 2</option>
+      <option value="Round 3">Round 3</option>
+      <option value="Round 4">Round 4</option>
+      <option value="Round 5">Round 5</option>
+      <option value="Round 6">Round 6</option>
+      <option value="Round 7">Round 7</option>
+      <option value="Round 8">Round 8</option>
+    
+      </select>
+    </p>
+
+    <h3 class="under">Your Information:</h3>
+         <p>
+            <span>Name:</span> <span class="promptinput" dataid="name" prompt="Your Name" append=" (click to update)"><span randomname></span> (click to edit)</span>
+         </p>
+
+         <p>
+            <span>Email:</span> <span class="promptinput" dataid="name" prompt="Your Email" append=" (click to update)"><span randomemail></span> (click to edit)</span>     
+        </p>
+
+     
+    <h3 class="under">Finish:</h3>
+    <p>
+    <button class="confirmav" onclick="vrfrd();vrfid()" style="padding: 0.75em;">Submit</button>
+   </p>
+     
+    
+   
+   <noscript><p>Sorry, this page will not work without JavaScript.</p> </noscript>
+
+</section>
+  <footer><i><small>&#169; 2022-2023 Theo MacKinnon. All rights reserved. No part of this website or content may be reproduced or distributed without express permission from the author.</small></i></footer>
+
+</div>
+
+  </body>
+</html>
+
+

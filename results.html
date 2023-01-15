@@ -10,18 +10,23 @@
 
     <style>
       html, body { min-height:100%; }
+      .h, .hidden {visibility: hidden; display: none;}
       iframe{ height: 100%; width: 100%; margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 0px; outline: none; }
     </style>
   </head>
   <body onload="setrefresh()">
-  <iframe id="results" src="https://sheet.zohopublic.com/sheet/publishedsheet/b335e33779ff3f0f67e68db641369a620b9d008408f487c0603c3c988f449499?type=grid&mode=embed
+    <p id="loader">Loading content. Please be patient.</p>
+  <iframe onload='loadcomplete()' id="results" src="https://sheet.zohopublic.com/sheet/publishedsheet/a9a4d44f7aeac6ba16ac5fe82732d805a6530398b192ba6c4a2cd764f29fd215?type=grid&mode=embed
   "></iframe>
   <script type="text/javascript">
     function  setrefresh() {
       setInterval(refresh, 600000)
       function refresh() {
-        document.getElementById('results').src='https://sheet.zohopublic.com/sheet/publishedsheet/b335e33779ff3f0f67e68db641369a620b9d008408f487c0603c3c988f449499?type=grid&mode=embed';
+        document.getElementById('results').src='https://sheet.zohopublic.com/sheet/publishedsheet/a9a4d44f7aeac6ba16ac5fe82732d805a6530398b192ba6c4a2cd764f29fd215?type=grid&mode=embed';
       }
+    }
+    function loadcomplete() {
+      document.getElementById('loader').classList.add('h');
     }
   </script>
   </body>

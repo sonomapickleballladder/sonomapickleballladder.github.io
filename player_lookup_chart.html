@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groups | Sonoma Pickleball Ladder</title>
+    <title>Player Lookup Chart | Sonoma Pickleball Ladder</title>
     <style>
       html, body { min-height:100%; }
       .h, .hidden {visibility: hidden; display: none;}
@@ -12,13 +12,13 @@
     </style>
   </head>
   <body onload="setrefresh()">
-    <p id="loader">Loading content. Please be patient.</p>
-  <iframe onload='loadcomplete()' id="groups" src="https://sheet.zohopublic.com/sheet/publishedsheet/d2854cde9d2c77730c5d561c5d6916efb74aea91659063f38233c907e6584533?type=grid&mode=embed"></iframe>
+    <p id="loader">Loading content. Please be patient. Even after the content appears to have loaded, the page may not work for another minute or so.</p>
+  <iframe onload='loadcomplete()' id="plc" src="https://sheet.zohopublic.com/sheet/publishedsheet/f783c59dfa735a0c2a9f248a0b641d55f98f8c7c3a6f65652c3ee83e0185cd98?type=grid&mode=embed"></iframe>
   <script type="text/javascript">
     function  setrefresh() {
       setInterval(refresh, 600000)
       function refresh() {
-        document.getElementById('groups').src='https://sheet.zohopublic.com/sheet/publishedsheet/d2854cde9d2c77730c5d561c5d6916efb74aea91659063f38233c907e6584533?type=grid&mode=embed';
+        document.getElementById('plc').src='https://sheet.zohopublic.com/sheet/publishedsheet/f783c59dfa735a0c2a9f248a0b641d55f98f8c7c3a6f65652c3ee83e0185cd98?type=grid&mode=embed';
       }
     }
     function loadcomplete() {

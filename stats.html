@@ -7,16 +7,21 @@
     <title>Stats | Sonoma Pickleball Ladder</title>
     <style>
       html, body { min-height:100%; }
+      .h, .hidden {visibility: hidden; display: none;}
       iframe{ height: 100%; width: 100%; margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 0px; outline: none; }
     </style>
   </head>
   <body onload="setrefresh()">
-  <iframe id="stats" src="https://sheet.zohopublic.com/sheet/publishedsheet/5b0a0182336ed7e704c5836c9288d238d0bb47e525ef8be9c55e41dd1b86a2e4?type=grid&mode=embed"></iframe>
+    <p id="loader">Loading content. Please be patient.</p>
+  <iframe onload='loadcomplete()' id="stats" src="https://sheet.zohopublic.com/sheet/publishedsheet/9a5fc234879b520e52ed452be21fa143bd1d0f5650a5411115cba84b0389d68e?type=grid&mode=embed"></iframe>
   <script type="text/javascript">
     function  setrefresh() {
       setInterval(refresh, 600000)
       function refresh() {
-        document.getElementById('stats').src='https://sheet.zohopublic.com/sheet/publishedsheet/5b0a0182336ed7e704c5836c9288d238d0bb47e525ef8be9c55e41dd1b86a2e4?type=grid&mode=embed';      }
+        document.getElementById('stats').src='https://sheet.zohopublic.com/sheet/publishedsheet/9a5fc234879b520e52ed452be21fa143bd1d0f5650a5411115cba84b0389d68e?type=grid&mode=embed';      }
+    }
+    function loadcomplete() {
+      document.getElementById('loader').classList.add('h');
     }
   </script>
   </body>

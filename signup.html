@@ -6,8 +6,14 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Sign-up | Sonoma Pickleball Ladder</title>
    <link rel="stylesheet" href="style.css">
+   <script src="js/functions.js"></script>
+   <script src="js/round.js"></script>
+   <style>html, body{ height: 100%; margin: 0px; font-size: 1.25rem;} .container{ min-height: 100%; display: flex; flex-direction: column;} section{ flex: 1; padding: 0px 8px;} </style>
   </head>
   <body>
+    <div class="container">
+      <section class="main">
+
     <center>
       <h1>&#129692;&nbsp;Sign-up&nbsp;&#129692;</h1>
     </center>
@@ -15,28 +21,36 @@
     <br>
     <center>
     <a class="nav" href="how_it_works.html">How it Works &#8599;</a>
-    <a class="nav active" rel="noreferrer" href="javascript:void(0)">Sign-up</a>
+    <a class="nav active" rel="noreferrer" href="javascript:void(0)">Sign-up<span class="mtheight">&#8599;</span></a>
+    <a class="nav" target="_blank" rel="noreferrer" href="confirm_availability.html">Confirm Availability &#8599;</a>
     <a class="nav" target="_blank" rel="noreferrer" href="scores.html">Submit Scores &#8599;</a>
-    <a class="nav" rel="noreferrer" href="calendarguide.html">Calendar Instructions  &#8599;</a>
-    <a class="nav" target="_blank" rel="noreferrer" href="groups_calendar.html">Groups Calendar  &#8599;</a>
     <a class="nav" target="_blank" rel="noreferrer" href="groups.html">Groups &#8599;</a>
     <a class="nav" target="_blank" rel="noreferrer" href="results.html">Results &#8599;</a>
     <a class="nav" target="_blank" rel="noreferrer" href="stats.html">Stats &#8599;</a>
     <a class="nav" target="_blank" rel="noreferrer" href="https://cryptpad.fr/sheet/#/2/sheet/view/lrHeR7GuMe6y3ga9y3lB5zURM5NnahA1+Na2uPY9XYI/p/embed/">Contact Players &#8599;</a>
-    <a class="nav" rel="noreferrer" href="subs.html">Subs &#8599;</a>
+    <a class="nav" target="_blank" rel="noreferrer" href="subs.html">Subs &#8599;</a>
+    <a class="nav" target="_blank" rel="noreferrer" href="faq.html">FAQ &#8599;</a>
+    <div class="dropdown">
+      <a class="nav dropbtn" href="javascript:void(0)">More<span class="mtheight">&#8599;</span> &darr;</a>
+      <div class="dropdown-content">
+        <a class="nav" target="_blank" href="team_stats.html"><small>Team Stats &#8599;</small></a>
+        <a class="nav" target="_blank" href="player_lookup_chart.html"><small>Play<wbr>er Look<wbr>up Chart &#8599;</small></a>
+        <a class="nav" target="_blank" href="/"><small>Landing Page &#8599;</small></a>
+        
+      </div>
+    </div>
 
     </center>
     <br>
     <hr>
 
-    <p>The initial registration deadline for the Fall Season (September - early November) is <mark>August 31st</mark>.</p>
-    <p><i>Note: You may still sign-up any time after August 31st, and even after the Ladder is under way (no discounted fee).
-      If you join the Ladder before 9:00 PM Wednesday on any given week, you will be eligible to play the next week. Otherwise, you won't be eligible until the week after.</i></p>
+    <p>The initial registration deadline for the Winter Season is <mark id="regdeadline" date offset="-3">December 30th 2022</mark>. (Completing registration by this date makes you eligible to play the first round).</p>
+    <p><i>Note: You may still sign-up and join at any time after <span jsfill="byId('regdeadline').innerHTML.substring(0, byId('regdeadline').innerHTML.lastIndexOf(' ') + 1)">the initial deadline</span> or after the Ladder is under way (no discounted fee).</i></p>
 
 
     <h3 class="under">Register:</h3>
     <ul>
-      <p><b>Step 1.</b> Fill out and submit the <a rel="noreferrer" target="_blank" href="https://cryptpad.fr/form/#/2/form/view/LIx2c-sqTZ6eSXIaaQ-AO8-18ymp6x-yt1oR1LdIqwg/">Sign-up Form</a></p>
+      <p><b>Step 1.</b> Fill out and submit the <a rel="noreferrer" target="_blank" href="https://cryptpad.fr/form/#/2/form/view/FmXMfNR68HVkJh0oxqaX5piW4yd3mraiRBgxkJiar8o/">Sign-up Form</a></p>
       <p><b>Step 2.</b> <a href="#pay">Make your Payment</a></p>
     <p><i>Note: Your registration will not be considered complete until you have completed both of these steps.</i></p>
 </ul>
@@ -45,20 +59,20 @@
 <h3 class="under" id="price">Administrative Fees:</h3>
 <ul>
 <p id="amount">Total your amount due as follows:</p>
-<p><strong>Administrative Registration Fee: $10 (one-time)</strong>
-<br><I>(covers administrative time: getting you into the system, establishing your unique Calendar, establishing your initial rating and placement, communications)
+<p><strong>Administrative Registration Fee: $10</strong>
+<br><I>(covers administrative time: getting you into the system, establishing your initial rating and placement, communications)
 </I></p>
 <p><i>PLUS</i></p>
 
-<p><strong>Administrative Seasonal Fee: $30 (for Fall Season: Sep 5-Nov 6)</strong>
-<br><I>(covers administrative time: entering scores, determining overlapping times, forming groups, communications, troubleshooting)
+<p><strong>Administrative Seasonal Fee: $30</strong>
+<br><I>(covers administrative time: entering scores, forming groups, communications, troubleshooting)
 </I></p>
 
 
-<p><mark>TOTAL: $40</mark></p>
+<p><mark style="background-color:rgba(100,150,150,0.5)">TOTAL: $40</mark></p>
 
-<p><i>Note: These fees have been calculated based on the anticipated initial and weekly time commitment required of the Administrator to run the ladder.<br> <br>
-*** If you wish to add an optional donation amount in recognition of all the preparatory development work that has been put in during (and before) the beta phase, that would be very welcome! ***</i></p>
+<p><i>Note: These fees have been calculated based on the anticipated initial and weekly time commitment running the Ladder will require of me (the Administrator).<br> <br>
+*** If you wish to add an optional donation amount in recognition of the time I spent doing all the preparatory development work necessary to set up and offer this Ladder, that would be very welcome! ***</i></p>
 </ul>
 <h3 class="under" id="pay">How to pay:</h3>
 <ul>
@@ -67,20 +81,22 @@
 
 
        <strong><em>PayPal:</em></strong>
-      <p>Please go to <a rel="noreferrer" target="_blank" href="https://www.paypal.com/myaccount/transfer/homepage">PayPal</a> and send the <a href="#amount"> correct payment amount</a> to this email address: <mark id="address" style="cursor: pointer;" onclick="navigator.clipboard.writeText(this.innerHTML); this.innerHTML='Copied';setTimeout(function(){document.getElementById('address').innerHTML='SPLdeposits@riseup.net'},1500)">SPLdeposits@riseup.net</mark> (click email to copy).
+      <p>Please go to <a rel="noreferrer" target="_blank" href="https://www.paypal.com/myaccount/transfer/homepage">PayPal</a> and send to this email address: <mark id="address" style="cursor: pointer;" onclick="navigator.clipboard.writeText(this.innerHTML); this.innerHTML='Copied';setTimeout(function(){document.getElementById('address').innerHTML='SPLdeposits@riseup.net'},1500)">SPLdeposits@riseup.net</mark> (click email to copy).
       Choose 'Paying for an item or service' so that you are not paying any additional fees.
     </p>
      <strong><em>Cash/Check:</em></strong>
-     <p>Pay me (Theo) whenever you see me (or make arrangements to meet via <a href="mailto:SPLdeposits@riseup.net">email</a>).</p>
+     <p>Pay me (Theo) or my dad (Adam) whenever you see either of us. (If this is a popular option, I will arrange some times where players can meet me at a certain location [probably the courts]).</p>
 </ul>
 <h3 class="under">Capacity:</h3>
 <ul>
-<p>Participation in the Fall Season of the Ladder will be limited to the first 100 players who complete their registration. <span class="hidden">If I feel I can accomodate a higher number of players once things get underway, I may raise the limit.</span></p>
+<p>Participation in the Winter Season of the Ladder will be limited to the first 100 players who complete their registration. <span class="hidden">If I feel I can accomodate a higher number of players once things get underway, I may raise the limit.</span></p>
 </ul>
 
+
 <br>
-<footer><i><small>&#169; 2022 Theo MacKinnon. All rights reserved. No part of this website or content may be reproduced or distributed without express permission from the author.</small></i></footer>
+</section>
+  <footer><i><small>&#169; 2022-2023 Theo MacKinnon. All rights reserved. No part of this website or content may be reproduced or distributed without express permission from the author.</small></i></footer>
 
-
+</div>
   </body>
 </html>
