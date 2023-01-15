@@ -1,0 +1,259 @@
+function executeFunctionByName(e,t){for(var p=Array.prototype.slice.call(arguments,2),r=e.split("."),l=r.pop(),n=0;n<r.length;n++)t=t[r[n]];return t[l].apply(t,p)}
+
+function byId(p){return document.getElementById(p)}
+
+
+function rdString(t,e){e||(e=entireAlph()+allNumbers()+specChars());let r="";for(let n=0;n<t;n++){let t=getRandomInt(0,e.length-1);r+=e.charAt(t)} return r}
+
+function entireAlph(){return"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"}function allNumbers(){return"1234567890"}function specChars(){return"-_"}
+
+function getRandomInt(t,o){return t=Math.ceil(t),o=Math.floor(o),Math.floor(Math.random()*(o-t+1))+t}
+
+function enforceMinMax(el,val) {
+    if(el.value>parseInt(el.max)) {el.value=el.max}
+    if(el.value<parseInt(el.min)) {el.value=el.min}
+}
+
+function unloadJS(e){document.getElementsByTagName("head").item(0);var n=document.getElementById(e);n.parentNode.removeChild(n)}function unloadAllJS(e){var n=new Array;let t=(n=document.getElementsByTagName("script")).length;for(i=0;i<t;i++)n[0].id?unloadJS(n[0].id):e.indexOf(n[0].src)<0&&n[0].parentNode.removeChild(n[0])}
+
+function jsFill(){try{let hy=byAttr("jsfill");for(let i=0;i<hy.length;i++){let jf;jf=Boolean(hy[i].getAttribute("jsfill"))?hy[i].getAttribute("jsfill"):"";try{hy[i].innerHTML=eval(jf)}catch(ex){hy[i].value=eval(jf)}}}catch(t){}}
+
+function fillDates(){try{let t=byAttr("date");for(let e=0;e<t.length;e++){let h;h=Boolean(t[e].getAttribute("offset"))?parseInt(t[e].getAttribute("offset")):0,Boolean(t[e].getAttribute("today"))?t[e].innerHTML=formatDate(offsetDate(h)[0],"us"):t[e].innerHTML=formatDate(offsetDate(h)[1],"us")}}catch(t){}}function formatDate(t,e){try{if("us"){let e=t.split("/"),h=parseInt(e[0]),r=e[1],a=e[2];return["January","February","March","April","May","June","July","August","September","October","November","December"][h-1]+" "+parseInt(r)+{0:"th",1:"st",2:"nd",3:"rd",4:"th",5:"th",6:"th",7:"th",8:"th",9:"th",10:"th",11:"th",12:"th",13:"th",14:"th",15:"th",16:"th",17:"th",18:"th",19:"th",20:"th",21:"st",22:"nd",23:"rd",24:"th",25:"th",26:"th",27:"th",28:"th",29:"th",30:"th",31:"st"}[parseInt(r)]+" "+a}return t}catch(e){return t}}
+
+
+function apndChilren(p,j) {
+  try {
+    for (let i = 0; i < j.length; i++) {
+      if(debug) console.log(j[i]);
+      p.appendChild(j[i])
+    }
+  }
+  catch(ex) {}
+}
+
+
+  function optStorage(t,e){if(["recipe_content"].indexOf(t)<0)return{result:e};let r=[e,LZString.compressToUTF16(e),LZString.compressToUint8Array(e)],n=[];for(let t=0;t<r.length;t++)n[t]=r[t].length;let o=n.indexOf(Math.min(...n));return gbstr.compression=o,{result:r[o]}}
+
+  function formatLabel(label, r) {
+    try{label = label.split(r);
+    !isNaN(+label[label.length - 1]) ? label.pop() : '';
+    return label.join(r);}
+    catch(ex){return label}
+  }
+
+  function isLocalStorageAvailable(){
+    var test = 'test';
+    try {
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+    } catch(e) {
+        return false;
+    }
+}
+
+function remvel(e,r){e&&!r&&(r=document.querySelector(e));try{r.parentNode.removeChild(r)}catch(e){}}
+
+function ns(src,id,type,inh,prent){
+  let m = '';
+try{
+  let s = document.createElement('script'); s.src=unundefine(src,m); s.id=unundefine(id,m), s.type=unundefine(type,m);s.innerHTML=unundefine(inh,m);
+  if(!prent){prent=document.head}
+  prent.prepend(s)
+}
+catch(ex){}
+}
+
+function unundefine(x,e) {
+  if(!e) {e=false}
+  let fltypes = [false,0,undefined, null, 'undefined']
+  if(fltypes.indexOf(x)>-1){x=e}
+  return x;
+}
+
+function lsWarning() {
+  if(!isLocalStorageAvailable()){
+    //ns('js/modal.js');
+    var rmvlogic = false;
+    var message = 'Failed to access your browser\'s local storage. As a result, this page\'s functionality will be limited and certain content may not load. See <a target="_blank" rel="noreferrer" href="https://mid.as/kb/00103/enable-disable-or-clear-web-storage-cache">here</a> for info about how to enable local storage.'
+    calert(rmvlogic,'Local Storage Error', message,  'error', null, null, 'orange', 'green')
+}
+}
+
+  const gbstr = {}
+  const fte= {'/faq.html': [['mk'],['lsWarning']], '/signup.html': [['lsWarning']], '/how_it_works.html': [['jsFill()']]}
+
+  window.onload = function() {
+    
+    let pthname = formatLabel(location.pathname,'.')
+    //console.log(pthname);
+    if(!fte[pthname]){fte[pthname]=[[]]}
+    if(!fte[pthname][0][0]){fte[pthname][0][0]=''}
+    if(!fte[pthname][0][1]){fte[pthname][0][1]=''}
+    let lnn = fte[pthname].length;
+    try{
+      for (let i = 0; i < lnn; i++) {
+        let fh = fte[pthname][i];
+        try{executeFunctionByName(fh[0],window,fh[1])}catch(ex){}finally{gbstr.sd = new Date().getTime();}
+      }
+        
+      }
+  
+    catch(ex){}
+
+    
+
+
+    jsFill();
+    
+      
+      }
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+      function calert(rmv, title, content, clas, hgt, wdth, mesbg, mescl, mespad) {
+
+        //function prvundefined(e,n){"array"!=typeof e&&(e=e.split(","));for(let r=0;r<e.length;r++)Boolean(e[r])||(e[r]=n);return e}
+                let mthen = {funct:'remvel',para:'.modal__overlay'}
+                let kdwn = {list:'keydown',targ:'html', evnt: '27,13,32', then:mthen}
+                if(!Boolean(rmv)) {rmv=[{list:'click',targ:'.modal__close',then:mthen},kdwn]} 
+
+                if(content.toString().length>0&&!mespad) {mespad='0.5em'}
+
+                clas||(clas=""),hgt||(hgt=""),wdth||(wdth=""),mesbg||(mesbg=""),mescl||(mescl=""),mespad||(mespad="");
+
+          
+                var alertContent = `
+                  <div class="modal__overlay verdana">
+                    <div class="modal__window" style="max-height:${hgt};max-width:${wdth};">
+                      <div class="modal__titlebar ${clas}">
+                        <span class="modal__title">${title}</span>                        
+                        <button class="modal__close">X</button>                    
+                      </div>                     
+                      <div class="modal__content" style="background-color:${mesbg};color:${mescl};padding:${mespad}">${content}</div>
+                    </div>
+                  </div>`
+                var dialogBox = document.createElement("div");
+                dialogBox.innerHTML = alertContent;
+                document.body.appendChild(dialogBox); // actually append it
+        
+                for (let i = 0; i < rmv.length; i++) {
+                  if(!rmv[i].evnt){rmv[i].evnt=0}
+                  aevlst(rmv[i].targ, rmv[i].list, rmv[i].evnt, rmv[i].then.funct, rmv[i].then.para);
+                  
+                }
+
+              }
+        
+        
+              function aevlst(e,t,c,n,i){"array"!=typeof e&&(e=e.split(","));for(let t=0;t<e.length;t++)if("object"!=typeof e[t])try{e[t]=document.querySelector(e[t])}catch(e){}for(let r=0;r<e.length;r++)if(unundefine(c)){let a=c.split(",");try{e[r].addEventListener(t,(e=>{try{e.which!=a[0]&&e.which!=a[1]&&e.which!=a[2]||(e.preventDefault(),executeFunctionByName(n,window,i))}catch(e){}}))}catch(e){}}else try{e[r].addEventListener(t,(e=>{try{executeFunctionByName(n,window,i)}catch(e){}}))}catch(e){}}
+        
+              
+        
+              function byAttr(atr, val) {
+                if(!val) {return document.querySelectorAll('['+atr+']')}
+                return document.querySelectorAll('['+atr+'="'+val+'"]');
+              }
+
+
+
+
+
+              function createPersonName() { var firstNames = [ "Basil", "Berthold", "Bev", "Coltrane", "Emanuel", "Fahri", "Fred", "Gerrit", "Gilly", "Harry", "Ian", "Jack", "Kai-Uwe", "Lucy", "Morten", "Neville", "Oscar", "Paul", "Steven", "Sven", "Thomas", "Walt", "Xena", "Yuji", "Ziggs","Paulina", "Gavin", "Amandine", "Guevara", "Edie", "Larue", "Ruse", "Avary", "Talor", "Ricard", "Merriam", "Jonette", "Moorcock", "Rajidin", "Melinda", "Roseburg", "Manolo", "Todd", "Shauna", "Kigali", "Jacob", "Borghese", "Ouzo", "Tinia", "Boa", "Chang", "Rakus","Wyatt","Luke","Vera","Pamela","Jean","Peggy","Katharine","Nicholas","Jill","Brenda","Dick","Jason","Lara","Willy","Wayne","Ted","Adam","Linda","Catherine","Larry","Tina","Jessica","Susan","Tim","Kirk","Priscilla","James","Jim","Mark","Carolyn","Katie","Jeanne","Billy","Quentin","Muriel","Margaret","Bob","Mike","Joan","Roger","Gerald","Mildred","Jennie","Rose","Sue","Henri","Marie", "Christophe", "Michel", "Valérie", "Joël", "Dominique", "Pierre", "Florence", "Marie", "Benoît", "Luc", "François", "Jérôme","Bill","Steve","Philip","Mary","Ralph","Melissa","Jessie","Ann","Ava","Rebecca","Sally","Tracy","Barbara","Lucy","Lulu","Kathleen","Lin","Tony","Clyde","Sean","Betty","Bobby","Chris","Kristine",'Colin','Niki','Mina','Kerry','Kim','Terry','Drew','Wesley','Gabby','Jodie','Karis','Harley','Steph','Eric','Reid','Jessica','Claire','Michelle','Ann','Carol','Madison','Kym','Jillian','Carly','Jess','Emily','Stacey','Erica','Cat', 'Nathan','Jude','Matthew','Levi','Mandy','Sophia','Alexa','Vicki','Kelci','Sabrina','Nicole','Devin','Natasha','Amy','Stephanie','Amanda','Mason','Naomi','Thomas','Katelyn','Jessie','Olivia','Tammy','Tyler','Miley','Mia','Lea','Chelsea','Angelina'];var lastNames = ["Pandorf", "Tiddig", "Alger", "Wardat", "Norsk", "Kever", "Morodo", "Bakker", "Bulsky", "Oltman", "Lorens", "Caruso", "Barnes", "Moon", "Grubben", "Hanekamp", "Akash", "Mahood", "Denton", "Pierce", "Monroe", "Sechewitz", "Doheny", "Hubbock", "Carville", "Adebolajo", "Sprague", "Guy", "Carson", "Cowper", "Manry", "Rooker", "Davenport", "Delaune", "Pohlman", "Struensee", "Trasier", "Hawkins", "Gardner", "Andrews", "Eagan", "Coy", "Fowler", "Connor", "Clodfelter", "Cornelius", "Moore", "Coz", "Botha", "Johnson", "Simsm", "Galton", "Bastain", "Osherson", "Morris", "Liengard","Smith","Doe","Jones","Jacks","Toms","Black","Brown","Williams","Adreon", "Albonetti", "Ameliai", "Arcandori", "Audici", "Balestri", "Bassetti", "Bayzi", "Benanti", "Bernardini", "Bischoffi", "Boni", "Brocchi", "Caccia", "Caporali", "Carico", "Catoni", "Cattivelli", "Cavalazzi","Björklund", "Ceder", "Dahlgren", "Edlund", "Eriksson", "Falk", "Folke", "Forsell", "Gunnarson", "Helgesson", "Hedlund", "Hemsö", "Henriksson", "Hjärtstam", "Hultman", "Håkansson", "Idäsvik", "Idestamn", "Johansson", "Jonsson", "Kanders", "Karlson","Haddad", "Aajam", "Bouay", "Harraki", "Keddi", "Haji", "Kharb", "Belhaj", "Kettane","Pujtani","Herman","Kristian","Ardiansyah","Tolichar","Budiyani","Ganesha","Aldy","Aries","Kovaltyn","Acuña", "Aguilar", "Andrade", "Anabalón", "Araos", "Araya", "Armijo", "Barba", "Barrios", "Barrera", "Barugan", "Bertrand", "Boyd", "Brahm", "Cabrera", "Cabreras", "Café", "Cardenas", "Carocca", "Castillo", "Cepeda", "Chamorro", "Chau", "Cuevas", "Díaz", "Encina", "Escalante", "Espiñeira", "Esprich", "Fariña", "Fernández", "Figueroa", "Forset"]; var count = 0; var name = firstNames[Math.floor(Math.random()*firstNames.length)] + " " + lastNames[Math.floor(Math.random()*lastNames.length)]; while (name[count]!=null) { count++; name = firstNames[Math.floor(Math.random()*firstNames.length)] + " " + lastNames[Math.floor(Math.random()*lastNames.length)]; } return name}
+
+              function createEmail(name) {
+                var emailDomains = ["gmail.com", "proton.me", "outlook.com", "harvard.edu", "sonic.net", "aleeas.com", "disroot.org", "tuta.io", "jetmail.com", "gmx.com", "getalife.com", "whitehouse.gov", "hotmail.com", "7yaks.space", "yahoo.com", "icloud.com", "pm.me", "aol.com", "comcast.net", "simplelogin.com","protonmail.com", "bastardi.net", "tutanota.com", "airmail.cc"]
+              
+                if(!name) var name = createPersonName();
+                var fname = name.split(' ')[0].replace(/\s/g,'').toLowerCase();
+                var lname = name.split(' ').pop().replace(/\s/g,'').toLowerCase();
+                //name.replace(new RegExp(fname,'g'),'').replace(/\s/g,'').toLowerCase();
+                //console.log(fname,lname);
+                var salt = '012345', schars = '0123456789', sjoiners = '-_.', adjs = ['isthebest', 'isawesome', 'isnotdead', '4congress'], fhalf = '';
+                //console.log(sl,fname);
+
+                //console.log(fname,lname,fname+lname,rdString(Math.floor(Math.random()*5),schars),fname+rdString(Math.floor(Math.random()*5),schars));
+                let cass = {
+                  0:fname+lname+rdString(Math.floor(Math.random()*5),schars),
+                  1:fname+rdString(1,sjoiners)+lname,
+                  2:rdString(Math.ceil(Math.random()*3),schars)+fname+lname,
+                  3:lname+fname,
+                  4:fname+lname,
+                  4:fname+lname+adjs[Math.floor(Math.random()*adjs.length)],
+                  5:lname+fname+rdString(Math.ceil(Math.random()*5),schars)
+                }
+
+                let sl = Math.floor(Math.random()*Object.values(cass).length);
+                
+                
+               //console.log(cass);
+               //console.log(emailDomains, typeof emailDomains);
+               fhalf=cass[sl]+'@'+emailDomains[Math.floor(Math.random()*emailDomains.length)].toString().replace(/\s/g,'')
+            
+                return fhalf;
+              }
+
+
+              function dgprompt(message, success, failure) {
+                var open_time = new Date();
+                var result = prompt(message);
+                var close_time = new Date();
+                
+                if (close_time - open_time < 10) {
+                    failure();
+                } else {
+                    success(result);
+                }
+            }
+            
+
+
+
+        function randFill() {
+          try{
+            let randname = byAttr('randomname');
+            for (let i = 0; i < randname.length; i++) {
+              randname[i].innerHTML=createPersonName();
+              if(Boolean(randname[i].getAttribute('apnd'))) {randname[i].innerHTML+=randname[i].getAttribute('apnd')}
+            }
+          }catch(ex){}
+        }
+
+
+
+
+        function rdFrstNm() {
+          try{
+              let randname = byAttr('randomname');
+              for (let i = 0; i < randname.length; i++) {
+                  let uy = createPersonName();
+                  randname[i].innerHTML=uy;
+                if(Boolean(randname[i].getAttribute('apnd'))) {randname[i].innerHTML+=randname[i].getAttribute('apnd')}
+                try {
+                  if(byAttr('randomemail',randname[i].getAttribute('dataid')).length>0){
+                      byAttr('randomemail')[0].innerHTML=createEmail(uy);
+                  }
+                } catch (ex) {
+                  if(debug)console.log(ex);
+                }
+              }
+            }catch(ex){}
+      }
+
+      function log(t) {
+        console.log(t);
+      }
+
+      var debug = location.search.indexOf('debug')>-1;
