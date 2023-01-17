@@ -13,6 +13,17 @@ for (let i = 0; i < ud.length; i++) {
 }
 }
 function displaySubs(sb) {
+    //console.log(sb);
+    sb = sb.filter((value, index, self) => {
+        return self.findLastIndex(v => v.name === value.name) === index;
+      });
+
+      sb = sb.filter((value, index, self) => {
+        return self.findLastIndex(v => v.email === value.email) === index;
+      });
+
+     // console.log(gok);
+
     if(sb.length<1) {yAttr('sublist')[0].innerHTML=`<p>
     No one yet...
   </p>`; return false}

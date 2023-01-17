@@ -4,14 +4,11 @@
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Confirm Availability | Sonoma Pickleball Ladder</title>
+   <title>Sub Form | Sonoma Pickleball Ladder</title>
    <link rel="stylesheet" href="style.css">
-   <script src="js/supabase-js.js"></script>
-   <script src="js/lzstring.js"></script>
    <script src="js/functions.js"></script>
-   <script src="js/auth.js"></script>
    <script src="js/round.js"></script>
-   <script src="js/cav.js"></script>
+   <script src="js/subform.js"></script>
    <style>
     html, body {
         height: 100%;
@@ -34,15 +31,11 @@
       <section class="main">
 
     <center>
-      <h1>&#129692;&nbsp;Confirm Availability&nbsp;&#129692;</h1>
+      <h1>&#129692;&nbsp;Sub Form&nbsp;&#129692;</h1>
     </center>
-
     <hr>
-     
-    <h3 style="color:maroon" class="under">Attention:</h3>
-    <p style="color:rgb(189, 112, 40)">By confirming below, you are attesting that you will be present (not traveling or otherwise unavailable) for the entirety of the round, and that you will be able to offer a number of possible time-windows in which to play. </p>
-    
-    <h3 class="under">Round you are confirming for:</h3>
+
+    <h3 class="under">Round you are offering to be a Sub for:</h3>
     <p>
       <select id="round" class="" name="">
       <option style="background-color: rgb(238, 222, 143)" id="wkcalc" nextround value="">Round null</option>
@@ -57,20 +50,25 @@
     
       </select>
     </p>
+
+    <h3 class="under">Your Information:</h3>
+         <p>
+            <span>Name:</span> <span class="promptinput" dataid="name" prompt="Your Name" append=" (click to update)"><span randomname></span> (click to edit)</span>
+         </p>
+
+         <p>
+            <span>Email:</span> <span class="promptinput" dataid="name" prompt="Your Email" append=" (click to update)"><span randomemail></span> (click to edit)</span>     
+        </p>
+
      
-    <h3 class="under">Confirmation Options:</h3>
+    <h3 class="under">Finish:</h3>
     <p>
-    <button class="confirmav" onclick="vrfid()" style="padding: 0.75em;" id="webconfirm">Confirm via website (preferable)</button>
+    <button class="confirmav" onclick="vrfrd();vrfid()" style="padding: 0.75em;">Submit</button>
    </p>
-   <small>not working?</small>
-   <p>
-    <button class="confirmav" onclick="vrfrd('email')" style="padding: 0.75em;"><a id="emailconfirmlink" href="javascript:">Confirm via email</a></button>
+     
     
-   </p>
    
-   <noscript><p>The above methods will not work without JavaScript.</p>
-    <p>Please instead send an email to <a href="mailto:SPLconfirmations@riseup.net?subject=Yes&body=Confirming that I am available for round [please specify the round].">SPLconfirmations@riseup.net</a> with the subjectline 'Yes' and specify the round.</p>
-  </noscript>
+   <noscript><p>Sorry, this page will not work without JavaScript.</p> </noscript>
 
 </section>
   <footer><i><small>&#169; 2022-2023 Theo MacKinnon. All rights reserved. No part of this website or content may be reproduced or distributed without express permission from the author.</small></i></footer>

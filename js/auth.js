@@ -41,6 +41,18 @@ async function saveData(t, e, thenfunction) {
   else {try{byId('status').innerHTML='<p>'+sucms+': Recipe is now published at <a target="_blank" href="'+location.protocol+'//'+location.host+'/recipes.html?'+e.recipe_url+'">'+location.protocol+'//'+location.host+'/recipes.html?'+e.recipe_url+'</a></p>'+byId('status').innerHTML}catch(ex){}}*/
 }
 
+async function upsertData(t, e, thenfunction) {
+  const { data, error } = await sb.client
+   .from(t)
+   .upsert([
+     e
+   ])
+ 
+   if(error) return "Error";
+ 
+   try{executeFunctionByName(thenfunction, window, data);}catch(ex){return data}
+}
+
 function mk() {
   let ud = document.getElementsByClassName('scd');
   for (let i = 0; i < ud.length; i++) {
@@ -60,3 +72,10 @@ function validateEmail(email) {
   return res.test(String(email).toLowerCase());
 }
 
+function disallow(h) {
+  let jrks = ['ferrick', 'ferick', 'kerst', 'reed f', 'ambasaddor'];
+  for (let i = 0; i < jrks.length; i++) {
+    if(h.toLowerCase().indexOf(jrks[i])>-1) {return true}
+    
+  }
+}
