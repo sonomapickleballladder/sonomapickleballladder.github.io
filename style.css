@@ -7,7 +7,6 @@
 
 html,body{min-height: 100%;filter: var(--iv);}
 @media (prefers-color-scheme: dark) {
-  body {display: none;}
   :root {
     --iv: hue-rotate(-110deg);
   }
