@@ -72,7 +72,7 @@ function moveUp(element,p1,p0) {
     if(element.previousElementSibling) {
         let vert = Array.from(element.parentNode.children).indexOf(element) - p0;
       let indchange =  Math.abs(vert);
-      if(indchange>maxmove) return false;
+      if(-maxmove>vert) return false;
       element.parentNode.insertBefore(element, element.previousElementSibling);
       colorcodeorder();
 
@@ -83,17 +83,9 @@ function moveDown(element,p1,p0) {
     if(element.nextElementSibling) {
         let vert = Array.from(element.parentNode.children).indexOf(element) - p0 +2;
         let indchange =  Math.abs(vert);
-      if(indchange>maxmove) return false;
+      if(vert>maxmove) return false;
       element.parentNode.insertBefore(element.nextElementSibling, element);
       colorcodeorder();
-      /*let newind =  Array.from(element.parentNode.children).indexOf(element)+1;
-      if(!p1 || !p0) return false;
-      let diff = newind-p0+maxmove
-      let namespan = element.getElementsByTagName('span')[0];
-      console.log(vert);
-      if(vert<0) namespan.style.backgroundColor = clrsup[indchange];
-      if(vert>0) namespan.style.backgroundColor = clrsdown[indchange];
-      if(vert==0) namespan.style.backgroundColor = "";*/
     }
       
   }
