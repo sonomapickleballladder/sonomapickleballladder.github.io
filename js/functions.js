@@ -257,3 +257,13 @@ function lsWarning() {
       }
 
       var debug = location.search.indexOf('debug')>-1;
+
+
+
+
+
+
+function compressst(e){e=unescape(encodeURIComponent(e));for(var t,n,r="",o=0;o<e.length;o+=2)t=e.charCodeAt(o),o+1<e.length?(n=t+""+(e.charCodeAt(o+1)-31).toLocaleString("en",{minimumIntegerDigits:2}),r+=String.fromCharCode(parseInt(n,10))):r+=e.charAt(o);return btoa(unescape(encodeURIComponent(r)))}function decompressst(e){var t,n,r,o,a="";e=decodeURIComponent(escape(atob(e)));for(var s=0;s<e.length;s++)(t=e.charCodeAt(s))>132?(n=t.toString(10),r=parseInt(n.substring(0,n.length-2),10),o=parseInt(n.substring(n.length-2,n.length),10)+31,a+=String.fromCharCode(r)+String.fromCharCode(o)):a+=e.charAt(s);return a}
+
+
+function icompress(e){e=unescape(encodeURIComponent(e));for(var n,t,r="",o=0;o<e.length;o+=2)n=e.charCodeAt(o),o+1<e.length?(t=n+""+(e.charCodeAt(o+1)-31).toLocaleString("en",{minimumIntegerDigits:2}),r+=String.fromCharCode(parseInt(t,10))):r+=e.charAt(o);return btoa(unescape(encodeURIComponent(r)))}function idecompress(e){var n,t,r,o,a="";e=decodeURIComponent(escape(atob(e)));for(var c=0;c<e.length;c++)(n=e.charCodeAt(c))>132?(t=n.toString(10),r=parseInt(t.substring(0,t.length-2),10),o=parseInt(t.substring(t.length-2,t.length),10)+31,a+=String.fromCharCode(r)+String.fromCharCode(o)):a+=e.charAt(c);return a}
