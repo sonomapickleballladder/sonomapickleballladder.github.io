@@ -10,20 +10,29 @@ window.onload = function() {
 function getrankings() {
   setTimeout(getrankings,60000)
     ptc('rankings', '*').then(function(res){
+        //console.log(res);
+        //console.log(res[res.length-1])
+        
+
         for (let i = 0; i < res.length; i++) {
             bnsuawe.push(res[i].mwbn);
             wnieai.push(parseInt(res[i].id));
         }
+
+        //
+      //console.log(Math.min(...wnieai));
         awMisen = res.filter(obj => {
             return obj.id === Math.min(...wnieai)
           });
 
+          //console.log(awMisen);
 
         wbicewom = res.filter(obj => {
             return obj.id === Math.max(...wnieai)
           });
        awMisen=awMisen[0];
        wbicewom=wbicewom[0]
+          //console.log(wbicewom);
 
           let plr = wbicewom.order.split(',');
 
@@ -66,6 +75,7 @@ function moveUp(element,p1,p0) {
       if(indchange>maxmove) return false;
       element.parentNode.insertBefore(element, element.previousElementSibling);
       colorcodeorder();
+
       
     }
   }
@@ -91,7 +101,8 @@ function moveDown(element,p1,p0) {
 
   let clrsup = ["auto","#ffc285", "#ffbb7e", "#ffb478", "#ffad71", "#ffa56a", "#ff9e64", "#ff975d", "#ff9056", "#ff8950", "#ff8249", "#ff7a42", "#ff733c", "#ff6c35", "#ff652f", "#ff5e28", "#ff5721", "#ff501b", "#ff4814", "#ff410d", "#ff3a07","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300","#ff3300"]
   let clrsdown = ["auto","#ccccff","#c9c4ff","#c7bdff","#c4b5ff","#c2adff","#bfa6ff","#bd9eff","#ba96ff","#b88fff","#b587ff","#b280ff","#b078ff","#ad70ff","#ab69ff","#a861ff","#a659ff","#a352ff","#a14aff","#9e42ff","#9c3bff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff","#9933ff"]
-
+  //let clrs = ['orange', 'orange','orange','orange', 'orange','inherit','purple','purple','purple','purple','purple']
+      
 
   let maxmove = 20;
 
@@ -106,6 +117,9 @@ async function ptc(t,s,e,m,x,z,thenfunction){
   if(error&&debug) console.log(error);
   
   try{executeFunctionByName(thenfunction, window, data);}catch(ex){return data}
+  
+  
+  //return data
   
     
   }
@@ -123,7 +137,6 @@ async function ptc(t,s,e,m,x,z,thenfunction){
    let efnuw = hadme.indexOf(aawe)>-1;
    if(efnuw) {try{localStorage.setItem('niwmeMIennc3p',JSON.stringify({name:byId('name').value, key: sk}))}catch(ex){}; byId('login').innerHTML = 'Signed in ✅'; /*byId('login').innerHTML =   byId('login').innerHTML.replace(/✅/g,'')+' ✅'*/}
    else {alert('Sign-in failed. Invalid credentials it would seem.'); }
-   //try{renderorder(wbicewom, wbicewom.order.split(','));}catch(ex){}
    return [{error: 502}, efnuw, {kwm:aawe}];
   }
 
@@ -144,25 +157,29 @@ async function ptc(t,s,e,m,x,z,thenfunction){
     saveData('rankings',smogp).then(function(res){
         location.reload();
     })
-
+    //console.log(narr);
+    //console.log(narr.toString());
   }
 
 
   function colorcodeorder() {
     let amk = byId('order').children;
     let orord = awMisen.order.split(',');
+    //console.log(orord);
 
     for (let i = 0; i < amk.length; i++) {
         let element = amk[i];
         let nm = element.getElementsByTagName('span')[0].innerHTML;
         if(byId('name').value.toLowerCase().trim()==nm.toLowerCase().trim()) {byId('name').value=nm}
         let lzmn = LZString.compressToUTF16(nm);
+        //console.log(bnsuawe.indexOf(lzmn)>-1);
         if(bnsuawe.indexOf(lzmn)>-1 || (byId('name').value.toLowerCase().trim()==nm.toLowerCase().trim() && checkid()[1])) {
         let p0 = orord.indexOf(nm);
         let vert = Array.from(element.parentNode.children).indexOf(element) - p0;
         let indchange =  Math.abs(vert);
         if(vert>0) {indchange = Math.abs(vert+2)}
         let namespan = element.getElementsByTagName('span')[0];
+        //console.log(vert);
         if(vert<0) namespan.style.backgroundColor = clrsup[indchange];
         if(vert>0) namespan.style.backgroundColor = clrsdown[indchange];
         if(vert==0) namespan.style.backgroundColor = "";
