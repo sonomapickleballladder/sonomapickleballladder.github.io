@@ -98,7 +98,7 @@ function moveDown(element,p1,p0) {
   //let clrs = ['orange', 'orange','orange','orange', 'orange','inherit','purple','purple','purple','purple','purple']
       
 
-  let maxmove = 20;
+  let maxmove = 28;
 
 let wbicewom, awMisen, bnsuawe = [], wnieai = [];
 
