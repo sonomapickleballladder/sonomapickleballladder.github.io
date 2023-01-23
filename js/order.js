@@ -54,7 +54,7 @@ function renderorder(al, ord) {
     for (let i = 0; i < ord.length; i++) {
         let orind = orord.indexOf(ord[i]);
         let controls = "";
-        if(name.toLowerCase().trim()==ord[i].toLowerCase().trim() && checkid()[1]) {controls= `&nbsp;<button id="goup" onclick="moveUp(this.parentNode,${i+1},${orind+1})">Up &uarr;</button>&nbsp;<button id="godown" onclick="moveDown(this.parentNode,${i+1},${orind+1})">Down &darr;</button>`;}
+        if(name.toLowerCase().replace(/(\s)/g,"")==ord[i].toLowerCase().replace(/(\s)/g,"") && checkid()[1]) {controls= `&nbsp;<button id="goup" onclick="moveUp(this.parentNode,${i+1},${orind+1})">Up &uarr;</button>&nbsp;<button id="godown" onclick="moveDown(this.parentNode,${i+1},${orind+1})">Down &darr;</button>`;}
         byId('order').innerHTML+=`<li><span style="cursor:pointer" onclick="if(byId('login').innerHTML.indexOf('✅')<0){byId('name').value=this.innerHTML}">${ord[i]}</span>${controls}</li>`;
      }
 
