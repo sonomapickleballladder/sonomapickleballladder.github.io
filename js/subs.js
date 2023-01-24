@@ -13,16 +13,28 @@ for (let i = 0; i < ud.length; i++) {
 }
 }
 function displaySubs(sb) {
-    //console.log(sb);
-    sb = sb.filter((value, index, self) => {
-        return self.findLastIndex(v => v.name === value.name) === index;
-      });
+   // console.log(sb);
 
+   sb = sb.reverse();
+
+    try{
       sb = sb.filter((value, index, self) => {
-        return self.findLastIndex(v => v.email === value.email) === index;
+        return self.findIndex(v => v.name === value.name) === index;
       });
+    }
+    catch(ex){console.log(ex);};
 
-     // console.log(gok);
+    try{
+      sb = sb.filter((value, index, self) => {
+       return self.findIndex(v => v.email === value.email) === index;
+
+      });
+    }
+    catch(ex){console.log(ex);}
+
+
+
+   //  console.log(sb);
 
     if(sb.length<1) {yAttr('sublist')[0].innerHTML=`<p>
     No one yet...
