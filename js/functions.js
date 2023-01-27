@@ -20,6 +20,7 @@ function jsFill(){try{let hy=byAttr("jsfill");for(let i=0;i<hy.length;i++){let j
 
 function fillDates(){try{let t=byAttr("date");for(let e=0;e<t.length;e++){let h;h=Boolean(t[e].getAttribute("offset"))?parseInt(t[e].getAttribute("offset")):0,Boolean(t[e].getAttribute("today"))?t[e].innerHTML=formatDate(offsetDate(h)[0],"us"):t[e].innerHTML=formatDate(offsetDate(h)[1],"us")}}catch(t){}}function formatDate(t,e){try{if("us"){let e=t.split("/"),h=parseInt(e[0]),r=e[1],a=e[2];return["January","February","March","April","May","June","July","August","September","October","November","December"][h-1]+" "+parseInt(r)+{0:"th",1:"st",2:"nd",3:"rd",4:"th",5:"th",6:"th",7:"th",8:"th",9:"th",10:"th",11:"th",12:"th",13:"th",14:"th",15:"th",16:"th",17:"th",18:"th",19:"th",20:"th",21:"st",22:"nd",23:"rd",24:"th",25:"th",26:"th",27:"th",28:"th",29:"th",30:"th",31:"st"}[parseInt(r)]+" "+a}return t}catch(e){return t}}
 
+function lgifnolg() { if(!localStorage.getItem('logged_in_user')) {location.replace(`login.html?return_to=${location.pathname}`)}}
 
 function apndChilren(p,j) {
   try {
@@ -81,7 +82,7 @@ function lsWarning() {
 }
 
   const gbstr = {}
-  const fte= {'/faq.html': [['mk'],['lsWarning']], '/signup.html': [['lsWarning']], '/how_it_works.html': [['jsFill()']]}
+  const fte= {'/faq.html': [['mk'],['lsWarning']], '/signup.html': [['lsWarning']], '/how_it_works.html': [['jsFill()']], '/confirm_availability.html': [['lgifnolg()']]}
 
   window.onload = function() {
     
@@ -127,7 +128,7 @@ function lsWarning() {
 
         //function prvundefined(e,n){"array"!=typeof e&&(e=e.split(","));for(let r=0;r<e.length;r++)Boolean(e[r])||(e[r]=n);return e}
                 let mthen = {funct:'remvel',para:'.modal__overlay'}
-                let kdwn = {list:'keydown',targ:'html', evnt: '27,13,32', then:mthen}
+                let kdwn = {list:'keydown',targ:'html', evnt: '27', then:mthen}
                 if(!Boolean(rmv)) {rmv=[{list:'click',targ:'.modal__close',then:mthen},kdwn]} 
 
                 if(content.toString().length>0&&!mespad) {mespad='0.5em'}
@@ -267,3 +268,26 @@ function compressst(e){e=unescape(encodeURIComponent(e));for(var t,n,r="",o=0;o<
 
 
 function icompress(e){e=unescape(encodeURIComponent(e));for(var n,t,r="",o=0;o<e.length;o+=2)n=e.charCodeAt(o),o+1<e.length?(t=n+""+(e.charCodeAt(o+1)-31).toLocaleString("en",{minimumIntegerDigits:2}),r+=String.fromCharCode(parseInt(t,10))):r+=e.charAt(o);return btoa(unescape(encodeURIComponent(r)))}function idecompress(e){var n,t,r,o,a="";e=decodeURIComponent(escape(atob(e)));for(var c=0;c<e.length;c++)(n=e.charCodeAt(c))>132?(t=n.toString(10),r=parseInt(t.substring(0,t.length-2),10),o=parseInt(t.substring(t.length-2,t.length),10)+31,a+=String.fromCharCode(r)+String.fromCharCode(o)):a+=e.charAt(c);return a}
+
+
+const cipher = salt => {
+  const textToChars = text => text.split('').map(c => c.charCodeAt(0));
+  const byteHex = n => ("0" + Number(n).toString(16)).substr(-2);
+  const applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code);
+
+  return text => text.split('')
+    .map(textToChars)
+    .map(applySaltToChar)
+    .map(byteHex)
+    .join('');
+}
+  
+const decipher = salt => {
+  const textToChars = text => text.split('').map(c => c.charCodeAt(0));
+  const applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code);
+  return encoded => encoded.match(/.{1,2}/g)
+    .map(hex => parseInt(hex, 16))
+    .map(applySaltToChar)
+    .map(charCode => String.fromCharCode(charCode))
+    .join('');
+}

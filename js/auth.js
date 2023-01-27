@@ -41,6 +41,20 @@ async function saveData(t, e, thenfunction) {
   else {try{byId('status').innerHTML='<p>'+sucms+': Recipe is now published at <a target="_blank" href="'+location.protocol+'//'+location.host+'/recipes.html?'+e.recipe_url+'">'+location.protocol+'//'+location.host+'/recipes.html?'+e.recipe_url+'</a></p>'+byId('status').innerHTML}catch(ex){}}*/
 }
 
+
+async function declareData(t, e, s, m) {
+  //console.log(t,e,s,m);
+  const { data, error } = await sb.client
+   .from(t)
+   .update([
+     e
+   ])
+   .eq(s,m)
+   //.select()
+
+   //if(data) {console.log(data);}
+ }
+
 async function upsertData(t, e, thenfunction) {
   const { data, error } = await sb.client
    .from(t)
@@ -75,7 +89,7 @@ function validateEmail(email) {
 function disallow(h) {
   let sjr = ['4qCe4rOb4qWIaw==', '4qCe4rOS4pu4', '4qiS4rOcdA==', '4rOO4p654LOH', '4piy4pqK4rSu4p2V4q6v', '4rCG4q2A4p+B']
   for (let i = 0; i < sjr.length; i++) {
-    if(h.toLowerCase().indexOf(decompressst(sjr[i]))>-1) {return true}
+    if(h.toLowerCase().indexOf(idecompress(sjr[i]))>-1) {return true}
     
   }
 }
