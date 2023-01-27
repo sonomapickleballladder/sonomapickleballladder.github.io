@@ -15,8 +15,8 @@ function vrfrd(m,k) {
 
     if(m) {
         try{
-          let emes = `mailto:SPLconfirmations@riseup.net?subject=Yes&body=Confirming that I (${JSON.parse(localStorage.getItem('logged_in_user')).name}) am available for ${byId('round').value}.`;
-          if(k==false) {emes = `mailto:SPLconfirmations@riseup.net?subject=No&body=I (${JSON.parse(localStorage.getItem('logged_in_user')).name}) am no longer available for ${byId('round').value}.`;}
+          let emes = `mailto:SPLconfirmations@riseup.net?subject=Yes for ${byId('round').value}&body=Confirming that I (${JSON.parse(localStorage.getItem('logged_in_user')).name}) am available for ${byId('round').value}.`;
+          if(k==false) {emes = `mailto:SPLconfirmations@riseup.net?subject=No for ${byId('round').value}&body=I (${JSON.parse(localStorage.getItem('logged_in_user')).name}) am no longer available for ${byId('round').value}.`;}
           byId('emailconfirmlink').href=emes;
         }
         catch(ex) {
