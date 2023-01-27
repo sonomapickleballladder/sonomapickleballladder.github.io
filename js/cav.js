@@ -132,7 +132,7 @@ function unvrfid(tmd) {
     let injson = {encoding3: cgso, is_available: tmd}
     
     let mgea = `By clicking okay, you are confirming that you (${bw.name}) are available for ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`;
-    if(!tmd) {mgea = `By clicking okay, you (${bw.name}) are withdrawing your availability for ${byId("round").value}.\r\n \r\nIf you do not with to proceed, please hit cancel.`;}
+    if(!tmd) {mgea = `By clicking okay, you (${bw.name}) are withdrawing your availability for ${byId("round").value}.\r\n \r\nIf you do not wish to proceed, please hit cancel.`;}
     let kf = confirm(mgea);
     
     if(!kf) {return false}
