@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Options</title>
+    <script src="js/supabase-js.js"></script>
+    <script src="js/lzstring.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/round.js"></script>
+</head>
+<body>
+    <h2>Below is a dynamic list of times you can pay me in person with cash or check.</h2>
+    <small>(The <span style="color:rgb(15, 161, 100)">I</span> in this context refers to Theo, the Ladder Administator).</small>
+    <hr>
+    <ul id="times">
+        Loading...
+    </ul>
+    <script>
+        window.onload = function() {
+          ptc('oermovw', '*', 'awvnu', '1').then(function(res){
+            displayTimes(res);
+          })
+        }
+
+        function displayTimes(r) {
+            byId('times').innerHTML = '';
+            for (let i = 0; i < r.length; i++) {
+                byId('times').innerHTML += `<li><p>${r[i].person} will be at ${r[i].location} from ${r[i].time} on ${r[i].date}.</p></li>`
+            }
+        }
+
+    </script>
+</body>
+</html>
