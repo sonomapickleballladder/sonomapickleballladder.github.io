@@ -57,14 +57,19 @@
     
       </select>
     </p>
+
+
      
     <h3 class="under">Confirmation Options:</h3>
     <p>
-    <button class="confirmav" onclick="vrfid()" style="padding: 0.75em;" id="webconfirm">Confirm via website (preferable)</button>
+    <button class="confirmav" onclick="vrfid()" style="padding: 0.75em; cursor: pointer;" id="webconfirm">Confirm via Website (preferable)</button>
+    </p>
+    <p>
+    <label for="">Status:</label> <span id="confirmationstatus">checking...</span>
    </p>
-   <small>not working?</small>
+   <small>Not working (nothing happening or error message)?</small>
    <p>
-    <button class="confirmav" onclick="vrfrd('email')" style="padding: 0.75em;"><a id="emailconfirmlink" href="javascript:">Confirm via email</a></button>
+    <button class="confirmav" onclick="vrfrd('email')" style="padding: 0.75em;"><a id="emailconfirmlink" href="javascript:">Confirm via Email</a></button>
     
    </p>
    
