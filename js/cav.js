@@ -159,15 +159,15 @@ window.onload = function () {
    try{
     lgifnolg();
 
-    byId('wkcalc').value = `Round ${getRound()+1}`;
-    byId('wkcalc').innerHTML = `Round ${getRound()+1}`;
+    try{byId('wkcalc').value = `Round ${getRound()+1}`;
+    byId('wkcalc').innerHTML = `Round ${getRound()+1}`;}catch(ex){}
 
-    checkstatus();
+    try{checkstatus();}catch(ex){}
 
     try{localStorage.removeItem('niwmeMIennc3p')}catch(ex){}
 
    } catch(ex) {
-    alert('Fatal error. This page is not functioning property.')
+    alert("Fatal Error. This Page is not working properly.")
    }
     
 }
