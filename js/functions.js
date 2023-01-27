@@ -20,7 +20,7 @@ function jsFill(){try{let hy=byAttr("jsfill");for(let i=0;i<hy.length;i++){let j
 
 function fillDates(){try{let t=byAttr("date");for(let e=0;e<t.length;e++){let h;h=Boolean(t[e].getAttribute("offset"))?parseInt(t[e].getAttribute("offset")):0,Boolean(t[e].getAttribute("today"))?t[e].innerHTML=formatDate(offsetDate(h)[0],"us"):t[e].innerHTML=formatDate(offsetDate(h)[1],"us")}}catch(t){}}function formatDate(t,e){try{if("us"){let e=t.split("/"),h=parseInt(e[0]),r=e[1],a=e[2];return["January","February","March","April","May","June","July","August","September","October","November","December"][h-1]+" "+parseInt(r)+{0:"th",1:"st",2:"nd",3:"rd",4:"th",5:"th",6:"th",7:"th",8:"th",9:"th",10:"th",11:"th",12:"th",13:"th",14:"th",15:"th",16:"th",17:"th",18:"th",19:"th",20:"th",21:"st",22:"nd",23:"rd",24:"th",25:"th",26:"th",27:"th",28:"th",29:"th",30:"th",31:"st"}[parseInt(r)]+" "+a}return t}catch(e){return t}}
 
-function lgifnolg() { if(!localStorage.getItem('logged_in_user')) {location.replace(`login.html?return_to=${location.pathname}`)}}
+function lgifnolg() { if(!localStorage.getItem('logged_in_user')) {location.replace(`login.html?return_to=${location.pathname}`)} else {return true}}
 
 function ismobile() {
   let check = false;
