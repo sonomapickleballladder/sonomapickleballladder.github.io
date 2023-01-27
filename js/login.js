@@ -52,7 +52,8 @@ be.innerHTML = map[be.previousElementSibling.type][0];
 
 window.onload = function() {
     try {
-        if(navigator.userAgent.indexOf('Beaker')>-1){byId('vbtoggle').style.transform = 'translate(-150%, 0%)'}
+        if(ismobile()){byId('vbtoggle').style.transform = 'translate(-150%, 0%)'}
+        else if(navigator.userAgent.indexOf('Beaker')>-1){byId('vbtoggle').style.transform = 'translate(-150%, 0%)'}
     } catch (ex) {
         
     }
