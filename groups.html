@@ -11,11 +11,30 @@
       iframe{ height: 100%; width: 100%; margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 0px; outline: none; }
     </style>
   </head>
-  <body onload="setrefresh()">
+  <body>
     <p id="loader">Loading content. Please be patient.</p>
-  <iframe onload='loadcomplete()' id="groups" src="https://sheet.zohopublic.com/sheet/publishedsheet/d2854cde9d2c77730c5d561c5d6916efb74aea91659063f38233c907e6584533?type=grid&mode=embed"></iframe>
+  <iframe id="groups" src="https://sheet.zohopublic.com/sheet/publishedsheet/d2854cde9d2c77730c5d561c5d6916efb74aea91659063f38233c907e6584533?type=grid&mode=embed"></iframe>
   <script type="text/javascript">
+
+function fireOnReady() { /* ... */ }
+if (document.readyState === 'complete') {
+    fireOnReady();
+} else {
+    document.addEventListener("DOMContentLoaded", fireOnReady);
+
+    function fireOnReady() {
+      setrefresh()
+    }
+}
+
+      
+
     function  setrefresh() {
+      function lgifnolg() { if(!localStorage.getItem('logged_in_user')) {location.replace(`login.html?return_to=${location.pathname}`)} else{return true}}
+            if(!lgifnolg()) {return false}
+
+            document.getElementById('groups').setAttribute('onload', 'loadcomplete()');     
+               
       setInterval(refresh, 600000)
       function refresh() {
         document.getElementById('groups').src='https://sheet.zohopublic.com/sheet/publishedsheet/d2854cde9d2c77730c5d561c5d6916efb74aea91659063f38233c907e6584533?type=grid&mode=embed';
