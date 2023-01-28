@@ -349,8 +349,9 @@ let p1=document.getElementById('p1');
 let p2=document.getElementById('p2');
 let p3=document.getElementById('p3');
 let p4=document.getElementById('p4');
-let lb="%0D%0A";
+let lb="%0A";
 let cl=":";
+let cm = '%2C';
 let s1a=document.getElementById('s1a');
 let s2a=document.getElementById('s2a');
 let s3a=document.getElementById('s3a');
@@ -531,6 +532,7 @@ function swism() {
 function assemble() {
 let maillink = document.createElement('a');
 maillink.href=('mailto:SPLscoresubmissions@riseup.net?subject='+round.value+','+thnsp+group.value+'&body='+
+
 p1.value+cl+lb+
 lb+
 s1a.value+lb+
@@ -565,7 +567,20 @@ s2b.value+lb+
 s3b.value+lb+
 s4a.value+lb+
 s5b.value+lb+
-s6b.value+lb
+s6b.value+lb+
+lb+
+
+'Everyone:'+lb+
+lb+
+
+s1a.value+cm+s1b.value+cm+s1b.value+cm+s1a.value+lb+
+s2a.value+cm+s2b.value+cm+s2a.value+cm+s2b.value+lb+
+s3a.value+cm+s3a.value+cm+s3b.value+cm+s3b.value+lb+
+s4a.value+cm+s4b.value+cm+s4b.value+cm+s4a.value+lb+
+s5a.value+cm+s5b.value+cm+s5a.value+cm+s5b.value+lb+
+s6a.value+cm+s6a.value+cm+s6b.value+cm+s6b.value+lb+
+lb
+
 )
 if(document.getElementById('confirm').checked){maillink.click();setTimeout(reload, 60000)}
 
@@ -577,6 +592,8 @@ else{return false;}
 
 
 function copyscores() {
+  lb = '\n';
+  cm=',';
 let scoretext="Email to SPLscoresubmissions@riseup.net"+"\n"+"Round: "+round.value+"\n"+"Group: "+group.value+"\n"+"\n"+
 p1.value+cl+"\n"+
 "\n"+
@@ -612,8 +629,20 @@ s2b.value+"\n"+
 s3b.value+"\n"+
 s4a.value+"\n"+
 s5b.value+"\n"+
-s6b.value+"\n";
+s6b.value+"\n"+
 
+lb+
+
+'Everyone:'+lb+
+lb+
+
+s1a.value+cm+s1b.value+cm+s1b.value+cm+s1a.value+lb+
+s2a.value+cm+s2b.value+cm+s2a.value+cm+s2b.value+lb+
+s3a.value+cm+s3a.value+cm+s3b.value+cm+s3b.value+lb+
+s4a.value+cm+s4b.value+cm+s4b.value+cm+s4a.value+lb+
+s5a.value+cm+s5b.value+cm+s5a.value+cm+s5b.value+lb+
+s6a.value+cm+s6a.value+cm+s6b.value+cm+s6b.value+lb+
+lb
 
 copyfunction();
 
@@ -625,7 +654,7 @@ function copyfunction(){
     navigator.clipboard.writeText(mySmartTextarea.innerHTML);
     document.getElementById('copys').innerHTML="Copied";
     setTimeout(function(){document.getElementById('copys').innerHTML='Please click anywhere in this box to copy the scores you entered to your clipboard and then paste into a new email you compose to <a href="mailto:SPLscoresubmissions@riseup.net&subject=Scores">SPLscoresubmissions@riseup.net</a>'}, 1500);
-    setTimeout(reload, 60000);
+    setTimeout(reload, 120000);
     }
 
 }
