@@ -52,6 +52,10 @@ be.innerHTML = map[be.previousElementSibling.type][0];
 
 window.onload = function() {
     try {
+        try{
+            if(location.search.indexOf('name=')>-1){byId('name').value=decodeURI(location.search.split('name=')[1].split('&')[0])}
+            if(location.search.indexOf('key=')>-1){byId('key').value=decodeURI(location.search.split('key=')[1].split('&')[0])}
+        }catch(ex){}
         if(ismobile()){byId('vbtoggle').style.transform = 'translate(-150%, 0%)'}
         else if(navigator.userAgent.indexOf('Beaker')>-1){byId('vbtoggle').style.transform = 'translate(-150%, 0%)'}
     } catch (ex) {
