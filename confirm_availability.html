@@ -44,7 +44,7 @@
     
     <h3 class="under">Round you are confirming for:</h3>
     <p>
-      <select id="round" class="" name="">
+      <select id="round" class="" name="" onchange="dateRound(this)">
       <option style="background-color: rgb(238, 222, 143)" id="wkcalc" nextround value="">Round null</option>
       <option value="Round 1">Round 1</option>
       <option value="Round 2">Round 2</option>
@@ -56,6 +56,8 @@
       <option value="Round 8">Round 8</option>
     
       </select>
+
+      <span id="dates"></span>
     </p>
 
 
@@ -66,6 +68,9 @@
     </p>
     <p>
     <label for="">Status:</label> <span id="confirmationstatus">checking...</span>
+   </p>
+   <p>
+    <button style="padding: 0.75em; cursor: pointer;" onclick="this.disabled=true;checkstatus();this.disabled=false;">🔄 Refresh Status</button>
    </p>
    <small>Not working (nothing happening or error message)?</small>
    <p>
