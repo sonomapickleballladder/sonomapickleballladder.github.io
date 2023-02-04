@@ -155,6 +155,20 @@ function unvrfid(tmd) {
 
 }
 
+
+function dateRound(r) {
+   try{
+    //console.log(parseInt(r.value.split(' ')[1]), getRound()+1);
+    if (parseInt(r.value.split(' ')[1]) == getRound()+1) {
+        byId('dates').innerHTML=`&nbsp;${offsetDate(parseInt((r.value.split(' ')[1]-1)*rdL))[1]} – ${offsetDate(parseInt((r.value.split(' ')[1]*rdL)-1))[1]}`;
+    }
+    else{
+        byId('dates').innerHTML='';
+    }
+}
+catch(ex){}
+}
+
 window.onload = function () {
    try{
     lgifnolg();
@@ -165,6 +179,8 @@ window.onload = function () {
     try{checkstatus();}catch(ex){}
 
     try{localStorage.removeItem('niwmeMIennc3p')}catch(ex){}
+
+    try{dateRound(byId('round'))}catch(ex){}
 
    } catch(ex) {
     alert("Fatal Error. This Page is not working properly.")
