@@ -79,7 +79,7 @@ function checkstatus() {
             let fa = dcip(res[i].encoding3);
             //console.log(parseInt(fa.split('/')[0].trim())===getRound()+1);
             if(parseInt(fa.split('/')[0].trim())===getRound()+1){acwom = res[i].encoding3; showstatus(fa); return false};
-            if(i==res.length-1 && relfa.length<1) {showstatus('blablabla/giberish/false'); return false;}
+            if(i==res.length-1) {showstatus('blablabla/giberish/false'); return false;}
            }
         }
 
