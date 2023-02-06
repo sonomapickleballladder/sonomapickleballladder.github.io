@@ -61,17 +61,21 @@
     </p>
 
 
+    <h3 class="under">Confirmation Status:</h3>
+    <p>
+       <span id="confirmationstatus">checking...</span>
+     </p> 
+
+     <p>
+      <button style="padding: 0.75em; cursor: pointer;" onclick="this.disabled=true;checkstatus();this.disabled=false;">🔄 Refresh Status</button>
+     </p>
      
     <h3 class="under">Confirmation Options:</h3>
-    <p>
+    
+   <p>
     <button class="confirmav" onclick="vrfid()" style="padding: 0.75em; cursor: pointer;" id="webconfirm">Confirm via Website (preferable)</button>
     </p>
-    <p>
-    <label for="">Status:</label> <span id="confirmationstatus">checking...</span>
-   </p>
-   <p>
-    <button style="padding: 0.75em; cursor: pointer;" onclick="this.disabled=true;checkstatus();this.disabled=false;">🔄 Refresh Status</button>
-   </p>
+   
    <small>Not working (nothing happening or error message)?</small>
    <p>
     <button class="confirmav" onclick="vrfrd('email')" style="padding: 0.75em;"><a id="emailconfirmlink" href="javascript:">Confirm via Email</a></button>
