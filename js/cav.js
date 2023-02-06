@@ -70,6 +70,10 @@ function checkstatus() {
     ptc('availability2.0', 'encoding3', 'smvig', kp.token).then(function(res){
         if(res && res.length>0) {
             //console.log(res);
+            //console.log(res);
+            let rsje;
+            try{rsje = parseInt(byId('round').value.split(' ')[1])}catch(ex){rsje = getRound()+1}
+            //console.log(rsje);
             function filter_byround(event) {
                 return event.round == getRound();
             }
@@ -78,7 +82,8 @@ function checkstatus() {
            for (let i = 0; i < res.length; i++) {
             let fa = dcip(res[i].encoding3);
             //console.log(parseInt(fa.split('/')[0].trim())===getRound()+1);
-            if(parseInt(fa.split('/')[0].trim())===getRound()+1){acwom = res[i].encoding3; showstatus(fa); return false};
+            //console.log(fa);
+            if(parseInt(fa.split('/')[0].trim())===rsje){ acwom = res[i].encoding3; showstatus(fa); return false};
             if(i==res.length-1) {showstatus('blablabla/giberish/false'); return false;}
            }
         }
