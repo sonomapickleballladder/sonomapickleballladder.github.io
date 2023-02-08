@@ -12,7 +12,7 @@
     <script src="js/round.js"></script>
 </head>
 <body>
-    <h2>Below is a dynamic list of times and respective locations you can pay me in person with cash or check.</h2>
+    <h2>Below is a dynamic list of times and respective locations when you can pay in person with cash or check.</h2>
     <small>(The <span style="color:rgb(15, 161, 100)">I</span> in this context refers to Theo, the Ladder Administator).</small>
     <hr>
     <ul id="times">
@@ -26,10 +26,20 @@
         }
 
         function displayTimes(r) {
+            let wms = {January: '01', February: '02', March: '03', 'April': '04'}
             byId('times').innerHTML = '';
             for (let i = 0; i < r.length; i++) {
-                byId('times').innerHTML += `<li><p>${r[i].person} will be at ${r[i].location} from ${r[i].time} on ${r[i].date}.</p></li>`
-            }
+                try{let bd = r[i].date;
+                let mn = bd.split(' ')[1];
+                mn = wms[mn];
+                let gf = bd.split(' ')[2].match(/\d+/g);
+                //console.log(`${mn}/${parseInt(gf[0])+1}/2023`);
+                let jn = new Date(`${mn}/${parseInt(gf[0])+1}/2023`)
+                //console.log(jn);
+                if (jn >= new Date()) {byId('times').innerHTML += `<li><p>${r[i].person} will be at ${r[i].location} from ${r[i].time} on ${r[i].date}.</p></li>`
+                 }
+                }catch(ex){}
+                }
         }
 
     </script>
