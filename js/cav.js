@@ -165,8 +165,12 @@ function dateRound(r) {
    try{
     //console.log(parseInt(r.value.split(' ')[1]), getRound()+1);
     if (parseInt(r.value.split(' ')[1]) == getRound()+1) {
-        byId('dates').innerHTML=`&nbsp;${offsetDate(parseInt((r.value.split(' ')[1]-1)*rdL))[1]} – ${offsetDate(parseInt((r.value.split(' ')[1]*rdL)-1))[1]}`;
-    }
+        let nyh = rdLs.slice(0,parseInt((r.value.split(' ')[1]-1))).reduce((a, b) => a + b, 0)*diW;
+        let fyh = rdLs.slice(0,parseInt((r.value.split(' ')[1]))).reduce((a, b) => a + b, 0)*diW - 1;
+        //console.log(nyh,fyh);
+       // byId('dates').innerHTML=`&nbsp;${offsetDate(parseInt((r.value.split(' ')[1]-1)*rdL))[1]} – ${offsetDate(parseInt((r.value.split(' ')[1]*rdL)-1))[1]}`;
+        byId('dates').innerHTML=`&nbsp;${offsetDate(nyh)[1]} – ${offsetDate(fyh)[1]}`;
+}
     else{
         byId('dates').innerHTML='';
     }

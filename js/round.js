@@ -16,8 +16,10 @@ const dateInfo = {};
 
 const strD= new Date(2023,0,23);
 const rdL= 14;
+const rdLs = [2,2,2,1,1,1,1,1]
 const frstC = -5;
 const nRounds = 8;
+const diW = 7;
 
 
 function getRound() {
@@ -26,10 +28,20 @@ function getRound() {
   lYD = daysIntoYear(new Date(strY,11,31)),
   diny = daysIntoYear(d), dinl = (diny - daysIntoYear(strD))+(yD*lYD), round=null;
   //console.log(dinl);
+  let nrP = 0;
+  for (let i = 0; i < nRounds; i++) {
+    nrP += diW*rdLs[i]
+  }
+  //console.log(nrP);
   if(dinl<frstC || dinl > rdL*nRounds) {return 'null';}
-  for (let i = 8; i > -1; i--) {
+  for (let i = nRounds; i > -1; i--) {
+    nrP -=  diW*rdLs[i-1]
+    //console.log(nrP,rdL*i);
+    let ofg = rdLs.slice(0,i).reduce((a, b) => a + b, 0);
+    //console.log(ofg*diW, rdL*i);
     switch (true) {
-      case (dinl<rdL*i):
+     // case (dinl<rdL*i):
+     case (dinl<ofg*diW):
         round = i;
         break;
     }
