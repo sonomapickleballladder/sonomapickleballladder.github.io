@@ -27,8 +27,8 @@
         let burl = 'https://sheet.zohopublic.com/sheet/publishedsheet/a9a4d44f7aeac6ba16ac5fe82732d805a6530398b192ba6c4a2cd764f29fd215';
         let urls = {1: burl, 2: burl+'?type=grid&mode=embed'}
         //console.log(urls);
-        let url = urls[1];
-        if(ismobile()) {url=urls[2]}
+        let url = urls[2];
+        if(ismobile()) {url=urls[1]}
         if (location.href.indexOf('url=')>-1) {url = urls[location.href.split('url=')[1].split('&')[0].split('?')[0]]}
         byId('results').src=url;
         byId('results').addEventListener('load', loadcomplete)
