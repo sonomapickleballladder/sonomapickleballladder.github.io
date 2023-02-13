@@ -40,6 +40,7 @@ function apndChilren(p,j) {
   catch(ex) {}
 }
 
+function reverseString(e){let r="";for(let t=e.length-1;t>=0;t--)r+=e[t];return r}
 
   function optStorage(t,e){if(["recipe_content"].indexOf(t)<0)return{result:e};let r=[e,LZString.compressToUTF16(e),LZString.compressToUint8Array(e)],n=[];for(let t=0;t<r.length;t++)n[t]=r[t].length;let o=n.indexOf(Math.min(...n));return gbstr.compression=o,{result:r[o]}}
 

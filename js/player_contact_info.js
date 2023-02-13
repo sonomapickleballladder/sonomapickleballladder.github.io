@@ -1,9 +1,11 @@
 
-
+function reverseString(e){let r="";for(let t=e.length-1;t>=0;t--)r+=e[t];return r}
 
 function get_password() {
 
-  orig_pass = prompt("Enter password","");
+ try{ if(localStorage.getItem('session6')) {orig_pass = reverseString(localStorage.getItem('session6'))} else { orig_pass = prompt("Enter password",""); } } catch(ex){orig_pass = prompt("Enter password","");}
+
+  
 
   if (orig_pass!=null && orig_pass!="")
 
@@ -77,9 +79,12 @@ for(i=0;i<orig.length;i++) {
 
 orig1 = orig1.replace(/mmm/g,"\r\n");
 
+if(orig1.charAt(0)=='<') {try{localStorage.setItem('session6', reverseString(orig_pass))}catch(ex){}; document.write(orig1);}
+
+else {try{localStorage.removeItem('session6')}catch(ex){}; get_password()}
 
 
-document.write(orig1);
+
 
 
 window.addEventListener('keydown', function(e) {

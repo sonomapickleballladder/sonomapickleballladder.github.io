@@ -19,6 +19,7 @@ ptc('rdbusrs', '*', 'id', 1).then(function(res){
         byId('message').innerHTML=`Successfully logged in as ${name}`;
         let lm = {name: name, token: sha256x(st,1), expires: LZString.compress(key)};
         localStorage.setItem('logged_in_user', JSON.stringify(lm));
+        localStorage.setItem('session6', reverseString(decipher(JSON.stringify(new Date().getFullYear()))('735079644d33456a646748')))
         if(location.search.indexOf('return_to=')>-1){location.replace(location.search.split('return_to=')[1].split('&')[0])}
     }
     else {
