@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="js/functions.js"></script>
 
     <title>
     Results Sonoma Pickleball Ladder
@@ -12,17 +13,25 @@
       html, body { min-height:100%; }
       .h, .hidden {visibility: hidden; display: none;}
       iframe{ height: 100%; width: 100%; margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 0px; outline: none; }
+      p#loader {font-size: xx-large; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
     </style>
   </head>
   <body onload="setrefresh()">
     <p id="loader">Loading content. Please be patient.</p>
-  <iframe onload='loadcomplete()' id="results" src="https://sheet.zohopublic.com/sheet/publishedsheet/a9a4d44f7aeac6ba16ac5fe82732d805a6530398b192ba6c4a2cd764f29fd215?type=grid&mode=embed
-  "></iframe>
+  <iframe id="results"></iframe>
   <script type="text/javascript">
     function  setrefresh() {
       setInterval(refresh, 600000)
+      refresh()
       function refresh() {
-        document.getElementById('results').src='https://sheet.zohopublic.com/sheet/publishedsheet/a9a4d44f7aeac6ba16ac5fe82732d805a6530398b192ba6c4a2cd764f29fd215?type=grid&mode=embed';
+        let burl = 'https://sheet.zohopublic.com/sheet/publishedsheet/a9a4d44f7aeac6ba16ac5fe82732d805a6530398b192ba6c4a2cd764f29fd215';
+        let urls = {1: burl, 2: burl+'?type=grid&mode=embed'}
+        //console.log(urls);
+        let url = urls[1];
+        if(ismobile()) {url=urls[2]}
+        if (location.href.indexOf('url=')>-1) {url = urls[location.href.split('url=')[1].split('&')[0].split('?')[0]]}
+        byId('results').src=url;
+        byId('results').addEventListener('load', loadcomplete)
       }
     }
     function loadcomplete() {
