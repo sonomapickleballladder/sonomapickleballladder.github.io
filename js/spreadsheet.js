@@ -8,7 +8,6 @@ function  setrefresh() {
     setInterval(refresh, 600000)
     refresh()
     function refresh() {
-      console.log(byId('link'));
       let burl = byId('link').getAttribute('url');
       let dt = '?type=grid&mode=embed';
       let urls = {1: {url:burl, view: 'Mobile', text: ' Certain formatting may not render properly with this view.'}, 2: {url:burl+dt, view: 'Desktop', text: ''}}
