@@ -5,7 +5,7 @@ console.log(isal);
 if(isal) {
     let lnk = document.getElementsByTagName('a');
     for (let i = 0; i < lnk.length; i++) {
-        try { lnk[i].removeAttribute('rel')} catch (ex) {     
+        try {if(lnk[i].getAttribute('href').indexOf('://')<0 && location.protocol.indexOf('https')>-1) {lnk[i].removeAttribute('rel'); lnk[i].href=lnk[i].href.replace(/(.html)/g,'')}} catch (ex) {     
         }
     }
 
