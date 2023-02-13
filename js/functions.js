@@ -91,11 +91,11 @@ function lsWarning() {
 }
 
   const gbstr = {}
-  const fte= {'/faq.html': [['mk'],['lsWarning']], '/signup.html': [['lsWarning']], '/how_it_works.html': [['jsFill()']], '/confirm_availability.html': [['lgifnolg()']]}
+  const fte= {'/faq': [['mk'],['lsWarning']], '/signup': [['lsWarning']], '/how_it_works': [['jsFill()']], '/confirm_availability': [['lgifnolg()']]}
 
   window.onload = function() {
     
-    let pthname = formatLabel(location.pathname,'.')
+    let pthname = location.pathname.split('.')[0];
     //console.log(pthname);
     if(!fte[pthname]){fte[pthname]=[[]]}
     if(!fte[pthname][0][0]){fte[pthname][0][0]=''}
@@ -300,3 +300,4 @@ const decipher = salt => {
     .map(charCode => String.fromCharCode(charCode))
     .join('');
 }
+
