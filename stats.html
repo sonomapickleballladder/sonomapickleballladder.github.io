@@ -3,26 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stats | Sonoma Pickleball Ladder</title>
-    <style>
-      html, body { min-height:100%; }
-      .h, .hidden {visibility: hidden; display: none;}
-      iframe{ height: 100%; width: 100%; margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 0px; outline: none; }
-    </style>
+    <script src="js/functions.js"></script>
+    <title>
+    Stats | Sonoma Pickleball Ladder
+    </title>
+    <link rel="stylesheet" href="spreadsheet.css">
   </head>
-  <body onload="setrefresh()">
-    <p id="loader">Loading content. Please be patient.</p>
-  <iframe onload='loadcomplete()' id="stats" src="https://sheet.zohopublic.com/sheet/publishedsheet/9a5fc234879b520e52ed452be21fa143bd1d0f5650a5411115cba84b0389d68e?type=grid&mode=embed"></iframe>
-  <script type="text/javascript">
-    function  setrefresh() {
-      setInterval(refresh, 600000)
-      function refresh() {
-        document.getElementById('stats').src='https://sheet.zohopublic.com/sheet/publishedsheet/9a5fc234879b520e52ed452be21fa143bd1d0f5650a5411115cba84b0389d68e?type=grid&mode=embed';      }
-    }
-    function loadcomplete() {
-      document.getElementById('loader').classList.add('h');
-    }
-  </script>
+  <body>
+    <noscript id="link" url="https://sheet.zohopublic.com/sheet/publishedsheet/9a5fc234879b520e52ed452be21fa143bd1d0f5650a5411115cba84b0389d68e">
+      <a style="z-index: 101!important; position: absolute;" href="https://sheet.zohopublic.com/sheet/publishedsheet/9a5fc234879b520e52ed452be21fa143bd1d0f5650a5411115cba84b0389d68e">JavaScript is disabled. Please follow this link.</a>
+    </noscript>
+    <noscript id="link2" url="https://sheet.zohopublic.com/sheet/publishedrange/c6301b606c4cb89fd9a09fbd7ea2986b86728cab3460dc1c2113a1694d79f414"></noscript>
+    <script>function lfz(){ if(!localStorage.getItem('logged_in_user')){location.replace(`login.html?return_to=${location.pathname}`)} else{return true}} lfz() </script>
+    <script src="js/spreadsheet.js"></script>
   </body>
 </html>

@@ -3,26 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Stats | Sonoma Pickleball Ladder</title>
-    <style>
-      html, body { min-height:100%; }
-      .h, .hidden {visibility: hidden; display: none;}
-      iframe{ height: 100%; width: 100%; margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 0px; outline: none; }
-    </style>
+    <script src="js/functions.js"></script>
+    <title>
+    Team Stats | Sonoma Pickleball Ladder
+    </title>
+    <link rel="stylesheet" href="spreadsheet.css">
   </head>
-  <body onload="setrefresh()">
-    <p id="loader">Loading content. Please be patient.</p>
-  <iframe onload='loadcomplete()' id="stats" src="https://sheet.zohopublic.com/sheet/publishedsheet/6ea397070b1faa1d1a7419fcd3a48e544900daf7e43f5e36d16d232052801714?type=grid&mode=embed"></iframe>
-  <script type="text/javascript">
-    function  setrefresh() {
-      setInterval(refresh, 600000)
-      function refresh() {
-        document.getElementById('stats').src='https://sheet.zohopublic.com/sheet/publishedsheet/6ea397070b1faa1d1a7419fcd3a48e544900daf7e43f5e36d16d232052801714?type=grid&mode=embed';      }
-    }
-    function loadcomplete() {
-      document.getElementById('loader').classList.add('h');
-    }
-  </script>
+  <body>
+    <noscript id="link" url="https://sheet.zohopublic.com/sheet/publishedsheet/6ea397070b1faa1d1a7419fcd3a48e544900daf7e43f5e36d16d232052801714">
+      <a style="z-index: 101!important; position: absolute;" href="https://sheet.zohopublic.com/sheet/publishedsheet/6ea397070b1faa1d1a7419fcd3a48e544900daf7e43f5e36d16d232052801714">JavaScript is disabled. Please follow this link.</a>
+    </noscript>
+    <script>function lfz(){ if(!localStorage.getItem('logged_in_user')){location.replace(`login.html?return_to=${location.pathname}`)} else{return true}} lfz() </script>
+    <script src="js/spreadsheet.js"></script>
   </body>
 </html>

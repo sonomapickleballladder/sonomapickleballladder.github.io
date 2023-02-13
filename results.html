@@ -4,39 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="js/functions.js"></script>
-
     <title>
-    Results Sonoma Pickleball Ladder
+    Results | Sonoma Pickleball Ladder
     </title>
-
-    <style>
-      html, body { min-height:100%; }
-      .h, .hidden {visibility: hidden; display: none;}
-      iframe{ height: 100%; width: 100%; margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 0px; outline: none; }
-      p#loader {font-size: xx-large; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
-    </style>
+    <link rel="stylesheet" href="spreadsheet.css">
   </head>
-  <body onload="setrefresh()">
-    <p id="loader">Loading content. Please be patient.</p>
-  <iframe id="results"></iframe>
-  <script type="text/javascript">
-    function  setrefresh() {
-      setInterval(refresh, 600000)
-      refresh()
-      function refresh() {
-        let burl = 'https://sheet.zohopublic.com/sheet/publishedsheet/a9a4d44f7aeac6ba16ac5fe82732d805a6530398b192ba6c4a2cd764f29fd215';
-        let urls = {1: burl, 2: burl+'?type=grid&mode=embed'}
-        //console.log(urls);
-        let url = urls[2];
-        if(ismobile()) {url=urls[1]}
-        if (location.href.indexOf('url=')>-1) {url = urls[location.href.split('url=')[1].split('&')[0].split('?')[0]]}
-        byId('results').src=url;
-        byId('results').addEventListener('load', loadcomplete)
-      }
-    }
-    function loadcomplete() {
-      document.getElementById('loader').classList.add('h');
-    }
-  </script>
+  <body>
+    <noscript id="link" url="https://sheet.zohopublic.com/sheet/publishedsheet/a9a4d44f7aeac6ba16ac5fe82732d805a6530398b192ba6c4a2cd764f29fd215">
+      <a style="z-index: 101!important; position: absolute;" href="https://sheet.zohopublic.com/sheet/publishedsheet/a9a4d44f7aeac6ba16ac5fe82732d805a6530398b192ba6c4a2cd764f29fd215">JavaScript is disabled. Please follow this link.</a>
+    </noscript>
+    <script src="js/spreadsheet.js"></script>
   </body>
 </html>
