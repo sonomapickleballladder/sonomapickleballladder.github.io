@@ -1,4 +1,4 @@
-window.onload=function() {
+document.addEventListener("DOMContentLoaded",function() {
   let rnd = getRound();
   try{autofillRound(rnd,'current');
   autofillRound(rnd,'next')
@@ -7,7 +7,7 @@ window.onload=function() {
   fillDates();
   rdFrstNm();
   jsFill();
-}
+})
 
 const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 

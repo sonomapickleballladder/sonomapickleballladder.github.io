@@ -51,7 +51,7 @@ be.previousElementSibling.type = map[be.previousElementSibling.type][1];
 be.innerHTML = map[be.previousElementSibling.type][0];
 }
 
-window.onload = function() {
+document.addEventListener("DOMContentLoaded",function() {
     try {
         try{
             if(location.search.indexOf('name=')>-1){byId('name').value=decodeURI(location.search.split('name=')[1].split('&')[0])}
@@ -62,4 +62,4 @@ window.onload = function() {
     } catch (ex) {
         
     }
-}
+})

@@ -93,7 +93,7 @@ function lsWarning() {
   const gbstr = {}
   const fte= {'/faq': [['mk'],['lsWarning']], '/signup': [['lsWarning']], '/how_it_works': [['jsFill()']], '/confirm_availability': [['lgifnolg()']]}
 
-  window.onload = function() {
+  document.addEventListener("DOMContentLoaded",function() {
     
     let pthname = location.pathname.split('.')[0];
     //console.log(pthname);
@@ -117,7 +117,7 @@ function lsWarning() {
     jsFill();
     
       
-      }
+      })
 
 
 

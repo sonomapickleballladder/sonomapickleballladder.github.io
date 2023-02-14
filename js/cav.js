@@ -178,7 +178,7 @@ function dateRound(r) {
 catch(ex){}
 }
 
-window.onload = function () {
+document.addEventListener("DOMContentLoaded",function () {
    try{
     lgifnolg();
 
@@ -196,6 +196,7 @@ window.onload = function () {
    }
     
 }
+)
 
 let map = {status: {'true': ['Successfully Confirmed','#46b264'], 'false': ['Not Confirmed','red']}, webconfirm: {'true': ['Withdraw Confirmation', 'red'], 'false': ['Confirm via Website (preferable)', '']}, emailconfirm: {'true': ['Withdraw Confirmation via Email', 'red', false], 'false':['Confirm via Email', '', true]}}
 let cfstatus;

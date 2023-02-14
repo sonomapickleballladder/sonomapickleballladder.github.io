@@ -1,8 +1,8 @@
-window.onload = function() {
+document.addEventListener("DOMContentLoaded",function() {
     jsFill();
     getSubs();
     lsWarning();
-}
+})
 
 function getSubs() {
 let ud = byAttr('sublist');

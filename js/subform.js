@@ -1,4 +1,4 @@
-window.onload = function () {
+document.addEventListener("DOMContentLoaded",function () {
   cusInp();
   rdFrstNm();
   jsFill();
@@ -10,7 +10,7 @@ window.onload = function () {
   }
   catch(ex){}
 
-}
+})
 
 
 
