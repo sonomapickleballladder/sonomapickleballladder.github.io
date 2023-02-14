@@ -15,12 +15,13 @@ html,body{min-height: 100%;filter: var(--iv);}
   body {
     background: linear-gradient(to right, rgba(23, 40, 40, 0.35), rgba(102, 51, 153, 0.45));
   }
+  a {color: rgb(24, 109, 228);}
 }
 * {outline: none;}
 body{background: var(--bgcolor); font-size: 1.25rem;word-break: break-word; color: var(--color);}
 section.main { padding: 0em 0.25em;}
 a.nav {display: inline-block; font-size: 1rem; margin: 8px; padding: 6px 12px; box-shadow: 1px 3px 6px maroon; background: rgba(130, 234, 123, 0.2); background: rgba(165, 196, 193, 1); }
-a.nav:hover{filter: hue-rotate(60deg);}
+a.nav:hover{filter: hue-rotate(40deg);}
 iframe{min-height: 400px; width: 100%; border: 0px; outline: none; overflow: auto; scrollbar-width: none; -moz-scrollbars: none;}
 iframe::-webkit-scrollbar {display: none;}
 table{max-width: 100%; overflow: scroll;border-collapse: collapse;}
