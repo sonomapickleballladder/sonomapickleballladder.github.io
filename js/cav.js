@@ -15,7 +15,7 @@ function vrfrd(m,k) {
 
     if(m) {
         try{
-          let emes = `mailto:SPLconfirmations@riseup.net?subject=Yes for ${byId('round').value}&body=Confirming that I (${JSON.parse(localStorage.getItem('logged_in_user')).name}) am available for ${byId('round').value}.`;
+          let emes = `mailto:SPLconfirmations@riseup.net?subject=Yes for ${byId('round').value}&body=Confirming that I (${JSON.parse(localStorage.getItem('logged_in_user')).name}) am available for the entirety of ${byId('round').value}.`;
           if(k==false) {emes = `mailto:SPLconfirmations@riseup.net?subject=No for ${byId('round').value}&body=I (${JSON.parse(localStorage.getItem('logged_in_user')).name}) am no longer available for ${byId('round').value}.`;}
           byId('emailconfirmlink').href=emes;
         }
@@ -31,11 +31,11 @@ function vrfrd(m,k) {
 
 
 function vrfid(tmd) {
-
     if(!Boolean(tmd)){tmd=true}
     document.activeElement.blur();
     let vf = vrfrd();
     if(!vf) return false;
+    try{if(!byId('agree1').checked && tmd){calert(0, '<span style="font-size: x-large">Hang on!</span>', `<span style="font-size: large">You must <a onclick="remvel('.modal__overlay')" href="#attention">understand</a></span>`, 0, 0, '50%',0,0,'0.75em'); return false}}catch(ex){}
     let angm = 'serviceWorkers';
     let bw = localStorage.getItem('logged_in_user');
     bw = JSON.parse(bw);
@@ -47,7 +47,7 @@ function vrfid(tmd) {
     //console.log(cgso);
     let injson = {round: rnd, name: bw.name, smvig: bw.token, encoding: gso, encoding3: cgso, is_available: tmd}
 
-    let kf = confirm(`By clicking okay, you are confirming that you (${bw.name}) are available for ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`)
+    let kf = confirm(`By clicking okay, you are confirming that you (${bw.name}) are available for the entirety of ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`)
     
     if(!kf) {return false}
 
@@ -125,6 +125,7 @@ function unvrfid(tmd) {
     document.activeElement.blur();
     let vf = vrfrd();
     if(!vf) return false;
+    try{if(!byId('agree1').checked && tmd){calert(0, '<span style="font-size: x-large">Hang on!</span>', `<span style="font-size: large">You must <a onclick="remvel('.modal__overlay')" href="#attention">understand</a></span>`, 0, 0, '50%',0,0,'0.75em'); return false}}catch(ex){}
     let angm = 'serviceWorkers';
     let bw = localStorage.getItem('logged_in_user');
     bw = JSON.parse(bw);
@@ -136,7 +137,7 @@ function unvrfid(tmd) {
     //console.log(cgso);
     let injson = {encoding3: cgso, is_available: tmd}
     
-    let mgea = `By clicking okay, you are confirming that you (${bw.name}) are available for ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`;
+    let mgea = `By clicking okay, you are confirming that you (${bw.name}) are available for the entirety of ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`;
     if(!tmd) {mgea = `By clicking okay, you (${bw.name}) are withdrawing your availability for ${byId("round").value}.\r\n \r\nIf you do not wish to proceed, please hit cancel.`;}
     let kf = confirm(mgea);
     
