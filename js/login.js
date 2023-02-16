@@ -20,6 +20,7 @@ ptc('rdbusrs', '*', 'id', 1).then(function(res){
         let lm = {name: name, token: sha256x(st,1), expires: LZString.compress(key)};
         localStorage.setItem('logged_in_user', JSON.stringify(lm));
         localStorage.setItem('session6', reverseString(decipher(JSON.stringify(new Date().getFullYear()))('735079644d33456a646748')))
+        localStorage.removeItem('payalert')
         if(location.search.indexOf('return_to=')>-1){location.replace(location.search.split('return_to=')[1].split('&')[0])}
     }
     else {
@@ -56,6 +57,7 @@ document.addEventListener("DOMContentLoaded",function() {
         try{
             if(location.search.indexOf('name=')>-1){byId('name').value=decodeURI(location.search.split('name=')[1].split('&')[0])}
             if(location.search.indexOf('key=')>-1){byId('key').value=decodeURI(location.search.split('key=')[1].split('&')[0])}
+            if(location.search.indexOf('autologin')>-1){attemptLogin(byId('name').value, byId('key').value)}
         }catch(ex){}
         if(ismobile()){byId('vbtoggle').style.transform = 'translate(-150%, 0%)'}
         else if(navigator.userAgent.indexOf('Beaker')>-1){byId('vbtoggle').style.transform = 'translate(-150%, 0%)'}

@@ -185,6 +185,8 @@ document.addEventListener("DOMContentLoaded",function () {
     try{byId('wkcalc').value = `Round ${getRound()+1}`;
     byId('wkcalc').innerHTML = `Round ${getRound()+1}`;}catch(ex){}
 
+    try{paywall()}catch(ex){}
+
     try{checkstatus();}catch(ex){}
 
     try{localStorage.removeItem('niwmeMIennc3p')}catch(ex){}
@@ -200,3 +202,53 @@ document.addEventListener("DOMContentLoaded",function () {
 
 let map = {status: {'true': ['Successfully Confirmed','#46b264'], 'false': ['Not Confirmed','red']}, webconfirm: {'true': ['Withdraw Confirmation', 'red'], 'false': ['Confirm via Website (preferable)', '']}, emailconfirm: {'true': ['Withdraw Confirmation via Email', 'red', false], 'false':['Confirm via Email', '', true]}}
 let cfstatus;
+
+
+
+function paywall(nosh, nopy) {
+    let bw = localStorage.getItem('logged_in_user');
+    bw = JSON.parse(bw);
+    let johm = bw.name.replace(/(\s)/g,'').toLowerCase();
+    let gr = cipher('limit');
+   //console.log(johm);
+    let sai = gr(johm);
+    //console.log(sai);
+    ptc('pard', '*', 'afaf', sai).then(function(res){
+        if(res.length>0) {bag(res,nosh, nopy)}
+    })
+}
+
+function bag(r,nosh, nopy) {
+    r = r[0];
+    if(r.bool == false && !nopy) {
+        let dif = 86400000;
+        if(!Boolean(localStorage.getItem('payalert')) || Date.now() - localStorage.getItem('payalert') > dif) {
+        localStorage.setItem('payalert', Date.now())
+        calert(0, '<span style="font-size: large">Payment Alert</span>', 
+    `<span style="font-size: large">Hi ${JSON.parse(localStorage.getItem('logged_in_user')).name}. According to our records, it looks like you still need to pay your <a style="color: palevioletred" target="_blank" href="signup.html#price">registration fee</a>. If you have already paid, please let us know by <a style="color: palevioletred" target="_blank" href="mailto:SPLInfo@riseup.net?subject=Ladder Payment">email</a> (including when and who you paid, plus the amount). If not, please visit <a style="color: palevioletred" target="_blank" href="pay_options.html">the payment options page</a>, which includes an up to date list of times you can pay in person.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')
+        }
+    }
+    
+    let nj = document.getElementsByClassName('modal__window').length;
+    
+    if(r.ineg) {let jm = r.ineg.split(',');
+    for (let i = 0; i < jm.length; i++) {
+        if(parseInt(jm[i])==getRound()+1 && !nosh) {
+            if(nj<1) {palert()}
+            else {
+                window.addEventListener('keydown', function(e) {
+                if(e.which == 27) {palert()}
+                }, {once: true});
+                window.addEventListener('click', function(e) {
+                    setTimeout(function(){if(document.getElementsByClassName('modal__window').length<1){palert()}}, 500)
+                    }, {once: true});
+            
+        }
+        }
+        
+        function palert() {calert(0, '<span style="font-size: large">Ineligibility Alert</span>', `<span style="font-size: large">Hi ${JSON.parse(localStorage.getItem('logged_in_user')).name}. Unfortunately you may not play for Round ${getRound()+1} because you have reportedly <a style="color: palevioletred" target="_blank" href="how_it_works.html#Punctuality">failed to show up</a> for your match in Round ${getRound()}. Please wait until Round ${getRound()+2}, and do not forget about your matches in the future.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')}
+    }
+  }
+  
+    }
+    
