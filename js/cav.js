@@ -247,7 +247,7 @@ function bag(r,nosh, nopy) {
         }
         }
         
-        function palert() {calert(0, '<span style="font-size: large">Ineligibility Alert</span>', `<span style="font-size: large">Hi ${JSON.parse(localStorage.getItem('logged_in_user')).name.split(' ')[0]}. Unfortunately you may not play for Round ${getRound()+1} because you have reportedly <a style="color: palevioletred" target="_blank" href="how_it_works.html#Punctuality">failed to show up</a> for your match in Round ${getRound()}. Please wait until Round ${getRound()+2}, and do not forget about your matches in the future.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')}
+        function palert() {calert(0, '<span style="font-size: large">Ineligibility Alert</span>', `<span style="font-size: large">Hi ${JSON.parse(localStorage.getItem('logged_in_user')).name.split(' ')[0]}. Unfortunately you may not play for Round ${getRound()+1} because you have reportedly <a style="color: palevioletred" target="_blank" href="how_it_works.htmlr=p&t=0cb2ca6d6f072d00ca916f5defc5972629ac163598eb2b0dacab4423e34cb4f3&bg=darkorange">failed to show up</a> for your match in Round ${getRound()}. Please wait until Round ${getRound()+2}, and do not forget about your matches in the future.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')}
     }
   }
   
