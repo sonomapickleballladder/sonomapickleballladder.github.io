@@ -15,7 +15,7 @@
       <a style="z-index: 101!important; position: absolute;" href="https://sheet.zohopublic.com/sheet/publishedsheet/9a5fc234879b520e52ed452be21fa143bd1d0f5650a5411115cba84b0389d68e">JavaScript is disabled. Please follow this link.</a>
     </noscript>
     <noscript id="link2" url="https://sheet.zohopublic.com/sheet/publishedrange/c6301b606c4cb89fd9a09fbd7ea2986b86728cab3460dc1c2113a1694d79f414"></noscript>
-    <script>function lfz(){ if(!localStorage.getItem('logged_in_user')){location.replace(`login.html?return_to=${location.pathname}`)} else{return true}} lfz() </script>
+    <script>function lfz(){ try{if(!localStorage.getItem('logged_in_user')){location.replace(`login.html?return_to=${location.pathname}`)} else{return true}}catch(ex){location.replace('login.html')}} lfz() </script>
     <script src="js/spreadsheet.js"></script>
   <script src="js/plausible.js"></script>
 </body>
