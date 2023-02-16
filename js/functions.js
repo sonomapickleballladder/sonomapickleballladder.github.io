@@ -94,7 +94,7 @@ function lsWarning() {
   const fte= {'/faq': [['mk'],['lsWarning']], '/signup': [['lsWarning']], '/how_it_works': [['jsFill()']], '/confirm_availability': [['lgifnolg()']]}
 
   document.addEventListener("DOMContentLoaded",function() {
-    
+    try{createReferences()}catch(ex){}
     let pthname = location.pathname.split('.')[0];
     //console.log(pthname);
     if(!fte[pthname]){fte[pthname]=[[]]}
@@ -127,11 +127,40 @@ function lsWarning() {
 
 
 
+       function createReferences() {
+        let r = '';
+        if(location.search.indexOf('r=')>-1) {
+          r = location.search.split('r=')[1].split('&')[0].split('?')[0]      
+        }
+        else if(location.search.indexOf('t=')>-1) {r = '*'}
+        if (r.length>0) {collar(r)}
+        if(location.search.indexOf('t=')>-1) {
+          let m = location.search.split('t=')[1].split('&')[0].split('?')[0];
+          byId(m).scrollIntoView();
+        }
+       }
+
+       function collar(rs) {
+        const sha256=function r(t){function n(r,t){return r>>>t|r<<32-t}for(var o,e,f=Math.pow,h=f(2,32),a="",l=[],g=8*t.length,c=r.h=r.h||[],i=r.k=r.k||[],u=i.length,v={},s=2;u<64;s++)if(!v[s]){for(o=0;o<313;o+=s)v[o]=s;c[u]=f(s,.5)*h|0,i[u++]=f(s,1/3)*h|0}for(t+="";t.length%64-56;)t+="\0";for(o=0;o<t.length;o++){if((e=t.charCodeAt(o))>>8)return;l[o>>2]|=e<<(3-o)%4*8}for(l[l.length]=g/h|0,l[l.length]=g,e=0;e<l.length;){var k=l.slice(e,e+=16),d=c;for(c=c.slice(0,8),o=0;o<64;o++){var p=k[o-15],w=k[o-2],A=c[0],C=c[4],M=c[7]+(n(C,6)^n(C,11)^n(C,25))+(C&c[5]^~C&c[6])+i[o]+(k[o]=o<16?k[o]:k[o-16]+(n(p,7)^n(p,18)^p>>>3)+k[o-7]+(n(w,17)^n(w,19)^w>>>10)|0);(c=[M+((n(A,2)^n(A,13)^n(A,22))+(A&c[1]^A&c[2]^c[1]&c[2]))|0].concat(c))[4]=c[4]+M|0}for(o=0;o<8;o++)c[o]=c[o]+d[o]|0}for(o=0;o<8;o++)for(e=3;e+1;e--){var S=c[o]>>8*e&255;a+=(S<16?0:"")+S.toString(16)}return a};
+        rs = document.querySelectorAll(rs);
+        for (let i = 0; i < rs.length; i++) {
+          if(!rs[i].getAttribute('id')) {rs[i].setAttribute('id', sha256(b64(JSON.stringify(rs[i].innerHTML))))}
+        }
+        if(location.search.indexOf('easylinks')>-1) {
+          for (let i = 0; i < rs.length; i++) {
+            rs[i].style.cursor = 'pointer';
+            rs[i].onclick = function() {navigator.clipboard.writeText(location.href.replace(/(easylinks)/g,'').replace(/(t=)[\S]+/g,``).replace(/\&$/,`&t=${rs[i].id}`))}
+          }
+        }
+       }
 
 
 
-
-
+function b64(r, t) {
+let Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
+if(t == -1) {return Base64.decode(r);}
+else return Base64.encode(r);
+}
 
       function calert(rmv, title, content, clas, hgt, wdth, mesbg, mescl, mespad) {
 
