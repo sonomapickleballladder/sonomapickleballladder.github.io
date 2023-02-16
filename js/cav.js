@@ -226,7 +226,7 @@ function bag(r,nosh, nopy) {
         if(!Boolean(localStorage.getItem('payalert')) || Date.now() - localStorage.getItem('payalert') > dif) {
         localStorage.setItem('payalert', Date.now())
         calert(0, '<span style="font-size: large">Payment Alert</span>', 
-    `<span style="font-size: large">Hi ${JSON.parse(localStorage.getItem('logged_in_user')).name}. According to our records, it looks like you still need to pay your <a style="color: palevioletred" target="_blank" href="signup.html#price">registration fee</a>. If you have already paid, please let us know by <a style="color: palevioletred" target="_blank" href="mailto:SPLInfo@riseup.net?subject=Ladder Payment">email</a> (including when and who you paid, plus the amount). If not, please visit <a style="color: palevioletred" target="_blank" href="pay_options.html">the payment options page</a>, which includes an up to date list of times you can pay in person.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')
+    `<span style="font-size: large">Hi ${JSON.parse(localStorage.getItem('logged_in_user')).name.split(' ')[0]}. According to our records, it looks like you still need to pay your <a style="color: palevioletred" target="_blank" href="signup.html#price">registration fee</a>. If you have already paid, please let us know by <a style="color: palevioletred" target="_blank" href="mailto:SPLInfo@riseup.net?subject=Ladder Payment">email</a> (including when and who you paid, plus the amount). If not, please visit <a style="color: palevioletred" target="_blank" href="pay_options.html">the payment options page</a>, which includes an up to date list of times you can pay in person.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')
         }
     }
     
@@ -247,7 +247,7 @@ function bag(r,nosh, nopy) {
         }
         }
         
-        function palert() {calert(0, '<span style="font-size: large">Ineligibility Alert</span>', `<span style="font-size: large">Hi ${JSON.parse(localStorage.getItem('logged_in_user')).name}. Unfortunately you may not play for Round ${getRound()+1} because you have reportedly <a style="color: palevioletred" target="_blank" href="how_it_works.html#Punctuality">failed to show up</a> for your match in Round ${getRound()}. Please wait until Round ${getRound()+2}, and do not forget about your matches in the future.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')}
+        function palert() {calert(0, '<span style="font-size: large">Ineligibility Alert</span>', `<span style="font-size: large">Hi ${JSON.parse(localStorage.getItem('logged_in_user')).name.split(' ')[0]}. Unfortunately you may not play for Round ${getRound()+1} because you have reportedly <a style="color: palevioletred" target="_blank" href="how_it_works.html#Punctuality">failed to show up</a> for your match in Round ${getRound()}. Please wait until Round ${getRound()+2}, and do not forget about your matches in the future.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')}
     }
   }
   
