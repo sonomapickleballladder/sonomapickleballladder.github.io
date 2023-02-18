@@ -71,6 +71,10 @@
     <script>
         window.onload = function() {
           ptc('oermovw', '*', 'awvnu', '1').then(function(res){
+            res = res.sort(function(x, y){
+              return x.id - y.id;
+            })
+            //console.log(res);
             displayTimes(res);
           })
         }
