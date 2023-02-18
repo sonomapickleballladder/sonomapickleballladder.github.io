@@ -15,6 +15,7 @@ function vrfrd(m,k) {
 
     if(m) {
         try{
+            try{if(!byId('agree1').checked){calert(0, '<span style="font-size: x-large">Hang on!</span>', `<span style="font-size: large">You must <a onclick="remvel('.modal__overlay')" href="#attention">understand</a></span>`, 0, 0, '50%',0,0,'0.75em'); return false}}catch(ex){}
           let emes = `mailto:SPLconfirmations@riseup.net?subject=Yes for ${byId('round').value}&body=Confirming that I (${JSON.parse(localStorage.getItem('logged_in_user')).name}) am available for the entirety of ${byId('round').value}.`;
           if(k==false) {emes = `mailto:SPLconfirmations@riseup.net?subject=No for ${byId('round').value}&body=I (${JSON.parse(localStorage.getItem('logged_in_user')).name}) am no longer available for ${byId('round').value}.`;}
           byId('emailconfirmlink').href=emes;
