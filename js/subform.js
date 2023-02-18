@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded",function () {
   jsFill();
   retainvals();
 
+  try{byId('wkcalc').value = `Round ${getRound()}`;
+    byId('wkcalc').innerHTML = `Round ${getRound()}`;}catch(ex){}
+
   let rnd = getRound();
   try{autofillRound(rnd,'current');
   autofillRound(rnd,'next')
