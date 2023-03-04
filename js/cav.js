@@ -172,9 +172,11 @@ function dateRound(r) {
         //console.log(nyh,fyh);
        // byId('dates').innerHTML=`&nbsp;${offsetDate(parseInt((r.value.split(' ')[1]-1)*rdL))[1]} – ${offsetDate(parseInt((r.value.split(' ')[1]*rdL)-1))[1]}`;
         byId('dates').innerHTML=`&nbsp;${offsetDate(nyh)[1]} – ${offsetDate(fyh)[1]}`;
+        byId('rdlength').innerHTML = `&nbsp;<b>(${rdLs[parseInt(r.value.split(' ')[1])-1]}-Week Round)</b>`;
 }
     else{
         byId('dates').innerHTML='';
+        byId('rdlength').innerHTML = '';
     }
 }
 catch(ex){}
@@ -186,6 +188,14 @@ document.addEventListener("DOMContentLoaded",function () {
 
     try{byId('wkcalc').value = `Round ${getRound()+1}`;
     byId('wkcalc').innerHTML = `Round ${getRound()+1}`;}catch(ex){}
+
+    try{
+        let sja = {
+            1: `By confirming below, you are attesting that you will be present (not traveling or otherwise unavailable) for the <b><i>entirety of the round</i></b>, and that you will be able to offer <b><i>a number of possible time-windows</i></b> in which to play.`,
+            2: 'By confirming below, you are attesting that you will be able to offer <b><i>a number of possible time-windows</i></b> in which to play, and that you will <b>not</b> be absent (traveling or otherwise unavailable) for <b><i>any significant chunk of the round</i></b>.'     
+        }
+        byId('atmsg').innerHTML = sja[rdLs[getRound()]]
+    } catch(ex){}
 
     try{paywall()}catch(ex){}
 
