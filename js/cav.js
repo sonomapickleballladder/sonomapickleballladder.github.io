@@ -48,7 +48,7 @@ function vrfid(tmd) {
     //console.log(cgso);
     let injson = {round: rnd, name: bw.name, smvig: bw.token, encoding: gso, encoding3: cgso, is_available: tmd}
 
-    let kf = confirm(`By clicking okay, you are confirming that you (${bw.name}) are available for the entirety of ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`)
+    let kf = confirm(`By clicking okay, you are confirming that you (${bw.name}) are available (as defined above) for ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`)
     
     if(!kf) {return false}
 
@@ -138,7 +138,7 @@ function unvrfid(tmd) {
     //console.log(cgso);
     let injson = {encoding3: cgso, is_available: tmd}
     
-    let mgea = `By clicking okay, you are confirming that you (${bw.name}) are available for the entirety of ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`;
+    let mgea = `By clicking okay, you are confirming that you (${bw.name}) are available (as defined above) for ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`;
     if(!tmd) {mgea = `By clicking okay, you (${bw.name}) are withdrawing your availability for ${byId("round").value}.\r\n \r\nIf you do not wish to proceed, please hit cancel.`;}
     let kf = confirm(mgea);
     
