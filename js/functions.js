@@ -30,6 +30,11 @@ function ismobile() {
   return check;
 };
 
+function isiPad() {
+  return (navigator.userAgent.match(/(iPad)/) /* iOS pre 13 */ || 
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) /* iPad OS 13 */); 
+}
+
 function apndChilren(p,j) {
   try {
     for (let i = 0; i < j.length; i++) {

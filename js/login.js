@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded",function() {
             if(location.search.indexOf('key=')>-1){byId('key').value=decodeURI(location.search.split('key=')[1].split('&')[0])}
             if(location.search.indexOf('autologin')>-1){attemptLogin(byId('name').value, byId('key').value)}
         }catch(ex){}
-        if(ismobile()){byId('vbtoggle').style.transform = 'translate(-150%, 0%)'}
+        if(ismobile() || isiPad()){byId('vbtoggle').style.transform = 'translate(-150%, 0%)'}
         else if(navigator.userAgent.indexOf('Beaker')>-1){byId('vbtoggle').style.transform = 'translate(-150%, 0%)'}
     } catch (ex) {
         
