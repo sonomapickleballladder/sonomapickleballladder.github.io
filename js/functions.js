@@ -167,7 +167,7 @@ if(t == -1) {return Base64.decode(r);}
 else return Base64.encode(r);
 }
 
-      function calert(rmv, title, content, clas, hgt, wdth, mesbg, mescl, mespad) {
+      function calert(rmv, title, content, clas, hgt, wdth, mesbg, mescl, mespad, fullpage, tpad) {
 
         //function prvundefined(e,n){"array"!=typeof e&&(e=e.split(","));for(let r=0;r<e.length;r++)Boolean(e[r])||(e[r]=n);return e}
                 let mthen = {funct:'remvel',para:'.modal__overlay'}
@@ -177,12 +177,14 @@ else return Base64.encode(r);
                 if(content.toString().length>0&&!mespad) {mespad='0.5em'}
 
                 clas||(clas=""),hgt||(hgt=""),wdth||(wdth=""),mesbg||(mesbg=""),mescl||(mescl=""),mespad||(mespad="");
-
+                
+                if(fullpage == 'full') {fullpage = 'height: 100%; width: 100%; max-width: 100%!important'}
+                else {fullpage = `max-height:${hgt};max-width:${wdth};`}
           
                 var alertContent = `
                   <div class="modal__overlay verdana">
-                    <div class="modal__window" style="max-height:${hgt};max-width:${wdth};">
-                      <div class="modal__titlebar ${clas}">
+                    <div class="modal__window" style="${fullpage}">
+                      <div class="modal__titlebar ${clas}" style="${tpad}">
                         <span class="modal__title">${title}</span>                        
                         <button class="modal__close">X</button>                    
                       </div>                     

@@ -22,8 +22,10 @@ const nRounds = 8;
 const diW = 7;
 
 
-function getRound() {
-  let d = new Date(), strY = strD.getFullYear(),
+function getRound(dts) {
+  let d = new Date();
+  if(dts) d.setDate(d.getDate() + dts)
+  let strY = strD.getFullYear(),
   yD = d.getFullYear() - strY,
   lYD = daysIntoYear(new Date(strY,11,31)),
   diny = daysIntoYear(d), dinl = (diny - daysIntoYear(strD))+(yD*lYD), round=null;
