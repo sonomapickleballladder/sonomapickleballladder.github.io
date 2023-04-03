@@ -13,7 +13,7 @@ function  setrefresh() {
       let urls = {1: {url:burl, view: 'Mobile', text: ' Certain formatting may not render properly with this view.'}, 2: {url:burl+dt, view: 'Desktop', text: ''}}
       if(Boolean(byId('link2'))){urls[1].url=byId('link2').getAttribute('url'); urls[2].url=byId('link').getAttribute('url')+dt;}
       let url = urls[2].url, view, alt = '';
-      if(ismobile()) {url=urls[1].url}
+      if(ismobile()||isiPad()) {url=urls[1].url}
       try{if(localStorage.getItem('spreadsheet_view')&&Object.keys(urls).includes(localStorage.getItem('spreadsheet_view'))){url = urls[localStorage.getItem('spreadsheet_view')].url}}catch(ex){}
       if (location.href.indexOf('url=')>-1) {url = urls[parseInt(location.href.split('url=')[1].split('&')[0].split('?')[0])].url;}
       for (let i = 0; i < Object.keys(urls).length; i++) {
