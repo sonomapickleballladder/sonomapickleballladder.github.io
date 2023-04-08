@@ -193,7 +193,8 @@ document.addEventListener("DOMContentLoaded",function () {
 
     try{
         let sja = {
-            1: `By confirming below, you are attesting that you will be present (not traveling or otherwise unavailable) for the <b><i>entirety of the round</i></b>, and that you will be able to offer <b><i>a number of possible time-windows</i></b> in which to play.`,
+           // 1: `By confirming below, you are attesting that you will be present (not traveling or otherwise unavailable) for the <b><i>entirety of the round</i></b>, and that you will be able to offer <b><i>a number of possible time-windows</i></b> in which to play.`,
+           1: 'By confirming below, you are attesting that you will be able to offer <b><i>a number of possible time-windows</i></b> in which to play, and that you will <b>not</b> be absent (traveling or otherwise unavailable) for <b><i>any significant chunk of the round</i></b>.',    
             2: 'By confirming below, you are attesting that you will be able to offer <b><i>a number of possible time-windows</i></b> in which to play, and that you will <b>not</b> be absent (traveling or otherwise unavailable) for <b><i>any significant chunk of the round</i></b>.'     
         }
         byId('atmsg').innerHTML = sja[rdLs[getRound()]]
