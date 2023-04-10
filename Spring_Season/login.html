@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" hidden>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow"/>
+     <title>Login | Sonoma Pickleball Ladder</title>
+    <style>
+        .modal {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 5;}
+        .login {padding: 1em; background-color: bisque; color: black; box-shadow: 1pt 3pt 8pt 0pt goldenrod; overflow: auto; width: min-content;}
+        .lg_input {padding: 0.25em; margin: auto;}
+        .lg_actual_input {padding: 0.5em; }
+        #submit {background: linear-gradient(23deg, rgba(50,130,60,0.5), rgba(250,130,60,0.5)); min-width: 100%; cursor: pointer;}
+        #submit:hover {filter: hue-rotate(-510deg);}
+        html,body {min-height: 100%;}
+        body {background: radial-gradient(18% 28% at 24% 50%, rgba(243, 226, 236, 0.65) 7%, rgba(7, 58, 255, 0) 100%) repeat scroll 0% 0%, conic-gradient(from 35deg at 18% 71%, rgba(224, 162, 92, 0.02) 6%, rgba(255, 255, 255, 0.35) 26%, rgba(255, 255, 255, 0.35) 46%, rgba(7, 58, 255, 0) 100%) repeat scroll 0% 0%, radial-gradient(70% 53% at 36% 76%, rgb(115, 242, 255) 0%, rgba(7, 58, 255, 0) 100%) repeat scroll 0% 0%, radial-gradient(42% 53% at 15% 94%, rgb(255, 255, 255) 7%, rgba(7, 58, 255, 0) 100%) repeat scroll 0% 0%, radial-gradient(42% 53% at 34% 72%, rgb(255, 255, 255) 7%, rgba(7, 58, 255, 0) 100%) repeat scroll 0% 0%, radial-gradient(18% 28% at 35% 87%, rgb(255, 255, 255) 7%, rgba(7, 58, 255, 0) 100%) repeat scroll 0% 0%, radial-gradient(31% 43% at 7% 98%, rgb(255, 255, 255) 24%, rgba(7, 58, 255, 0) 100%) repeat scroll 0% 0%, radial-gradient(21% 37% at 72% 23%, rgba(109, 255, 218, 0.41) 24%, rgba(7, 58, 255, 0) 100%) repeat scroll 0% 0%, radial-gradient(35% 56% at 91% 74%, rgba(138, 79, 255, 0.96) 9%, rgba(7, 58, 255, 0) 100%) repeat scroll 0% 0%, radial-gradient(74% 86% at 67% 38%, rgba(109, 255, 174, 0.96) 24%, rgba(7, 58, 255, 0) 100%) repeat scroll 0% 0%, rgba(0, 0, 0, 0) linear-gradient(125deg, rgb(78, 181, 255) 1%, rgb(76, 0, 252) 100%) repeat scroll 0% 0%!important;}
+       .pulse { animation-name: pulse; animation-duration: 1s; animation-iteration-count: infinite; animation-direction: alternate-reverse; animation-timing-function: ease;}
+       @keyframes pulse{ from{} to{ filter: blur(0.05em)}}
+    </style>
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="js/ladder.js"></script>
+    <script src="js/lzstring.js"></script>
+    <script src="js/supabase-js.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/login.js"></script>
+</head>
+<body>
+    <div class="modal login">
+
+       <center>
+        
+        <div><h1>Login</h1></div>
+
+        <div class="lg_input"><input class="lg_actual_input" type="text" id="email" placeholder="Email Address"></div>
+        <div class="lg_input"><input class="lg_actual_input"  type="password" id="key" placeholder="Secret Key"><i id="vbtoggle" style="position: absolute; transform: translate(-150%, 25%); cursor: default;" onclick="showpskey(this)">👁️</i> </div>
+        <div class="lg_input"><button id="submit" class="lg_actual_input" onclick="authorize({email: byId('email').value, key: byId('key').value})">Submit</button></div>
+        <div class="lg_input"><a href="mailto:SPLInfo@riseup.net?Subject=Pickleball Ladder | Login Credentials&body=Hi Theo,%0AI did not heed the instructions on the sign-up form about writing down and keeping track of my secret key. Could you remind me what mine is?%0AThanks,%0AYour name">I forgot my secret key.</a></div>
+        
+        <div class="lg_input" style="max-width: 100%;"><span id="message" ></span></div>
+
+       </center>
+       
+    </div>
+
+    
+<script src="js/pls.js"></script>
+</body>
+</html>
