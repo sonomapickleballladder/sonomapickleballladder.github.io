@@ -99,7 +99,10 @@ function validate(c) {
             try{if(document.querySelector('input[c=fallback_ladder]').closest('.wrap').classList.contains('h')){delete c.fallback_ladder}}catch(ex){}
             //console.log(c);
             if(!document.querySelector('form').checkValidity()) return false
-            if(!confirm('Proceed?')) return false
+            if(!confirm('Do you wish to proceed? You will not be able to go back and edit your responses once submitted.')) {document.body.classList.remove('pulse')
+            byId('submit_signup').disabled = false; return false ; }
+
+            try{saveFormInput()}catch(ex){}
 
             document.body.classList.add('pulse')
             byId('submit_signup').disabled = true
