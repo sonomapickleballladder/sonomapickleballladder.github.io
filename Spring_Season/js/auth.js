@@ -72,6 +72,7 @@ async function upsertData(t, e, thenfunction) {
 }
 
 function mk() {
+ try {
   let ud = document.getElementsByClassName('scd');
   for (let i = 0; i < ud.length; i++) {
     let t=ud[i].getAttribute('t'),s=ud[i].getAttribute('s'),e=ud[i].getAttribute('e'),m=ud[i].getAttribute('m'),y=ud[i].getAttribute('y'),r=false;
@@ -82,6 +83,7 @@ function mk() {
       if(debug) console.log('loaded in '+JSON.stringify(gbstr.fd - gbstr.sd)+' milliseconds');
   })
     }
+  } catch(ex){}
 }
 
 
