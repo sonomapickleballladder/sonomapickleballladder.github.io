@@ -1,6 +1,6 @@
 let isal = true;
-try {if(Boolean(lsdciph(localStorage.getItem(ladderId.ls+'enable_analytics')))) {isal = localStorage.getItem(ladderId.ls+'enable_analytics')}} catch(ex) {}
-if(location.href.indexOf('al=false')>-1) {isal = false; try{localStorage.setItem(ladderId.ls+'enable_analytics',lsciph(false))} catch(ex){}}
+try {if(localStorage.getItem(brick('$_enableAnalytics'))) {isal = localStorage.getItem(brick('$_enableAnalytics'))}} catch(ex) {}
+if(location.href.indexOf('al=false')>-1) {isal = false; try{localStorage.setItem(brick('$_enableAnalytics'),false)} catch(ex){}}
 if(location.hostname == 'localhost') {isal = false}
 //console.log(isal);
 if(isal) {
