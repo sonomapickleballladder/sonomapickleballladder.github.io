@@ -114,6 +114,12 @@ function validate(c) {
             register(c).then(function(res) {
               //console.log(res);
               try{ count1 = count1+1; }catch(ex){console.log(ex);};
+              try{var viewportmeta = document.querySelector('meta[name="viewport"]');
+              if (viewportmeta) {
+              viewportmeta.setAttribute('content', 'width=device-width, maximum-scale=1.0, initial-scale=1.0');
+              }
+              byId('submit_signup').blur()
+          }catch(ex){}
 
              if(!res.error) {
               saveData('Signups', c)
@@ -336,10 +342,11 @@ window.onload = ()=> {
       zminput[i].addEventListener('focus', function() {
         var viewportmeta = document.querySelector('meta[name="viewport"]');
         if (viewportmeta) {
-        viewportmeta.setAttribute('content', 'width=device-width, maximum-scale=10.0, initial-scale=1.0');
+        viewportmeta.setAttribute('content', 'width=device-width, maximum-scale=1.0, initial-scale=1.0');
         }
       })
     }
+  
   } catch (ex) {
     console.log(ex);
   }

@@ -90,6 +90,12 @@ document.addEventListener("DOMContentLoaded",function() {
 
 
 function authorize(d) {
+    try{var viewportmeta = document.querySelector('meta[name="viewport"]');
+              if (viewportmeta) {
+              viewportmeta.setAttribute('content', 'width=device-width, maximum-scale=1.0, initial-scale=1.0');
+              }
+              byId('submit').blur()
+            }catch(ex){}
   signIn({email: d.email, key: d.key})
   .then((r)=>{
         if(r.error) {
