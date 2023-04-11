@@ -54,9 +54,15 @@ function showActions() {
  // console.log(hk);
   let pmap = {'': 'it', 's': 'they'}, pmap2 = {'': "doesn't", 's': "don't"}
 
-  
+  if(hk.length == 1 && j.fallback_ladder == 'Yes') {
+   byId('notifications').innerHTML += `
+   <details>
+   <summary>${hk[0]} Ladder Payment</summary>
+   <p>Hi ${j.first_name},<br>Please pay at least $40 to <span class='copy' onclick='copy("SPLdeposits@riseup.net", 0, this)'>SPLdeposits@riseup.net</span> via <a rel="noreferrer" target="_blank" href="https://paypal.me/vq90lhInA1pD/40">PayPal</a> if you haven't already to complete your registration. (If the ${hk[0]} Ladder doesn't end up materializing, your payment and registration will be transferred to the Open Ladder).<br>Thanks,<br>Theo</small></p>
+   </details>`
+  }
 
-  if(hk.length>0) {
+ else if(hk.length>0) {
    byId('notifications').innerHTML += `
    <details>
    <summary>${emst}Ladder${star} Payment${plur}</summary>

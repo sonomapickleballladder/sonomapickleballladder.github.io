@@ -17,9 +17,15 @@
   <script>
     window.onload = function() {
       sb.client.auth.getUser().then((res)=>{
-      if(res.error) {let ms = 'Email link is invalid or has expired'; try{ms = location.href.split('error_description=')[1].split('&')[0].replace(/(\+)/g,' ')}catch(ex){document.title = 'Unauthorized'; return false} document.write(`<pre>{"error":"unauthorized client","message":"${ms}"}</pre>`); document.title = 'Unauthorized'; return false}
-      let j = res.data.user.user_metadata
-      location.replace(`login.html?email=${encodeURI(j.email)}&key=${encodeURI(j.secret_key)}&autologin`)
+      if(res.error) {
+        let ms = 'Email link is invalid or has expired'; 
+        try{ms = location.href.split('error_description=')[1].split('&')[0].replace(/(\+)/g,' ')}catch(ex){document.title = 'Unauthorized'; return false}
+        // document.write(`<pre>{"error":"unauthorized client","message":"${ms}"}</pre>`); document.title = 'Unauthorized';
+        location.replace(`login${protoMap[location.protocol]}`)
+      }
+      else{ let j = res.data.user.user_metadata
+      location.replace(`login${protoMap[location.protocol]}?email=${encodeURI(j.email)}&key=${encodeURI(j.secret_key)}&autologin`)
+      }
      })
     }
   </script>

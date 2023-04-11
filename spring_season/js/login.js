@@ -99,6 +99,7 @@ function authorize(d) {
   signIn({email: d.email, key: d.key})
   .then((r)=>{
         if(r.error) {
+            {try{hide(0)}catch(ex){}}
             document.querySelector('.modal.login').classList.remove('pulse')
             byId('submit').removeAttribute('disabled')
             calert(0, '<span style="font-size: large;">Sign in Failed</span>', `<span style="font-size: medium;">${r.error.message}</span>`,'error','100%', '100%',0,0,'2em', 'full', 'padding: 0.5em')}

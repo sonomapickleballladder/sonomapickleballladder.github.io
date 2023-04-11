@@ -10,11 +10,11 @@ if(isal) {
         }
     }
 
-    /*let al = document.createElement('script');
-     al.src = 'https://analytics.projectsegfau.lt/js_min/script-min.js';
+    let al = document.createElement('script');
+     al.src = 'https://analytics.projectsegfau.lt/js/script.js';
      al.setAttribute('data-domain', 'sonomapickleballladder.github.io');
      al.setAttribute('defer', '');
-     document.head.appendChild(al)}*/
+     document.head.appendChild(al)
     }
 
 
