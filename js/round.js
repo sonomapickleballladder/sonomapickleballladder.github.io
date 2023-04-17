@@ -16,7 +16,7 @@ const dateInfo = {};
 
 const strD= new Date(2023,0,23);
 const rdL= 14;
-const rdLs = [2,2,2,2,1,2,1,1]
+const rdLs = [2,2,2,2,1,2,2,0]
 const frstC = -5;
 const nRounds = 8;
 const diW = 7;
