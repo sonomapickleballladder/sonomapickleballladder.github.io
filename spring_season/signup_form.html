@@ -104,11 +104,11 @@
 
             <div class="wrap">
                 <div class="hd">Please indicate below which Ladder(s) you would like to participate in<br>
-                    <i>
+                    <!--<i>
                         <small>Note: Every starred Ladder* will only transpire if at least 24 players sign up for it.
                             If there is one you really want to happen, please encourage your friends and fellow similarly-skilled players to sign up for it as well.
                         </small>
-                    </i>
+                    </i>-->
                     <p hidden>I have some requests for a separate Women's Ladder, so I am offering this in addition to an Open/Mixed-Gender Ladder. 
                     Note: if the Women's Ladder does not get at least 30 sign-ups, it will be merged with the Mixed-Gender one.</p>
                 </div>
@@ -121,24 +121,24 @@
                         <input type="checkbox" c="ladder" name="ladder" value="Open" id="prefer_open" onchange="toggleFallback(this);"> <label for="prefer_open" style="font-weight: bold;">Open/Mixed-Gender Ladder</label>
                     </div>
                     <div class="full">
-                        <input type="checkbox" c="ladder" name="ladder" value="Womens" id="prefer_womens" onchange="unRadio(byId('prefer_mens'));toggleFallback(this); toggleIntConfirm(this)"> <label for="prefer_womens">Women's Only Ladder*</label>
+                        <input type="checkbox" c="ladder" name="ladder" value="Womens" id="prefer_womens" onchange="unRadio(byId('prefer_mens'));toggleFallback(this); toggleIntConfirm(this)"> <label for="prefer_womens"  style="font-weight: bold;">Women's Only Ladder</label>
                     </div>
-                    <div class="full">
-                        <input type="checkbox" c="ladder" name="ladder" value="Mens" id="prefer_mens" onchange="unRadio(byId('prefer_womens'));toggleFallback(this); toggleIntConfirm(this)"> <label for="prefer_mens">Men's Only Ladder*</label>
+                    <!--<div class="full h" hidden="true">
+                        <input disabled type="checkbox" c="ladder" name="ladder" value="Mens" id="prefer_mens" onchange="unRadio(byId('prefer_womens'));toggleFallback(this); toggleIntConfirm(this)"> <label for="prefer_mens">Men's Only Ladder*</label>
                     </div>
-                    <div class="full">
-                        <input type="checkbox" c="ladder" name="ladder" value="Singles" id="prefer_singles" onchange="toggleFallback(this); toggleIntConfirm(this)"> <label for="prefer_singles">Singles Ladder*</label>
+                    <div class="full h" hidden="true">
+                        <input disabled type="checkbox" c="ladder" name="ladder" value="Singles" id="prefer_singles" onchange="toggleFallback(this); toggleIntConfirm(this)"> <label for="prefer_singles">Singles Ladder*</label>
                     </div>
-                    <div class="full">
-                        <input type="checkbox" c="ladder" name="ladder" value="Mini-Singles" id="prefer_mini-singles" onchange="toggleFallback(this); toggleIntConfirm(this)"> <label for="prefer_mini-singles">Mini (aka. Skinny) Singles Ladder*</label>
+                    <div class="full h" hidden="true">
+                        <input disabled type="checkbox" c="ladder" name="ladder" value="Mini-Singles" id="prefer_mini-singles" onchange="toggleFallback(this); toggleIntConfirm(this)"> <label for="prefer_mini-singles">Mini (aka. Skinny) Singles Ladder*</label>
                     </div>
-                    <div class="full">
-                        <input type="checkbox" c="ladder" name="ladder" value="2-Week" id="prefer_2-week" onchange="toggleFallback(this); toggleIntConfirm(this)"> <label for="prefer_2-week">Ladder with 2-Week Rounds* 
+                    <div class="full h" hidden="true">
+                        <input disabled type="checkbox" c="ladder" name="ladder" value="2-Week" id="prefer_2-week" onchange="toggleFallback(this); toggleIntConfirm(this)"> <label for="prefer_2-week">Ladder with 2-Week Rounds* 
                             <span onclick="event.preventDefault();" class="tooltip">
-                                ℹ️ <!--<small><span style="border: 1px solid black; padding: 0em 0.25em;">i</span></small>-->
+                                ℹ️ 
                             <span class="tooltiptext">This is suited for players with slightly less flexible schedules. It would run into July, so there would still be 6 rounds.</span>
                           </span></label>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 

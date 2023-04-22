@@ -177,105 +177,21 @@ arriving late past the scheduled start time:<br>
 <li><p>New rankings will be formed each round based on the previous round's results.</p></li>
 <li><p>There are two operations which are performed to calculate the new rankings:</p></li></ul>
 <ol>
-<li><p>Firstly, the players who played that round are re-ranked based on their seed number (relative rank within group) and how they finished in their group (see 'Players Playing Re-ranked' rows in the <a target="_blank" href="results.html">Results sheet</a>). <b>You finish 1st(/4th) in your group by having the highest(/lowest) point differential (points won – points lost)</b>. <p>This table below shows how you move up (←) or down (→) according to different finishes.</p>
+<li><p>Firstly, the players who played that round are re-ranked based on their seed number (relative rank within group) and how they finished in their group (see 'Players Playing Re-ranked' rows in the <a target="_blank" href="results.html">Results sheet</a>). <b>You finish 1st(/4th) in your group by having the highest(/lowest) point differential (points won – points lost)</b>. 
   
-  <table class="h" hidden>
-    <tr>
-  <td class="head" ></td>
-      <td  class="head" colspan="5">Seed</td>
-    </tr>
-    <tr>
-      <td class="head" rowspan="6">Finish</td>
-    </tr>
-  <tr>
-    <td class="head" ></td>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    <td>4</td>
-  </tr>
-  <tr>
-    <td>1st</td>
-    <td class="move" id="f1s1">← 1</td>
-    <td class="move" id="f1s2">← 2</td>
-    <td class="move" id="f1s3">← 3</td>
-    <td class="move" id="f1s4">← 4</td>
+  <p>This table below shows how you move up (←) or down (→) according to different finishes.</p>
   
-  </tr>
-  <tr>
-    <td>2nd</td>
-    <td class="move" id="f2s1">1 →</td>
-    <td class="move" id="f2s2"></td>
-    <td class="move" id="f2s3">← 1</td>
-    <td class="move" id="f2s4">← 2</td>
+  <table class=""><tr><td class="head" ></td><td class="head" colspan="5">Seed</td></tr><tr><td class="head" rowspan="6">Finish</td></tr><tr><td class="head" ></td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>1st</td><td class="move">← 2</td><td class="move">← 3</td><td class="move">← 4</td><td class="move">← 5</td></tr><tr><td>2nd</td><td class="move"></td><td class="move">← 1</td><td class="move">← 2</td><td class="move">← 3</td></tr><tr><td>3rd</td><td class="move">3 →</td><td class="move">2 →</td><td class="move">1 →</td><td class="move"></td></tr><tr><td>4th</td><td class="move">5 →</td><td class="move">4 →</td><td class="move">3 →</td><td class="move">2 →</td></tr></table>
   
-  </tr>
-  <tr>
-    <td>3rd</td>
-    <td class="move" id="f3s1">2 →</td>
-    <td class="move" id="f3s2">1 →</td>
-    <td class="move" id="f3s3"></td>
-    <td class="move" id="f3s4">← 1</td>
-  </tr>
-  <tr>
-    <td>4th</td>
-    <td class="move" id="f4s1">4 →</td>
-    <td class="move" id="f4s2">3 →</td>
-    <td class="move" id="f4s3">2 →</td>
-    <td class="move" id="f4s4">1 →</td>
-  </tr>
-  </table>
+  <a href="javascript: void(0)" onclick="document.getElementById('logic').classList.toggle('hidden'); this.classList.toggle('hidden')"><p>Show more...</p></a>
 
-  <table class="">
-  <tr>
-<td class="head" ></td>
-    <td  class="head" colspan="5">Seed</td>
-  </tr>
-  <tr>
-    <td class="head" rowspan="6">Finish</td>
-  </tr>
-<tr>
-  <td class="head" ></td>
-  <td>1</td>
-  <td>2</td>
-  <td>3</td>
-  <td>4</td>
-</tr>
-<tr>
-  <td>1st</td>
-  <td class="move">← 2</td>
-  <td class="move">← 3</td>
-  <td class="move">← 4</td>
-  <td class="move">← 5</td>
+  <p class="hidden" id="logic">The logic behind the movement is that the 1st seed (highest ranked player) is expected to win the group and therefore moves up less for doing so. If the 1st seed gets last in the group however, they are losing to 3 lower ranked players and therefore should be dropped below all of them. The same concept applies for the other 3 seeds. This system allows for more movement when the rankings are inaccurate and should result in less movement as the rankings start to become more accurate.</p></p></li>
+  
 
-</tr>
-<tr>
-  <td>2nd</td>
-  <td class="move"></td>
-  <td class="move">← 1</td>
-  <td class="move">← 2</td>
-  <td class="move">← 3</td>
+  <p><i>Note: I may conduct a survey part way into the season to see if players would like to switch to the formula shown in <a href="javascript:;" onclick="byId('table-formula-2').classList.remove('h');byId('table-formula-2').removeAttribute('hidden');">this table below</a>, which is pertinent for once everyone has approached their appropriate position in the Ladder Standings and less movement is optimal.</i></p>
 
-</tr>
-<tr>
-  <td>3rd</td>
-  <td class="move">3 →</td>
-  <td class="move">2 →</td>
-  <td class="move">1 →</td>
-  <td class="move"></td>
-</tr>
-<tr>
-  <td>4th</td>
-  <td class="move">5 →</td>
-  <td class="move">4 →</td>
-  <td class="move">3 →</td>
-  <td class="move">2 →</td>
-</tr>
-</table>
+  <table id="table-formula-2" class="h" hidden><tr><td class="head" ></td><td class="head" colspan="5">Seed</td></tr><tr><td class="head" rowspan="6">Finish</td></tr><tr><td class="head" ></td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>1st</td><td class="move" id="f1s1">← 1</td><td class="move" id="f1s2">← 2</td><td class="move" id="f1s3">← 3</td><td class="move" id="f1s4">← 4</td></tr><tr><td>2nd</td><td class="move" id="f2s1">1 →</td><td class="move" id="f2s2"></td><td class="move" id="f2s3">← 1</td><td class="move" id="f2s4">← 2</td></tr><tr><td>3rd</td><td class="move" id="f3s1">2 →</td><td class="move" id="f3s2">1 →</td><td class="move" id="f3s3"></td><td class="move" id="f3s4">← 1</td></tr><tr><td>4th</td><td class="move" id="f4s1">4 →</td><td class="move" id="f4s2">3 →</td><td class="move" id="f4s3">2 →</td><td class="move" id="f4s4">1 →</td></tr></table>
 
-<a href="javascript: void(0)" onclick="document.getElementById('logic').classList.toggle('hidden'); this.classList.toggle('hidden')"><p>Show more...</p></a>
-
-<p class="hidden" id="logic">The logic behind the movement is that the 1st seed (highest ranked player) is expected to win the group and therefore moves up less for doing so. If the 1st seed gets last in the group however, they are losing to 3 lower ranked players and therefore should be dropped below all of them. The same concept applies for the other 3 seeds. This system allows for more movement when the rankings are inaccurate and should result in less movement as the rankings start to become more accurate.</p></p></li>
 
 <li><p>The 'Players Playing Re-ranked' list (excluding any subs) forms the basis for the next
    round's Ladder Standings, but the players who did not play that round
