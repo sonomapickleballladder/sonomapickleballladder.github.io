@@ -40,7 +40,7 @@
         window.addEventListener('DOMContentLoaded', function() {
           nifnok()
           ptc('oermovw', '*', 'awvnu', '1').then(function(res){
-            res = res.sort(function(x, y){
+            res = res.data.sort(function(x, y){
               return x.id - y.id;
             })
             //console.log(res);

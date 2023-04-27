@@ -535,7 +535,7 @@ function swism() {
 
 function assemble() {
 let maillink = document.createElement('a');
-maillink.href=('mailto:SPLscoresubmissions@riseup.net?subject='+round.value+','+thnsp+group.value+'&body='+
+maillink.href=('mailto:SPLscoresubmissions@riseup.net?subject='+thisLadder+' Ladder Scores: '+round.value+','+thnsp+group.value+'&body='+
 
 p1.value+cl+lb+
 lb+
@@ -583,6 +583,9 @@ s3a.value+cm+s3a.value+cm+s3b.value+cm+s3b.value+lb+
 s4a.value+cm+s4b.value+cm+s4b.value+cm+s4a.value+lb+
 s5a.value+cm+s5b.value+cm+s5a.value+cm+s5b.value+lb+
 s6a.value+cm+s6a.value+cm+s6b.value+cm+s6b.value+lb+
+lb
+
++ 'Season: '+ ladderSeason +
 lb
 
 )
@@ -646,7 +649,7 @@ s3a.value+cm+s3a.value+cm+s3b.value+cm+s3b.value+lb+
 s4a.value+cm+s4b.value+cm+s4b.value+cm+s4a.value+lb+
 s5a.value+cm+s5b.value+cm+s5a.value+cm+s5b.value+lb+
 s6a.value+cm+s6a.value+cm+s6b.value+cm+s6b.value+lb+
-lb
+lb+ 'Ladder: '+thisLadder+', '+ 'Season: '+ladderSeason+lb
 
 copyfunction();
 

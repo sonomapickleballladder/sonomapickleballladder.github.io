@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex,nofollow"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow"/>
-     <title>Initial Version of Initial Order</title>
+     <title>Initial Version of Initial Order | Open Ladder</title>
     <script src="js_min/ladder-min.js"></script>
     <script src="js_min/supabase-js.js"></script>
     <script src="js_min/lzstring-min.js"></script>
@@ -18,7 +18,7 @@
 <body>
 
     <center>
-        <h1>&#129692;&nbsp;Initial Version of Initial Order&nbsp;&#129692;</h1>
+        <h1><span class="wml">&#129692;</span>&nbsp;Initial Version of Initial Order&nbsp;<span class="wml">&#129692;</span></h1>
     </center>
     <hr>
 
@@ -44,7 +44,7 @@
        
     </div>
 
-    <h2>Order based on average Rating:</h2>
+    <h2>Order based on Rating:</h2>
 
     <ol id="order">
         <br>
@@ -55,9 +55,9 @@
     <hr>
     
     <p>
-    This foundational initial order is just a ranked list based on the average of all the ratings each player submitted when signing up. Wherever there were multiple players with the same average rating, they were sorted based on when they signed up.
+    This foundational initial order is just a ranked list based on the ratings each player submitted when signing up. Wherever there were multiple players with the same rating, they were sorted based on when they signed up.
     </p>
-    <p>Note: DUPR ratings are displayed next to every player who provided one, as they are public information anyway. Other rating types are not displayed, as some people may not want them to be shared.</p>
+    <p>Note: DUPR ratings are displayed next to every player who provided one, as they are public information anyway. Self ratings are not displayed, as some people may not want them to be shared.</p>
 
    
     <script>
@@ -65,6 +65,8 @@
     lsWarning();
 
     getrankings();
+    nifnok()
+    hide(0)
 }
 
 function getrankings() {
@@ -90,6 +92,7 @@ function getrankings() {
             return obj.id === Math.max(...wnieai)
           });
        awMisen=awMisen[0];
+       awMisen.order = awMisen.order.split(',').map(a=> a.replace(': null','')).toString()
        wbicewom=wbicewom[0]
           //console.log(wbicewom);
 
@@ -97,7 +100,7 @@ function getrankings() {
 
         renderorder(wbicewom, plr);
         }
-        catch(ex) {byId('order').innerHTML = `Initial Ladder Order Creation will be initialized ${-frstC} days before the first round starts.`}
+        catch(ex) {byId('order').innerHTML = `Initial Ladder Order Creation will be initialized 3 days before the first round starts.`}
  
     
 
@@ -129,7 +132,7 @@ let wbicewom, awMisen, bnsuawe = [], wnieai = [];
 
 async function ptc(t,s,e,m,x,z,thenfunction){
     const { data, error } = await sb.client
-    .from(init.f_e+t)
+    .from(init.f_e+ladderId.sb+t)
     .select(s)
   
   
@@ -138,7 +141,7 @@ async function ptc(t,s,e,m,x,z,thenfunction){
   try{executeFunctionByName(thenfunction, window, data);}catch(ex){return data}
   
   
-  //return data
+  return {data:data,error:error}
   
     
   }

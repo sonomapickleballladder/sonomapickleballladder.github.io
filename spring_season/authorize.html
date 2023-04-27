@@ -24,7 +24,7 @@
         location.replace(`login${protoMap[location.protocol]}`)
       }
       else{ let j = res.data.user.user_metadata
-      location.replace(`login${protoMap[location.protocol]}?email=${encodeURI(j.email)}&key=${encodeURI(j.secret_key)}&autologin`)
+        location.replace(`login${protoMap[location.protocol]}?spl=${lsciph('email='+encodeURI(j.email)+'&key='+encodeURI(j.secret_key)+'&autologin')}`)
       }
      })
     }
