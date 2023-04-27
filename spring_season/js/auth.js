@@ -10,16 +10,15 @@ const sb = {
 
 var debug = location.search.indexOf('debug')>-1;
 
-async function ptc(t,s,e,m,x,z,thenfunction){
+async function ptc(t,s,e,m,kr){
+  kr || ( kr = ladderId.sb )
   const { data, error } = await sb.client
-  .from(init.f_e+t)
+  .from(init.f_e+kr+t)
   .select(s)
   .eq(e, m)
 
 
 if(error&&debug) console.log(error);
-
-try{executeFunctionByName(thenfunction, window, data);}catch(ex){return data}
 
 return {data: data, error: error}
 
@@ -28,26 +27,25 @@ return {data: data, error: error}
   
 }
 
-async function saveData(t, e, thenfunction) {
+async function saveData(t, e, kr) {
+  kr || ( kr = ladderId.sb )
  const { data, error } = await sb.client
-  .from(init.f_e+t)
+  .from(init.f_e+ladderId.sb+t)
   .insert([
     e
   ])
 
   //if(error) console.log(error);
 
-  try{executeFunctionByName(thenfunction, window, data);}catch(ex){}
-
   return {data: data, error: error}
 
 }
 
 
-async function declareData(t, e, s, m) {
-  //console.log(t,e,s,m);
+async function declareData(t, e, s, m, kr) {
+  kr || ( kr = ladderId.sb )
   const { data, error } = await sb.client
-   .from(init.f_e+t)
+   .from(init.f_e+kr+t)
    .update([
      e
    ])
@@ -57,16 +55,15 @@ async function declareData(t, e, s, m) {
    return {data: data, error: error}
  }
 
-async function upsertData(t, e, thenfunction) {
+async function upsertData(t, e, kr) {
+  kr || ( kr = ladderId.sb )
   const { data, error } = await sb.client
-   .from(t)
+   .from(init.f_e+kr+t)
    .upsert([
      e
    ])
  
    if(error) console.log(error);;
- 
-   try{executeFunctionByName(thenfunction, window, data);}catch(ex){return data}
 
    return {data: data, error: error}
 }
@@ -77,6 +74,7 @@ function mk() {
   for (let i = 0; i < ud.length; i++) {
     let t=ud[i].getAttribute('t'),s=ud[i].getAttribute('s'),e=ud[i].getAttribute('e'),m=ud[i].getAttribute('m'),y=ud[i].getAttribute('y'),r=false;
     ptc(t,s,e,m).then(function(rc) {
+      rc = rc.data;
       if(y){rc[0][s]=LZString.decompressFromUTF16(rc[0][s])}
       try {if(Boolean(rc[0][s])){ud[i].innerHTML=rc[0][s]}} catch (error) {}
       gbstr.fd=new Date().getTime();

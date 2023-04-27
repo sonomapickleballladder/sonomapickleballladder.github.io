@@ -96,6 +96,7 @@ function validate(c) {
             try{delete c.rating_type;}catch(ex){}
             try{c.first_name = c.first_name.proper(1)}catch(ex){}
             try{c.last_name = c.last_name.proper(1)}catch(ex){}
+            try{c.email = c.email.toLowerCase()}catch(ex){}
             try{c.username = (c.first_name+c.last_name).replace(/\s/g,'').toLowerCase()}catch(ex){}
             try{if(document.querySelector('input[c=fallback_ladder]').closest('.wrap').classList.contains('h')){delete c.fallback_ladder}}catch(ex){}
             //console.log(c);
@@ -264,10 +265,10 @@ window.onload = ()=> {
     let svdin = lsdciph(localStorage.getItem(brick('$_signupFormInput'+ladderSeason)))
     console.log(svdin);
     if(hasreg) {
-      if(location.hash.indexOf('view-responses')<0) {
+      if(location.hash.indexOf('view-responses')<0 && location.href.indexOf('invite=')<0) {
         document.write('<pre class="abs-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: larger; word-wrap: break-word; white-space: pre-wrap;">You have already signed up. Click <a href="?reload=1#view-responses">here</a> to view your responses.</pre>');
       }
-      else {
+      else if(location.href.indexOf('invite=')<0) {
         if(!svdin) {
           document.write('<pre class="abs-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: larger; word-wrap: break-word; white-space: pre-wrap;">Something went wrong ☹️</pre>');
         }
@@ -407,8 +408,7 @@ async function register(a) {
             email: a.email,
             password: a.secret_key,
             options: {
-                data: a,
-                emailRedirectTo: test.href
+                data: a
               }
           })
 
@@ -418,62 +418,7 @@ async function register(a) {
     }
   
   
-    async function login(a,b) {
-     try{ if (a.length<1||b.length<1) {byId('auth_state2').innerHTML = 'Error: Missing required input.'; byId('auth_state2').style.color = cc(false,0); return false} } catch(ex){}
-        const { data, error } = await sb.client.auth.signInWithPassword({
-            email: a,
-            password: b,
-          })
+
   
-          if (error) {
-          alert(error.message)  
-          }
-  
-          else {
-            gbstr.user_data = data;
-            location.replace('dashboard.html')
-          try {
-              localStorage.setItem(ladderId.ls+'user_credentials',lsciph({u:LZString.compress(a), p:LZString.compress(b)}));          
-             } 
-          catch (ex) {
-              
-            }
-          }
-          
-        }
-  
-        async function forgotPassword(em, rdr) {
-          if(!validateEmail(em)) {alert('Please enter your email address correctly'); return false}
-          const { data, error } = await sb.client.auth.resetPasswordForEmail(em, {
-            redirectTo: rdr,
-          })
-          
-        }
-  
-        async function updatePassword(pass) {
-          if(pass.length<6) {alert('Password must be at least 6 characters long'); return false}
-          const { data, error } = await sb.client.auth.updateUser({password: pass})
-          if(error) alert(error);
-          else location.replace('login.html')
-        }
-  
-        async function signout() {
-          
-          let cfrm = confirm('Are you sure?')
-  
-          if(!cfrm) return false
-  
-          const { data, error } = await sb.client.auth.signOut()
-  
-          if(error) {alert(error)}
-  
-          else {location.replace('login.html')}
-  
-        }
+
     
-  
-        function showpskey(be) {
-          let map = {text: ['🙈', 'password'], password: ['👁️', 'text']}
-          be.previousElementSibling.type = map[be.previousElementSibling.type][1];
-          be.innerHTML = map[be.previousElementSibling.type][0];
-          }

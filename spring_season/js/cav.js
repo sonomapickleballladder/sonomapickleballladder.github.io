@@ -16,8 +16,8 @@ function vrfrd(m,k) {
     if(m) {
         try{
             try{if(!byId('agree1').checked){calert(0, '<span style="font-size: x-large">Hang on!</span>', `<span style="font-size: large">You must <a onclick="remvel('.modal__overlay')" href="#attention">understand</a></span>`, 0, 0, '50%',0,0,'0.75em'); return false}}catch(ex){}
-          let emes = `mailto:SPLconfirmations@riseup.net?subject=Yes for ${byId('round').value}&body=Confirming that I (${lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user')).name}) am available for the entirety of ${byId('round').value}.`;
-          if(k==false) {emes = `mailto:SPLconfirmations@riseup.net?subject=No for ${byId('round').value}&body=I (${lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user')).name}) am no longer available for ${byId('round').value}.`;}
+          let emes = `mailto:SPLconfirmations@riseup.net?subject=${thisLadder} Ladder | Yes for ${byId('round').value}&body=Confirming that I (${lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user')).name}) am available for ${byId('round').value}.`;
+          if(k==false) {emes = `mailto:SPLconfirmations@riseup.net?subject=${thisLadder} Ladder | No for ${byId('round').value}&body=I (${lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user')).name}) am no longer available for ${byId('round').value}.`;}
           byId('emailconfirmlink').href=emes;
         }
         catch(ex) {
@@ -39,25 +39,34 @@ function vrfid(tmd) {
     try{if(!byId('agree1').checked && tmd){calert(0, '<span style="font-size: x-large">Hang on!</span>', `<span style="font-size: large">You must <a onclick="remvel('.modal__overlay')" href="#attention">understand</a></span>`, 0, 0, '50%',0,0,'0.75em'); return false}}catch(ex){}
     let angm = 'serviceWorkers';
     let bw = lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user'));
-    bw = JSON.parse(bw);
     let wname = bw.name.replace(/(\s)/g,'').toLowerCase();
     let rnd = parseInt(byId('round').value.split(' ').pop().trim());
-    let cky = cipher(LZString.decompress(bw.expires));
+    let cky = cipher(LZString.decompressFromEncodedURIComponent(bw.expires));
     let gso = cky(`${rnd}/${wname}`);
     let cgso = cky(`${rnd}/${wname}/${tmd}`);
     //console.log(cgso);
     let injson = {round: rnd, name: bw.name, smvig: bw.token, encoding: gso, encoding3: cgso, is_available: tmd}
 
-    let kf = confirm(`By clicking okay, you are confirming that you (${bw.name}) are available for the entirety of ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`)
+    let kf = confirm(`By clicking okay, you are confirming that you (${bw.name}) are available (as defined above) for ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`)
     
     if(!kf) {return false}
 
 
     setTimeout(function(){saveData('availability2.0', injson).then(function(dn) {
-        if(!dn) {
+
+        if(!dn.error) {
             checkstatus();
         //showstatus(true);
         //cfstatus = true;
+        let usrt = lsdciph(localStorage.getItem(brick('$_authenticated_user'+ladderSeason)))
+        try{usrt = JSON.parse(usrt)}catch(ex){}
+        try {
+            let nyj = {true: {n:'Womens', ur: '@Womens/'}, false: {n:'Open',ur: '../'}}
+            if( (usrt.ladder.includes('Open') && usrt.ladder.includes('Womens')) ) {
+                let nf = nyj[thisLadder == 'Open']
+                calert(0, `<span style="font-size: large">Successfully confirmed</span>`, `<span style="font-size: larger">Click <a href="${nf.ur}confirm_availability${protoMap[location.protocol]}">here</a> if you wish to also confirm your availability for the ${nf.n} Ladder.</span>`,'notice',0,0,0,0,'1.5em')
+            }
+        } catch (ex) {}
         }
         else {calert(0,'Server Error', 'Could not proccess your request. Please confirm by email instead.')}
     })},500);
@@ -69,6 +78,7 @@ function checkstatus() {
     setTimeout(checkstatus, 86400000)
     let kp = lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user'));
     ptc('availability2.0', 'encoding3', 'smvig', kp.token).then(function(res){
+        res = res.data
         if(res && res.length>0) {
             //console.log(res);
             //console.log(res);
@@ -79,7 +89,7 @@ function checkstatus() {
                 return event.round == getRound();
             }
             
-           let dcip = decipher(LZString.decompress(kp.expires));
+           let dcip = decipher(LZString.decompressFromEncodedURIComponent(kp.expires));
            for (let i = 0; i < res.length; i++) {
             let fa = dcip(res[i].encoding3);
             //console.log(parseInt(fa.split('/')[0].trim())===getRound()+1);
@@ -129,16 +139,15 @@ function unvrfid(tmd) {
     try{if(!byId('agree1').checked && tmd){calert(0, '<span style="font-size: x-large">Hang on!</span>', `<span style="font-size: large">You must <a onclick="remvel('.modal__overlay')" href="#attention">understand</a></span>`, 0, 0, '50%',0,0,'0.75em'); return false}}catch(ex){}
     let angm = 'serviceWorkers';
     let bw = lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user'));
-    bw = JSON.parse(bw);
     let wname = bw.name.replace(/(\s)/g,'').toLowerCase();
     let rnd = parseInt(byId('round').value.split(' ').pop().trim());
-    let cky = cipher(LZString.decompress(bw.expires));
+    let cky = cipher(LZString.decompressFromEncodedURIComponent(bw.expires));
     //let gso = cky(`${rnd}/${wname}`);
     let cgso = cky(`${rnd}/${wname}/${tmd}`);
     //console.log(cgso);
     let injson = {encoding3: cgso, is_available: tmd}
     
-    let mgea = `By clicking okay, you are confirming that you (${bw.name}) are available for the entirety of ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`;
+    let mgea = `By clicking okay, you are confirming that you (${bw.name}) are available (as defined above) for ${byId("round").value}.\r\n \r\nIf you are not, please hit cancel.`;
     if(!tmd) {mgea = `By clicking okay, you (${bw.name}) are withdrawing your availability for ${byId("round").value}.\r\n \r\nIf you do not wish to proceed, please hit cancel.`;}
     let kf = confirm(mgea);
     
@@ -149,11 +158,21 @@ function unvrfid(tmd) {
     try{byId('confirmationstatus').innerHTML = 'pending...';byId('confirmationstatus').style.backgroundColor=''}catch(ex){}
 
     setTimeout(function(){declareData('availability2.0', injson, 'encoding3', acwom).then(function(dn) {
-      //console.log(dn);
-      if(!dn) {
+      if(!dn.error) {
         checkstatus();
           //  showstatus(tmd)
           //  cfstatus = tmd;
+          let usrt = lsdciph(localStorage.getItem(brick('$_authenticated_user'+ladderSeason)))
+        try{usrt = JSON.parse(usrt)}catch(ex){}
+        try {
+            let nyj = {true: {n:'Womens', ur: '@Womens/', tp: 'confirm'}, false: {n:'Open',ur: '../', tp: 'withdraw'}}
+            if( (usrt.ladder.includes('Open') && usrt.ladder.includes('Womens')) ) {
+                let nf = nyj[thisLadder == 'Open']
+               // console.log(`Successfully updated`, `Click <a href="${nf.ur}confirm_availability${protoMap[location.protocol]}">here</a> if you wish to also update you availability for the ${nf.n} Ladder.`)
+            
+                calert(0, `<span style="font-size: large">Successfully updated</span>`, `<span style="font-size: larger">Click <a href="${nf.ur}confirm_availability${protoMap[location.protocol]}">here</a> if you wish to also update your availability for the ${nf.n} Ladder.</span>`,'notice',0,0,0,0,'1.5em')
+            }
+        } catch (ex) {}
         }
         else {calert(0,'Server Error', 'Could not proccess your request. Please confirm by email instead.')}
         
@@ -224,7 +243,6 @@ let cfstatus;
 
 function paywall(nosh, nopy) {
     let bw = lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user'));
-    bw = JSON.parse(bw);
     let johm = bw.name.replace(/(\s)/g,'').toLowerCase();
     let gr = cipher('limit');
    //console.log(johm);
@@ -242,7 +260,7 @@ function bag(r,nosh, nopy) {
         if(!Boolean(localStorage.getItem(ladderId.ls+'payalert')) || Date.now() - localStorage.getItem(ladderId.ls+'payalert') > dif) {
         localStorage.setItem(ladderId.ls+'payalert', Date.now())
         calert(0, '<span style="font-size: large">Payment Alert</span>', 
-    `<span style="font-size: large">Hi ${lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user')).name.split(' ')[0]}. According to our records, it looks like you still need to pay your <a style="color: palevioletred" target="_blank" href="signup.html#price">registration fee</a>. If you have already paid, please let us know by <a style="color: palevioletred" target="_blank" href="mailto:SPLInfo@riseup.net?subject=Ladder Payment">email</a> (including when and who you paid, plus the amount). If not, please visit <a style="color: palevioletred" target="_blank" href="pay_options.html">the payment options page</a>, which includes an up to date list of times you can pay in person.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')
+    `<span style="font-size: large">Hi ${lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user')).name.split(' ')[0]}. According to our records, it looks like you still need to pay your <a style="color: palevioletred" target="_blank" href="signup${protoMap[location.protocol]}#price">registration fee</a>. If you have already paid, please let us know by <a style="color: palevioletred" target="_blank" href="mailto:SPLInfo@riseup.net?subject=${thisLadder} Ladder Payment">email</a> (including when and who you paid, plus the amount). If not, please visit <a style="color: palevioletred" target="_blank" href="pay_options${protoMap[location.protocol]}">the payment options page</a>, which includes an up to date list of times you can pay in person.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')
         }
     }
     
@@ -263,7 +281,7 @@ function bag(r,nosh, nopy) {
         }
         }
         
-        function palert() {calert(0, '<span style="font-size: large">Ineligibility Alert</span>', `<span style="font-size: large">Hi ${lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user')).name.split(' ')[0]}. Unfortunately you may not play for Round ${getRound()+1} because you have reportedly <a style="color: palevioletred" target="_blank" href="how_it_works.html?r=p&t=0cb2ca6d6f072d00ca916f5defc5972629ac163598eb2b0dacab4423e34cb4f3&bg=darkorange">failed to show up</a> for your match in Round ${getRound()}. Please wait until Round ${getRound()+2}, and do not forget about your matches in the future.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')}
+        function palert() {calert(0, '<span style="font-size: large">Ineligibility Alert</span>', `<span style="font-size: large">Hi ${lsdciph(localStorage.getItem(ladderId.ls+'logged_in_user')).name.split(' ')[0]}. Unfortunately you may not play for Round ${getRound()+1} because you have reportedly <a style="color: palevioletred" target="_blank" href="how_it_works${protoMap[location.protocol]}?r=p&t=0cb2ca6d6f072d00ca916f5defc5972629ac163598eb2b0dacab4423e34cb4f3&bg=darkorange">failed to show up</a> for your match in Round ${getRound()}. Please wait until Round ${getRound()+2}, and do not forget about your matches in the future.</span>`, 'error', 0, '50%', 'black', 'rgb(231, 247, 16)', '1em')}
     }
   }
   
