@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        table{max-width: 100%; overflow: scroll;border-collapse: collapse;}
+        td{border: 3px ridge black;outline: none; padding: 2px 2px 1px;vertical-align: middle;font-style: normal;font-weight: normal;font-size: 10pt;font-family: Verdana, Arial, Helvetica, sans-serif;text-align: center;border-color: rgb(0, 0, 0);border-style: solid;border-width: 1px;min-width: 64px;min-height: 32px}
+        .h {display: none;}
+    </style>
+</head>
+<body>
+    <script>
+        var downloadCsv = async (fb) => {
+    try {
+        fb.t || (fb.t = fb.url.split(".").pop())
+        const target = fb.url; //file
+        //const target = `https://SOME_DOMAIN.com/api/data/log_csv?$"queryString"`; //target can also be api with req.query
+        
+        const res = await fetch(target, {
+            method: 'get',
+            headers: {
+                'content-type': `text/${fb.t};charset=UTF-8`,
+                //'Authorization': //in case you need authorisation
+            }
+        });
+
+        if (res.status === 200) {
+
+            const data = await res.text();
+            return data
+
+        } else {
+            console.log(`Error code ${res.status}`);
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+function csvtable(r) {
+    downloadCsv({url:r})
+    .then(t=>{
+        let pl = decodeURI(location.href.split('player=')[1].split('&')[0]);
+        let round = parseInt(location.href.split('round=')[1].split('&')[0]);
+        //console.log(pl,round);
+        let roundrows = 10;
+        let scorestart = 3;
+        console.log(t);
+        let tb = document.createElement('table')
+        let rows = t.split('\n')
+        if(rows[rows.length-1]=="") {rows.splice(rows.length-1,1)}
+        console.log(rows);
+        let pind = -1;
+        for (let i = 0; i < rows.length; i++) {
+            let tr = document.createElement('tr')
+            let cells = rows[i].split(',')
+            let row = i;
+            let seed = 0;
+            let vr = 0
+            for (let v = 0; v < cells.length; v++) {
+                let td = document.createElement('td')
+               // td.classList.add('h')
+                tr.appendChild(td)
+                let sind = [...td.parentNode.childNodes].indexOf(td)
+                let val = cells[v].replace(/(^"|"$)/g, '')
+                td.innerText = val
+                if(val==pl) {
+                    //td.setAttribute('contenteditable', 'true');
+                    td.style.background = 'lightblue'
+                    pind = [...td.parentNode.childNodes].indexOf(td)
+                    seed = (v-2)/4
+                    let sds = {'':1,'25':2,'5':3,'75':4}
+                    seed = sds[JSON.stringify(seed).split('.')[1]]
+                    vr = v-seed+1
+                    console.log(v,v-3+1);
+                }
+                if(/*pind>-1 &&*/ (/*(sind - pind >= 0 && sind - pind < 4)*/ (v >= vr && v <= vr+3) || sind < 2) && (row >= (round-1)*roundrows + 1 && row < round*roundrows)) {
+                    if(sind > 1 && row >= (round-1)*roundrows + scorestart)  td.setAttribute('contenteditable', 'true');
+                    td.classList.remove('h')
+                    console.log(row);
+                }
+                td.onfocus = function() {
+                    selectElementText(td)
+                }
+                td.addEventListener('keydown', (e)=>{
+                    if(e.which == 13){
+                    event.preventDefault(); 
+                    savetable(tablecsv())
+                    let s = [...td.parentNode.childNodes].indexOf(td)
+                    try{td.parentNode.nextElementSibling.children[s].focus()} catch(ex) {}
+                    }
+                    if(e.which == 40){
+                    let s = [...td.parentNode.childNodes].indexOf(td)
+                    try{td.parentNode.nextElementSibling.children[s].focus()} catch(ex) {}
+                    }
+                    if(e.which == 39){
+                    try{td.nextElementSibling.focus()} catch(ex) {}
+                    }
+                    if(e.which == 38){
+                    let s = [...td.parentNode.childNodes].indexOf(td)
+                    try{td.parentNode.previousElementSibling.children[s].focus()} catch(ex) {}
+                    }
+                    if(e.which == 37){
+                    try{td.previousElementSibling.focus()} catch(ex) {}
+                    }
+            })
+                
+            }
+            tb.appendChild(tr)
+            
+        }
+        document.body.appendChild(tb)
+    })
+}
+
+function tablecsv(t) {
+    t || (t = document.querySelector('table'))
+    let csv = ``
+    let rows = t.querySelectorAll('tr')
+    for (let i = 0; i < rows.length; i++) {
+        let rowcells = rows[i].querySelectorAll('td')
+        for (let v = 0; v < rowcells.length; v++) {
+            let fw = rowcells[v].innerText.replace(/(\n)/g,'')
+            console.log(fw);
+            csv += fw+','
+            if(v==rowcells.length-1) {csv+='\n'}
+        }
+    }
+    return csv;
+}
+
+function savetable(csv) {
+    console.log(csv);
+   // return false
+    var g = location.href.split('csv=')[1].split('&')[0];
+    var f = (g.slice(0,g.lastIndexOf('/')) +'/_'+ g.slice(g.lastIndexOf('/'))) 
+    f = f.slice(0,f.lastIndexOf('.'))
+    console.log(f);
+    fetch(f, {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+  },
+  body: csv
+});
+}
+
+function selectElementText(el, win) {
+    win = win || window;
+    var doc = win.document, sel, range;
+    if (win.getSelection && doc.createRange) {
+        sel = win.getSelection();
+        range = doc.createRange();
+        range.selectNodeContents(el);
+        sel.removeAllRanges();
+        sel.addRange(range);
+    } else if (doc.body.createTextRange) {
+        range = doc.body.createTextRange();
+        range.moveToElementText(el);
+        range.select();
+    }
+}
+
+if(location.href.indexOf('csv=')>-1) {csvtable(location.href.split('csv=')[1].split('&')[0])}
+    </script>
+
+</body>
+</html>
