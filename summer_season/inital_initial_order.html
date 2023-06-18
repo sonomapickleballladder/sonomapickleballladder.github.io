@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" hidden>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow"/>
+     <title>Initial Version of Initial Order | Open Ladder</title>
+    <script src="js_min/ladder-min.js"></script>
+    <script src="js_min/supabase-js.js"></script>
+    <script src="js_min/lzstring-min.js"></script>
+    <script src="js_min/functions-min.js"></script>
+    <script src="js_min/auth-min.js"></script>
+    <script src="js_min/round-min.js"></script>
+    <link rel="stylesheet" href="css_min/style-min.css">
+</head>
+<body>
+
+    <center>
+        <h1><span class="wml">&#129692;</span>&nbsp;Initial Version of Initial Order&nbsp;<span class="wml">&#129692;</span></h1>
+    </center>
+    <hr>
+
+   
+    <div class="h" style="display: none;">
+        <section id="signin">
+
+            <h2>Sign in:</h2>  
+            <p> Sign in below with your name and secret key to be able to edit your position in the order. (Note: you can populate the name input field by clicking on your name where it appears in the order).</p>
+        
+            <input type="text" id="name" value="" placeholder="Your first and last name">
+            <input type="text" name="" id="skey" placeholder="Your secret key">
+        
+            <button onclick="checkid(); getrankings()" id="login">Sign In</button>
+    
+        </section>
+    
+       
+    
+        <h2>Actions:</h2>
+        
+        <button onclick="getrankings();">🔄 Refresh Order</button> <button onclick="savethisorder();">💾 Save Order</button>
+       
+    </div>
+
+    <h2>Order based on Rating:</h2>
+
+    <ol id="order">
+        <br>
+        <div class="bigger loader"></div>
+        <br>
+    </ol>
+
+    <hr>
+    
+    <p>
+    This foundational initial order is just a ranked list based on the ratings each player submitted when signing up. Wherever there were multiple players with the same rating, they were sorted based on when they signed up.
+    </p>
+    <p>Note: DUPR ratings are displayed next to every player who provided one, as they are public information anyway. Self ratings are not displayed, as some people may not want them to be shared.</p>
+
+   
+    <script>
+        window.onload = function() {
+    lsWarning();
+
+    getrankings();
+    nifnok()
+    hide(0)
+}
+
+function getrankings() {
+    ptc('rankings', '*').then(function(res){
+        //console.log(res);
+        //console.log(res[res.length-1])
+        
+  try {
+        for (let i = 0; i < res.length; i++) {
+            bnsuawe.push(res[i].mwbn);
+            wnieai.push(parseInt(res[i].id));
+        }
+
+        //
+      //console.log(Math.min(...wnieai));
+        awMisen = res.filter(obj => {
+            return obj.id === Math.min(...wnieai)
+          });
+
+          //console.log(awMisen);
+
+        wbicewom = res.filter(obj => {
+            return obj.id === Math.max(...wnieai)
+          });
+       awMisen=awMisen[0];
+       awMisen.order = awMisen.order.split(',').map(a=> a.replace(': null','')).toString()
+       wbicewom=wbicewom[0]
+          //console.log(wbicewom);
+
+          let plr = awMisen.order.split(',');
+
+        renderorder(wbicewom, plr);
+        }
+        catch(ex) {byId('order').innerHTML = `Initial Ladder Order Creation will be initialized 3 days before the first round starts.`}
+ 
+    
+
+        
+    })
+}
+
+function renderorder(al, ord) {
+    byId('order').innerHTML = '';
+    let sefrasaet={}
+    try{byId('goup').removeAttribute('id');byId('godown').removeAttribute('id');}catch(ex){}
+    let orord = awMisen.order.split(',');
+    let name = byId('name').value;
+    for (let i = 0; i < ord.length; i++) {
+        let orind = orord.indexOf(ord[i]);
+       // let controls = "";
+       // if(name.toLowerCase().trim()==ord[i].toLowerCase().trim() && checkid()[1]) {controls= `&nbsp;<button id="goup" onclick="moveUp(this.parentNode,${i+1},${orind+1})">Up &uarr;</button>&nbsp;<button id="godown" onclick="moveDown(this.parentNode,${i+1},${orind+1})">Down &darr;</button>`;}
+       let dpel = 'small';
+        let duprn = `<${dpel}></${dpel}>`;
+        if(sefrasaet[ord[i]]) {duprn=`<${dpel}> –– ${sefrasaet[ord[i]].toFixed(2)}</${dpel} >`}
+        byId('order').innerHTML+=`<li><span>${ord[i]}</span>${duprn}</li>`;
+     }
+
+
+    
+}
+
+let wbicewom, awMisen, bnsuawe = [], wnieai = [];
+
+async function ptc(t,s,e,m,x,z,thenfunction){
+    const { data, error } = await sb.client
+    .from(init.f_e+ladderId.sb+t)
+    .select(s)
+  
+  
+  if(error&&debug) console.log(error);
+  
+  try{executeFunctionByName(thenfunction, window, data);}catch(ex){return data}
+  
+  
+  return {data:data,error:error}
+  
+    
+  }
+
+
+
+
+
+
+
+
+
+    </script>
+<script src="js_min/pls-min.js"></script>
+</body>
+</html>
