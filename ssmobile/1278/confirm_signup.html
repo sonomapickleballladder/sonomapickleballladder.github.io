@@ -6,7 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="robots" content="noindex,nofollow"/>
    <title>Confirm your Signup</title>
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css_min/style-min.css">
    <script src="js_min/ladder-min.js"></script>
     <script src="js_min/supabase-js.js"></script>
     <script src="js_min/lzstring-min.js"></script>
@@ -22,9 +22,11 @@
         bt.style.padding = '0.75em';
         bt.innerHTML = 'Confirm your Signup'
         let ts = document.createElement('a')
-        ts.href= 'authorize'
-        let hp = decodeURIComponent(location.href).split('?confirmation_url=')[1]
-        console.log(hp);
+        ts.href= `authorize${protoMap[location.protocol]}`;
+        let jp = decodeURIComponent(location.href)//.split('?confirmation_url=')[1]
+        jp=jp.split('redirect_to=')[0]+'redirect_to='+ts.href+'&token='+jp.split('&token=')[1]
+        let hp = jp.split('?confirmation_url=')[1]
+        console.log(jp, `\n`, hp);
         bt.onclick = function() {location.replace(hp)}
         document.body.appendChild(bt)
     }

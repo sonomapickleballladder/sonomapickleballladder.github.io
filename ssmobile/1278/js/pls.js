@@ -73,7 +73,7 @@ function setStyles(s) {
 
 function styleSafari() {
     try {
-        if(isSafari()){
+        if(isSafari()&&!ismobile()){
             try{
                 let scr = document.getElementsByClassName('vbtoggle');
                 for (let i = 0; i < scr.length; i++) {

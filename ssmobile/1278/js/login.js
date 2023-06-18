@@ -172,8 +172,8 @@ function authorize(d) {
               byId('submit').blur()
             }catch(ex){}
 
-    try{if(d.email.length<1){byId('message').innerHTML='Email Address is required'; return false}
-    if(d.key.length<1){byId('message').innerHTML='Secret Key is required'; return false}}catch(ex){}
+    try{if(d.email.length<1){alert('Email Address is required'); return false}
+    if(d.key.length<1){alert('Secret Key is required'); return false}}catch(ex){}
 
   signIn({email: d.email, key: d.key})
   .then((r)=>{

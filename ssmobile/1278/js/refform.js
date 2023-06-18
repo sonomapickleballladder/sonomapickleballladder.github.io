@@ -134,7 +134,7 @@ function postInfo() {
         saveData('refs',injson).then(function(res) {
             console.log(res, typeof res);
             if(res.error) {calert(0,'Error','Form submission failed for unknown reasons.', 'error')}
-            else { document.write('Success! You will be redirected back to the Refs Page momentarily.');copyData(injson); setTimeout(function() {location.replace( `refs${protoMap[location.protocol]}`)},3000)}
+            else { document.write('<style>html,body{font-size:1.25rem}</style>Success! You will be redirected back to the Refs Page momentarily.');copyData(injson); setTimeout(function() {location.replace( `refs${protoMap[location.protocol]}`)},3000)}
         })
     } catch (ex) {
         

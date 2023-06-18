@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
    for (let i = 0; i < kys.length; i++) {
     let k = kys[i]
     if(pf == lso[k].url) { 
-        document.write(`<!DOCTYPE html><pre style="font-size: larger; word-wrap: break-word; white-space: pre-wrap;">The website for the ${k} Ladder does not exist yet. It will be created if enough players sign up by the registration deadline.</pre>`);
+        document.write(`<!DOCTYPE html><style>html,body{font-size:1.25rem}</style><pre style="word-wrap: break-word; white-space: pre-wrap;">The website for the ${k} Ladder does not exist yet. It will be created if enough players sign up by the registration deadline.</pre>`);
         i = kys.length-1}
    }*/
     

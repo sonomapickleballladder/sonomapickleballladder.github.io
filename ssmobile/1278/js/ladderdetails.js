@@ -30,7 +30,7 @@ function showSignups(l) {
        else {aox = 'No signups yet...'; pepl=''}
        let child = window.open("about:blank",rdString(10));
         child.document.write(`<html>
-        <head><title>Signups => ${l} Ladder</title></head>
+        <head><title>Signups => ${l} Ladder</title><style>html,body{font-size:1.25rem}</style></head>
         <body style='background:${getComputedStyle(document.body).background};color:${getComputedStyle(document.body).color};'><h2 style='font-family:sans-serif;text-decoration:underline'>${l} Ladder</h2><p>${aox}</p>${pepl}</body>
         </html>`);
         document.activeElement.style.cursor = '';

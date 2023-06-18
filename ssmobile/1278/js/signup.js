@@ -98,6 +98,7 @@ function validate(c) {
             try{c.last_name = c.last_name.proper(1)}catch(ex){}
             try{if(byId('display_name').value.trim()){c.display_name=byId('display_name').value.trim()} else{c.display_name = `${c.first_name} ${c.last_name}`}}catch(ex){}
             try{c.email = c.email.toLowerCase()}catch(ex){}
+            try{c.secret_key = LZString.compressToBase64(c.secret_key)}catch(ex){}
             /*try{c.emuser = c.email.split('@')[0]}catch(ex){}
             try{c.emdomain = c.email.split('@')[1]}catch(ex){}*/
             try{c.emailx = emailx(c.email)}catch(ex){}
@@ -107,7 +108,7 @@ function validate(c) {
             try{if(c.partner_name){let vd = []; vd.push(c.display_name); vd.push(c.partner_name); vd = vd.sort((a,b)=>a.localeCompare(b)).join(' & '); c.team_name = vd}}catch(ex){}
             console.log(c);
             if(!document.querySelector('form').checkValidity()) return false
-            if(!confirm('Do you wish to proceed? You will not be able to go back and edit your responses once submitted.')) {
+            if(!confirm('Do you wish to proceed? You will not be able to go back and edit your responses once submitted (although you can ask me [the administrator] to change them).')) {
              unpulse() 
             return false ; }
 
@@ -146,13 +147,13 @@ function validate(c) {
 
                unpulse()
                 if(!response.error) {
-                try{snEm({email:['SPLinfo+newsignup@riseup.net'], subject: 'New Signup', bod: `${c.first_name} ${c.last_name} just signed up for ${c.ladder}`})}catch(ex){console.error(ex);}
+                try{snEm({email:['SPLinfo+newsignup@riseup.net'], subject: 'Breaking News...', bod: `Hi there,\nJust wanted to let you know that ${c.first_name} ${c.last_name} just signed up for ${c.ladder}\nHave a nice day!\nBot`})}catch(ex){console.error(ex);}
                 localStorage.setItem(brick('$_hasRegistered'+ladderSeason), true); 
-                document.write('<pre class="abs-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: larger; word-wrap: break-word; white-space: pre-wrap;">Successfully submitted. You should receive a link to confirm your email address shortly. Please check both your inbox and spam folders.</pre>'); 
+                document.write(`<style>html,body{font-size:1.25rem}</style><pre  style="word-wrap: break-word; white-space: pre-wrap;">Successfully submitted! You should receive a link to confirm your email address shortly. Please check both your inbox and spam folders. Once you have confirmed your email, you are all set for now. I will send out more information in the week leading up to the first round.</pre>`); 
                 document.title = 'Success'
               }
                 else {
-                 document.write(`<pre class="abs-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: larger; word-wrap: break-word; white-space: pre-wrap;">An error occurred. Click <a href='mailto:SPLwebsitebugs@riseup.net?subject=Bug Report&body=${sendBug(response.error)}'>here</a> to submit a bug report.</pre>`);
+                 document.write(`<style>html,body{font-size:1.25rem}</style><pre style="word-wrap: break-word; white-space: pre-wrap;">An error occurred. This may be the result of you trying to sign up twice, or you may have used a name or email address which was already taken. Click <a href='mailto:SPLwebsitebugs@riseup.net?subject=Bug Report&body=${sendBug(response.error)}'>here</a> to submit a bug report.</pre>`);
                  document.title = 'Error'
                 }
               })
@@ -293,11 +294,11 @@ window.onload = ()=> {
     console.log(svdin);
     if(hasreg) {
       if(location.hash.indexOf('view-responses')<0 && location.href.indexOf('invite=')<0) {
-        document.write('<pre class="abs-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: larger; word-wrap: break-word; white-space: pre-wrap;">You have already signed up. Click <a href="?reload=1#view-responses">here</a> to view your responses.</pre>');
+        document.write('<style>html,body{font-size:1.25rem}</style><pre style="word-wrap: break-word; white-space: pre-wrap;">You have already signed up. Click <a href="?reload=1#view-responses">here</a> to view your responses.</pre>');
       }
       else if(location.href.indexOf('invite=')<0) {
         if(!svdin) {
-          document.write('<pre class="abs-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: larger; word-wrap: break-word; white-space: pre-wrap;">Something went wrong ☹️</pre>');
+          document.write('<style>html,body{font-size:1.25rem}</style><pre style="word-wrap: break-word; white-space: pre-wrap;">Something went wrong ☹️</pre>');
         }
       //document.body.innerHTML = `You have already registered. Click <a href='javascript: void(0)'>here</a> to see your reponses.`
       let dhn = document.querySelectorAll('input');
@@ -429,7 +430,7 @@ function viewSignups(l) {
      else {aox = 'No signups yet...'; pepl=''}
      let child = window.open("about:blank",rdString(10));
       child.document.write(`<html>
-      <head><title>Signups => ${l} Ladder</title></head>
+      <head><title>Signups => ${l} Ladder</title><style>html,body{font-size:1.25rem}</style></head>
       <body style='background:${getComputedStyle(document.body).background};color:${getComputedStyle(document.body).color};'><h2 style='font-family:cursive;text-decoration:underline'>${l} Ladder</h2><p>${aox}</p>${pepl}</body>
       </html>`);
       document.activeElement.style.cursor = '';
@@ -462,7 +463,7 @@ function showSignups(l) {
        else {aox = 'No signups yet...'; pepl=''}
        let child = window.open("about:blank",rdString(10));
         child.document.write(`<html>
-        <head><title>Signups => ${l} Ladder</title></head>
+        <head><title>Signups => ${l} Ladder</title><style>html,body{font-size:1.25rem}</style></head>
         <body style='background:${getComputedStyle(document.body).background};color:${getComputedStyle(document.body).color};'><h2 style='font-family:cursive;text-decoration:underline'>${l} Ladder</h2><p>${aox}</p>${pepl}</body>
         </html>`);
         document.activeElement.style.cursor = '';

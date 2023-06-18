@@ -402,7 +402,7 @@ function unfade(a,k){k||(k=10);var t=.1;a.style.display="block";var l=setInterva
 function fade(t){var a=1,e=setInterval((function(){a<=.1&&clearInterval(e),t.style.opacity=a,t.style.filter="alpha(opacity="+100*a+")",a-=.1*a}),50)}
 
 function notReady(ms) {
-  ms || (ms = '<!DOCTYPE html><head></head><pre style="word-wrap: break-word; white-space: pre-wrap;">This page will be available once the Ladder Season is underway.</pre>')
+  ms || (ms = '<!DOCTYPE html><head><style>html,body{font-size:1.25rem}</style></head><pre style="word-wrap: break-word; white-space: pre-wrap;">This page will be available once the Ladder Season is underway.</pre>')
   {let tt = document.title; document.documentElement.innerHTML = ms; document.title = tt; hide(0); return false}
 }
 
