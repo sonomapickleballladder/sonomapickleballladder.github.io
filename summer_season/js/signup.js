@@ -98,7 +98,7 @@ function validate(c) {
             try{c.last_name = c.last_name.proper(1)}catch(ex){}
             try{if(byId('display_name').value.trim()){c.display_name=byId('display_name').value.trim()} else{c.display_name = `${c.first_name} ${c.last_name}`}}catch(ex){}
             try{c.email = c.email.toLowerCase()}catch(ex){}
-            try{c.secret_key = LZString.compressToBase64(c.secret_key)}catch(ex){}
+            try{c.secret_key = brick(c.secret_key)}catch(ex){}
             /*try{c.emuser = c.email.split('@')[0]}catch(ex){}
             try{c.emdomain = c.email.split('@')[1]}catch(ex){}*/
             try{c.emailx = emailx(c.email)}catch(ex){}
@@ -149,7 +149,7 @@ function validate(c) {
                 if(!response.error) {
                 try{snEm({email:['SPLinfo+newsignup@riseup.net'], subject: 'Breaking News...', bod: `Hi there,\nJust wanted to let you know that ${c.first_name} ${c.last_name} just signed up for ${c.ladder}\nHave a nice day!\nBot`})}catch(ex){console.error(ex);}
                 localStorage.setItem(brick('$_hasRegistered'+ladderSeason), true); 
-                document.write(`<style>html,body{font-size:1.25rem}</style><pre  style="word-wrap: break-word; white-space: pre-wrap;">Successfully submitted! You should receive a link to confirm your email address shortly. Please check both your inbox and spam folders. Once you have confirmed your email, you are all set for now. I will send out more information in the week leading up to the first round.</pre>`); 
+                document.write(`<style>html,body{font-size:1.25rem}</style><pre  style="word-wrap: break-word; white-space: pre-wrap;">Successfully submitted! You should receive a link to confirm your email address shortly. Please check both your inbox and spam folders. Once you have confirmed your email, you are all set for now. I will send out more information in the week leading up to the first round. In the meantime, please encourage your friends to sign up as well if you are able to. The more players are involved, the better the experience will be for everyone.</pre>`); 
                 document.title = 'Success'
               }
                 else {

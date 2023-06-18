@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded",function() {
             let srch = location.search;
             if(location.search.indexOf('spl=')>-1) {srch = lsdciph(location.search.split('spl=')[1].split('&')[0].split('?')[0]).replace(/(%26key)/g,'&key')}
             if(srch.indexOf('email=')>-1){byId('email').value=decodeURI(srch.split('email=')[1].split('&')[0])}
-            if(srch.indexOf('key=')>-1){byId('key').value=decodeURI(srch.split('key=')[1].split('&auto')[0].split('&return')[0])}
+            if(srch.indexOf('key=')>-1){let ais = decodeURI(srch.split('key=')[1].split('&auto')[0].split('&return')[0]); let ase = LZString.decompressFromBase64(ais)?LZString.decompressFromBase64(ais):ais; byId('key').value=ase}
             if(srch.indexOf('autologin')>-1){authorize({email: byId('email').value, key: byId('key').value})}
             else {hide(0)}
         }catch(ex){hide(0)}
