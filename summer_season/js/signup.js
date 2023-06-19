@@ -147,13 +147,13 @@ function validate(c) {
 
                unpulse()
                 if(!response.error) {
-                try{snEm({email:['SPLinfo+newsignup@riseup.net'], subject: 'Breaking News...', bod: `Hi there,\nJust wanted to let you know that ${c.first_name} ${c.last_name} just signed up for ${c.ladder}\nHave a nice day!\nBot`})}catch(ex){console.error(ex);}
+                try{snEm({email:['SPLinfo+newsignup@riseup.net'], subject: 'New Signup', bod: `Hi there,%0AJust wanted to let you know that ${c.first_name} ${c.last_name} just signed up for ${c.ladder}%0AHave a nice day!%0ABot`})}catch(ex){console.error(ex);}
                 localStorage.setItem(brick('$_hasRegistered'+ladderSeason), true); 
-                document.write(`<style>html,body{font-size:1.25rem}</style><pre  style="word-wrap: break-word; white-space: pre-wrap;">Successfully submitted! You should receive a link to confirm your email address shortly. Please check both your inbox and spam folders. Once you have confirmed your email, you are all set for now. I will send out more information in the week leading up to the first round. In the meantime, please encourage your friends to sign up as well if you are able to. The more players are involved, the better the experience will be for everyone.</pre>`); 
+                document.body.innerHTML = `Successfully submitted! You should receive a link to confirm your email address shortly. Please check both your inbox and spam folders. Once you have confirmed your email, you are all set for now. I will send out more information in the week leading up to the first round. In the meantime, please encourage your friends to sign up as well if you are able to. The more players are involved, the better the experience will be for everyone.<br><br><a href='signup.html#register'>&larr; Back to Signup Page</a>`; 
                 document.title = 'Success'
               }
                 else {
-                 document.write(`<style>html,body{font-size:1.25rem}</style><pre style="word-wrap: break-word; white-space: pre-wrap;">An error occurred. This may be the result of you trying to sign up twice, or you may have used a name or email address which was already taken. Click <a href='mailto:SPLwebsitebugs@riseup.net?subject=Bug Report&body=${sendBug(response.error)}'>here</a> to submit a bug report.</pre>`);
+                 document.body.innerHTML = `An error occurred. This may be the result of you trying to sign up twice, or you may have used a name or email address which was already taken. Click <a href='mailto:SPLwebsitebugs@riseup.net?subject=Bug Report&body=${sendBug(response.error)}'>here</a> to submit a bug report.`;
                  document.title = 'Error'
                 }
               })
@@ -294,11 +294,11 @@ window.onload = ()=> {
     console.log(svdin);
     if(hasreg) {
       if(location.hash.indexOf('view-responses')<0 && location.href.indexOf('invite=')<0) {
-        document.write('<style>html,body{font-size:1.25rem}</style><pre style="word-wrap: break-word; white-space: pre-wrap;">You have already signed up. Click <a href="?reload=1#view-responses">here</a> to view your responses.</pre>');
+        document.body.innerHTML = 'You have already signed up. Click <a href="?reload=1#view-responses">here</a> to view your responses.';
       }
       else if(location.href.indexOf('invite=')<0) {
         if(!svdin) {
-          document.write('<style>html,body{font-size:1.25rem}</style><pre style="word-wrap: break-word; white-space: pre-wrap;">Something went wrong ☹️</pre>');
+          document.body.innerHTML = 'Something went wrong ☹️';
         }
       //document.body.innerHTML = `You have already registered. Click <a href='javascript: void(0)'>here</a> to see your reponses.`
       let dhn = document.querySelectorAll('input');

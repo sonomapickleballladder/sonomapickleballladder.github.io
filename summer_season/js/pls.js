@@ -77,7 +77,8 @@ function styleMobile() {
             try{
                 let scr = document.getElementsByClassName('vbtoggle');
                 for (let i = 0; i < scr.length; i++) {
-                    scr[i].classList.add('mobile')
+                   if(isSafari()) {scr[i].classList.add('safari')}
+                   else {scr[i].classList.add('mobile')}
                 }
             }catch(ex){}
         }

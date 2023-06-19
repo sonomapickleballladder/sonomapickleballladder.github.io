@@ -51,7 +51,7 @@ function showActions() {
       byId('notifications').innerHTML += `
    <details>
    <summary>Open Ladder Payment</summary>
-   <p>Hi ${j.first_name},<br>If you haven't done so already, please pay me or my dad (Adam) at least $40 in cash or check to complete your registration. (Click <a target="_blank" href="pay_options${protoMap[location.protocol]}">here</a> for times we will be at the courts). If you pay my dad, please <a href="mailto:SPLinfo+payment@riseup.net?subject=Summer Ladder Payment&body=Hi Theo,%0AI paid your dad $amount via cash/check.%0AYour name">email me</a> so that I know.<br>Thanks,<br>Theo</small></p>
+   <p>Hi ${j.first_name},<br>If you haven't done so already, please pay me or my dad (Adam) at least $40 in cash or check to complete your registration. (Click <a target="_blank" href="pay_options${protoMap[location.protocol]}">here</a> for times we will be at the courts). If you pay my dad, please <a href="mailto:SPLinfo+payment@riseup.net?subject=Summer Ladder Payment&cc=adammackinnon+ladderpayment@gmail.com&body=Hi Theo,%0AI paid your dad $amount via cash/check.%0AYour name">email me</a> so that I know.<br>Thanks,<br>Theo</small></p>
    </details>`
       emst = 'Starred '
       star = '*'
