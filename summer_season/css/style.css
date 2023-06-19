@@ -284,7 +284,7 @@ br.short {line-height: 10px!important;}
   visibility: visible;
 }
 
-.vbtoggle {scale: 0.75; transform: translate(-175%, 0%) scale(0.75); cursor: default;}
+.vbtoggle {scale: 0.75; transform: translate(-175%, 0%); cursor: default;}
 .vbtoggle.safari {transform: translate(-175%, 12.5%);}
 .vbtoggle.mobile {transform: translate(-175%, 12.5%);}
 
