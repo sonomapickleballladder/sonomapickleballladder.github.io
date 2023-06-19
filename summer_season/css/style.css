@@ -286,7 +286,7 @@ br.short {line-height: 10px!important;}
 
 .vbtoggle {scale: 0.75; transform: translate(-175%, 0%) scale(0.75); cursor: default;}
 .vbtoggle.safari {transform: translate(-175%, 12.5%);}
-.vbtoggle.mobile {transform: translate(-175%, 25%);}
+.vbtoggle.mobile {transform: translate(-175%, 12.5%);}
 
 label.text{cursor: text;}
 button .cool_button_link {color: inherit!important; text-decoration: inherit!important;}
