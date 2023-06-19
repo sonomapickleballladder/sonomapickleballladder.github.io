@@ -98,7 +98,6 @@ function validate(c) {
             try{c.last_name = c.last_name.proper(1)}catch(ex){}
             try{if(byId('display_name').value.trim()){c.display_name=byId('display_name').value.trim()} else{c.display_name = `${c.first_name} ${c.last_name}`}}catch(ex){}
             try{c.email = c.email.toLowerCase()}catch(ex){}
-            try{c.secret_key = brick(c.secret_key)}catch(ex){}
             /*try{c.emuser = c.email.split('@')[0]}catch(ex){}
             try{c.emdomain = c.email.split('@')[1]}catch(ex){}*/
             try{c.emailx = emailx(c.email)}catch(ex){}
@@ -130,6 +129,7 @@ function validate(c) {
           }catch(ex){}
 
              if(!res.error) {
+              try{c.secret_key = LZString.compressToBase64(c.secret_key)}catch(ex){}
               saveData('Signups', c)
               .then(function(response) {
                // console.log(response);

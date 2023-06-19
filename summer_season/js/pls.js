@@ -71,13 +71,13 @@ function setStyles(s) {
 }
 
 
-function styleSafari() {
+function styleMobile() {
     try {
-        if(isSafari()&&!ismobile()){
+        if(ismobile()){
             try{
                 let scr = document.getElementsByClassName('vbtoggle');
                 for (let i = 0; i < scr.length; i++) {
-                    scr[i].classList.add('safari')
+                    scr[i].classList.add('mobile')
                 }
             }catch(ex){}
         }
@@ -86,7 +86,7 @@ function styleSafari() {
     }
 }
 
-styleSafari()
+styleMobile()
 
 
 
