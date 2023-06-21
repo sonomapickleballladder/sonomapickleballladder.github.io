@@ -59,31 +59,7 @@ function showActions() {
   }
 } catch(ex){console.error(ex);}
 
-try{ if(j.ladder.toString().toLowerCase().split(',').includes('womens')) {
-  /* byId('notifications').innerHTML += `
-   <details>
-   <summary>Women's Ladder is on!</summary>
-   <p>The Women's Ladder has gotten enough signups to be implemented. I am currently working on creating the website and spreadsheets for it. Since it is happening, the final registration deadline is extended through next Tuesday. So if you know of anyone else who might like to join, please let them know that it's not too late.</p>
-   </details>` */
-   emst = 'Other '
-   if (j.payment_method.toLowerCase() == 'paypal') {
-   byId('notifications').innerHTML += `
-   <details>
-   <summary>Women's Ladder Payment</summary>
-   <p>Hi ${j.first_name},<br>If you haven't done so already, please pay at least $40 to <span class='copy' onclick='copy("SPLdeposits@riseup.net", 0, this)'>SPLdeposits@riseup.net</span> via <a rel="noreferrer" target="_blank" href="https://paypal.me/vq90lhInA1pD/40">PayPal</a> to complete your registration.<br>Thanks,<br>Theo</small></p>
-   </details>`
-   }
-   else {
-      byId('notifications').innerHTML += `
-   <details>
-   <summary>Women's Ladder Payment</summary>
-   <p>Hi ${j.first_name},<br>If you haven't done so already, please pay me or my dad (Adam) at least $40 in cash or check to complete your registration. (Click <a target="_blank" href="pay_options${protoMap[location.protocol]}">here</a> for times we will be at the courts). If you pay my dad, please <a href="mailto:SPLinfo+payment@riseup.net?subject=Summer Ladder Payment&body=Hi Theo,%0AI paid your dad $amount via cash/check.%0AYour name">email me</a> so that I know.<br>Thanks,<br>Theo</small></p>
-   </details>`
-      emst = 'Starred '
-      star = '*'
-   }
-  }
-} catch(ex){console.error(ex);}
+
 
   let plur = ''
   let hk = j.ladder;

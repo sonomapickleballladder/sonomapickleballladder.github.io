@@ -10,7 +10,7 @@ function  setrefresh() {
     refresh()
     function refresh() {
       let burl = byId('link').getAttribute('url');
-      try{if(burl.length < 1) { let ms = '<!DOCTYPE html><head><style>html,body{font-size:1.25rem}</style></head><pre style="word-wrap: break-word; white-space: pre-wrap;">This page will be available once the Ladder Season is underway.</pre>'; let tt = document.title; document.documentElement.innerHTML = ms; document.title = tt; hide(0); return false}}catch(ex){}
+      try{if(burl.length < 1) { let ms = 'This page will be available once the Ladder Season is underway.'; let tt = document.title; document.body.innerHTML = ms; document.title = tt; hide(0); return false}}catch(ex){}
       let dt = '?type=grid&mode=embed';
       let urls = {1: {url:burl, view: 'Mobile', text: ' Certain formatting may not render properly with this view.'}, 2: {url:burl+dt, view: 'Desktop', text: ''}}
       if(Boolean(byId('link2'))){urls[1].url=byId('link2').getAttribute('url'); urls[2].url=byId('link').getAttribute('url')+dt;}
