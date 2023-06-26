@@ -1,3 +1,0 @@
-function checkplayers(r) {
-    ptc
-}
