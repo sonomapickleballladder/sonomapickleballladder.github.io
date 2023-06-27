@@ -76,7 +76,7 @@ function validate(c) {
               let atrs = {placeholder: qs[ib].placeholder}
               anc.classList.add('awaiting'); qs[ib].placeholder = 'Required';
               qs[ib].addEventListener('input', () => {anc.classList.remove('awaiting'); if(qs[ib].getAttribute('dplaceholder')) {qs[ib].placeholder = qs[ib].getAttribute('dplaceholder')} else {qs[ib].placeholder = ''}})
-             // uncomment later qs[ib].focus() //
+              qs[ib].focus()
               }
   
               
