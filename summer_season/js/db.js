@@ -34,7 +34,7 @@ function showActions() {
 //  let clr = window.getComputedStyle(document.body).color;
   byId('notifications').innerHTML += `<details><summary>Your Login Link</summary>
   <p>Hi ${j.first_name},<br>You can use this link: <span id='loginlink' class='copy' onclick='copy(this)'>${test.href}?spl=${lsciph('email='+encodeURI(j.email)+'&key='+encodeURI(j.secret_key))}</span> to login.
-  <br>Theo<br><br><small>P.S. Please keep track of your secret key! Consider bookmarking or <a href='mailto:${j.email}?subject=Pickleball%20Ladder%20|%20Login%20Link&body=I%20can%20use%20this%20link:%20${test}?spl=${lsciph('email='+encodeURI(j.email)+'&key='+encodeURI(j.secret_key))}%20to%20login.'>emailing yourself</a> your login link if you think you might forget it.</small></p></details>`;
+  <br>Theo<br><br><small>P.S. Please keep track of your secret key! Consider bookmarking or <a href='mailto:${j.email}?subject=Pickleball%20Ladder${ladderSeason.replace(/(_)/g,"%20")}%20|%20Login%20Link&body=I%20can%20use%20this%20link:%20${test}?spl=${lsciph('email='+encodeURI(j.email)+'&key='+encodeURI(j.secret_key))}%20to%20login.'>emailing yourself</a> your login link if you think you might forget it.</small></p></details>`;
 
   let emst = '', star = ''
 
