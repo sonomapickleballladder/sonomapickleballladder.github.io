@@ -17,6 +17,7 @@
       function rdr() {
         let d_a = location.href, d_e = 'spring_season', d_i = d_a.toLowerCase().indexOf(d_e);
 if(d_i > -1 && d_a.indexOf(d_e) < 0){location.replace(d_a.slice(0,d_i)+d_e+d_a.slice(d_i+d_e.length))}
+        else if (decodeURI(location.href)!=location.href) {location.replace(decodeURI(location.href))}
       }
 
       function ldmsg() {
