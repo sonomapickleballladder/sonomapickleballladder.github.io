@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow"/>
-    <title>404 | Sonoma Pickleball Ladder</title>
+    <title>Sonoma Pickleball Ladder</title>
     <script src="/spring_season/js_min/ladder-min.js"></script>
     <script src="/spring_season/js_min/functions-min.js"></script>
     <script src="/spring_season/js_min/404-min.js"></script>
     <style>html,body{font-size: 1.25rem;}</style>
   </head>
   <body>
-    404 Error. Page does not appear to exist.
     <script>
       function rdr() {
         let d_a = location.href, d_e = 'spring_season', d_i = d_a.toLowerCase().indexOf(d_e);
 if(d_i > -1 && d_a.indexOf(d_e) < 0){location.replace(d_a.slice(0,d_i)+d_e+d_a.slice(d_i+d_e.length))}
         else if (decodeURI(location.href)!=location.href) {location.replace(decodeURI(location.href))}
+        else {document.body.innerHTML += '404 Error. Page does not appear to exist.'; document.title = '404 | Sonoma Pickleball Ladder';}
       }
 
       function ldmsg() {
