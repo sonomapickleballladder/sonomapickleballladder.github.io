@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" hidden>
+  <head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="robots" content="noindex,nofollow"/>
+   <title>Authorizing...</title>
+   <link rel="stylesheet" href="css_min/style-min.css">
+   <script src="js_min/ladder-min.js"></script>
+    <script src="js_min/supabase-js.js"></script>
+    <script src="js_min/lzstring-min.js"></script>
+    <script src="js_min/functions-min.js"></script>
+    <script src="js_min/auth-min.js"></script>
+  </head>
+  <body>
+  <script>
+    window.onload = function() {
+      sb.client.auth.getUser().then((res)=>{
+      if(res.error) {
+        let ms = 'Email link is invalid or has expired'; 
+        try{ms = location.href.split('error_description=')[1].split('&')[0].replace(/(\+)/g,' ')}catch(ex){document.title = 'Unauthorized'; return false}
+        // document.write(`<style>html,body{font-size:1.25rem}</style><pre>{"error":"unauthorized client","message":"${ms}"}</pre>`); document.title = 'Unauthorized';
+        location.replace(`login${protoMap[location.protocol]}`)
+      }
+      else{ let j = res.data.user.user_metadata
+        location.replace(`login${protoMap[location.protocol]}?spl=${lsciph('email='+encodeURI(j.email)+'&key='+encodeURI(LZString.compressToBase64(j.secret_key))+'&autologin')}`)
+      }
+     })
+    }
+  </script>
+  <script src="js_min/pls-min.js"></script>
+</body>
+</html>
+
+

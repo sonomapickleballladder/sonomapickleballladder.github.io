@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" hidden>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow"/>
+     <title>Payment Options</title>
+     <link rel="stylesheet" href="css_min/style-min.css">
+    <script src="js_min/ladder-min.js"></script>
+    <script src="js_min/supabase-js.js"></script>
+    <script src="js_min/lzstring-min.js"></script>
+    <script src="js_min/functions-min.js"></script>
+    <script src="js_min/auth-min.js"></script>
+    <script src="js_min/round-min.js"></script>
+    <style>
+        body {font-size: x-large;}
+        .person {color: red}
+        .location {color: blueviolet;}
+        .time {color: salmon}
+        .date {color: lightseagreen}
+        .h {display: none;}
+    </style>
+</head>
+<body>
+  <center>
+    <h1>&#129692;&nbsp;Payment Options&nbsp;&#129692;</h1>
+</center>
+<hr>
+    <h2>Below is a dynamic list of times and respective locations when you can pay in person with cash or check.</h2>
+    <small style="display: none;">(The <span style="color:rgb(15, 161, 100)">I</span> in this context refers to Theo, the Ladder Administator).</small>
+    <hr>
+    <ul id="times">
+        Loading...
+    </ul>
+    <hr>
+    <p>See <a href="signup.html#pay" target="_blank">Sign-up Page</a> for more payment details and options.</p>
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+          nifnok()
+          ptc('oermovw', '*', 'awvnu', '1').then(function(res){
+            res = res.data.sort(function(x, y){
+              return x.id - y.id;
+            })
+            //console.log(res);
+            displayTimes(res);
+          })
+        })
+
+        function displayTimes(r) {
+            let wms = {January: '01', February: '02', March: '03', 'April': '04', May: '05', June: '06', July: '07', August: '08', September: '09', October: '10', November: '11', December: '12'}
+            byId('times').innerHTML = '';
+            for (let i = 0; i < r.length; i++) {
+                try{let bd = r[i].date;
+                let mn = bd.split(' ')[1];
+                mn = wms[mn];
+                let gf = bd.split(' ')[2].match(/\d+/g);
+                //console.log(`${mn}/${parseInt(gf[0])+1}/2023`);
+                let jn = new Date(`${mn}/${parseInt(gf[0])+1}/2023`)
+                //console.log(jn);
+                if (jn >= new Date()) {byId('times').innerHTML += `<li><p><span class="person">${r[i].person}</span> will be at <span class="location">${r[i].location}</span> from <span class="time">${r[i].time}</span> on <span class="date">${r[i].date}</span>.</p></li>`
+                 }
+                }catch(ex){}
+                }
+                if(byId('times').innerHTML.length<1) {
+                  byId('times').style.opacity = 0;
+                  byId('times').innerHTML = 'None right now. Please check again later.'
+                  unfade(byId('times'),15)
+                  hide(0)
+                  //byId('times').style.opacity = 1;
+                  }
+        }
+
+    </script>
+<script src="js_min/pls-min.js"></script>
+</body>
+</html>
