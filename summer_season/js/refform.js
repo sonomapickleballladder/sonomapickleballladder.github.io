@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded",function () {
   jsFill();
   retainvals();
 
-  try{byId('wkcalc').value = `Round ${getRound()}`;
-    byId('wkcalc').innerHTML = `Round ${getRound()}`;}catch(ex){}
+  try{byId('wkcalc').value = `Round ${getRound()?getRound():1}`;
+    byId('wkcalc').innerHTML = `Round ${getRound()?getRound():1}`;}catch(ex){}
 
   let rnd = getRound();
   try{autofillRound(rnd,'current');
@@ -145,7 +145,7 @@ function copyData(j) {
     let uznj;
     let akwo = 'subCredentials;'
 try {
-    localStorage.setItem(ladderId.ls+akwo, LZString.compress(JSON.stringify(j)));
+    localStorage.setItem(ladderId.ls+akwo, lsciph(j));
 } catch (ex) {
     
 }

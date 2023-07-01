@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded",function() {
 function getRefs() {
 let ud = byAttr('sublist');
 for (let i = 0; i < ud.length; i++) {
-    ptc('refs','*','round',getRound()).then(function(res){
+    ptc('refs','*','round',getRound()?getRound():1).then(function(res){
       res = res.data
         try{displayRefs(res);}catch(ex){byAttr('sublist')[0].innerHTML=`<p>No one yet...</p>`};
     })
