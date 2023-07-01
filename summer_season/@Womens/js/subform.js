@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded",function () {
   jsFill();
   retainvals();
 
-  try{byId('wkcalc').value = `Round ${getRound()}`;
-    byId('wkcalc').innerHTML = `Round ${getRound()}`;}catch(ex){}
+  try{byId('wkcalc').value = `Round ${getRound()?getRound():1}`;
+    byId('wkcalc').innerHTML = `Round ${getRound()?getRound():1}`;}catch(ex){}
 
   let rnd = getRound();
   try{autofillRound(rnd,'current');
@@ -136,7 +136,7 @@ function postInfo() {
         saveData('subs',injson).then(function(res) {
             //console.log(res, typeof res);
             if(res.error) {calert(0,'Error','Form submission failed for unknown reasons.', 'error')}
-            else { document.write('<style>html,body{font-size:1.25rem}</style>Success! You will be redirected back to the Subs Page momentarily.');copyData(injson); setTimeout(function() {location.replace('subs.html')},3000)}
+            else { document.body.innerHTML = 'Success! You will be redirected back to the Subs Page momentarily.';copyData(injson); setTimeout(function() {location.replace('subs.html')},3000)}
         })
     } catch (ex) {
         
@@ -147,7 +147,7 @@ function copyData(j) {
     let uznj;
     let akwo = 'subCredentials;'
 try {
-    localStorage.setItem(ladderId.ls+akwo, LZString.compress(JSON.stringify(j)));
+    localStorage.setItem(ladderId.ls+akwo, lsciph(j));
 } catch (ex) {
     
 }
@@ -183,7 +183,7 @@ function retainvals() {
                 byId('inladder').checked = yg.in_ladder; byId('inladder').previousElementSibling.innerHTML=map[byId('inladder').checked];
                
             } catch (ex) {
-                
+                console.log(ex)
             }
         }
     }

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded",function() {
 function getSubs() {
 let ud = byAttr('sublist');
 for (let i = 0; i < ud.length; i++) {
-    ptc('subs','*','round',getRound()).then(function(res){
+    ptc('subs','*','round',getRound()?getRound():1).then(function(res){
       res = res.data
         try{displaySubs(res);}catch(ex){byAttr('sublist')[0].innerHTML=`<p>No one yet...</p>`};
     })
