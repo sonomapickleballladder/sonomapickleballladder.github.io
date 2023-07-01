@@ -192,7 +192,7 @@ function dateRound(r) {
        // byId('dates').innerHTML=`&nbsp;${offsetDate(parseInt((r.value.split(' ')[1]-1)*rdL))[1]} – ${offsetDate(parseInt((r.value.split(' ')[1]*rdL)-1))[1]}`;
         byId('dates').innerHTML=`&nbsp;${offsetDate(nyh)[1]} – ${offsetDate(fyh)[1]}`;
         let amef = '';
-        if(rdLs[parseInt(r.value.split(' ')[1])-1] == 1) amef = `&nbsp;<small><i>[Subject to change based on the weather]</i></small>`;
+        //if(rdLs[parseInt(r.value.split(' ')[1])-1] == 1) amef = `&nbsp;<small><i>[Subject to change based on the weather]</i></small>`;
         byId('rdlength').innerHTML = `&nbsp;<b>(${rdLs[parseInt(r.value.split(' ')[1])-1]}-Week Round${amef})</b>`;
 }
     else{
