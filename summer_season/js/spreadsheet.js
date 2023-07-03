@@ -10,9 +10,9 @@ function  setrefresh() {
     function refresh() {
       let burl = byId('link').getAttribute('url');
       try{if(burl.length < 1) { let ms = 'This page will be available once the Ladder Season is underway.'; let tt = document.title; document.body.innerHTML = ms; document.title = tt; hide(0); return false}}catch(ex){}
-      let dt = '&widget=false&headers=false&gridlines=true&chrome=false';
-      ifr.referrerpolicy = 'no-referrer';
-      ifr.sandbox = 'allow-scripts';
+      let dt = byId('link').getAttribute('append')?byId('link').getAttribute('append').trim():'&widget=false&headers=false&gridlines=true&chrome=false';
+      ifr.referrerpolicy = byId('link').getAttribute('referrerpolicy')?byId('link').getAttribute('referrerpolicy').trim():'no-referrer';
+      ifr.sandbox = byId('link').getAttribute('sandbox')?byId('link').getAttribute('sandbox').trim():'allow-scripts';
       try{thisLadder == 'Womens' && (ifr.classList.add('wml'))} catch(ex){}
       ifr.src=burl+dt;
       ifr.classList.add('h');
