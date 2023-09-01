@@ -15,8 +15,9 @@
     <script>
       function arc() {
         let urls = ["https://sonomapickleballladder.github.io/summer_season", "https://sonomapickleballladder.github.io/spring_season"]
-        for (let index = 0; index < bound; index++) {if(location.href.indexOf(urls[index])>-1){location.replace("https://sonomapickleballladder.github.io/archive/")}}
+        for (let index = 0; index < urls.length; index++) {if(location.href.indexOf(urls[index])>-1){location.replace("https://sonomapickleballladder.github.io/archive/")}}
       }
+      arc()
     </script>
     <script>
       function rdr() {
