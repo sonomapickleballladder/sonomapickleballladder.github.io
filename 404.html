@@ -13,6 +13,12 @@
   </head>
   <body>
     <script>
+      function arc() {
+        let urls = ["https://sonomapickleballladder.github.io/summer_season", "https://sonomapickleballladder.github.io/spring_season"]
+        for (let index = 0; index < bound; index++) {if(location.href.indexOf(urls[index])>-1){location.replace("https://sonomapickleballladder.github.io/archive/")}}
+      }
+    </script>
+    <script>
       function rdr() {
         let d_a = location.href, d_e = 'spring_season', d_i = d_a.toLowerCase().indexOf(d_e);
 if(d_i > -1 && d_a.indexOf(d_e) < 0){location.replace(d_a.slice(0,d_i)+d_e+d_a.slice(d_i+d_e.length))}
