@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="robots" content="noindex,nofollow"/>
+   <title>Bugs</title>
+   <script src="js/ladder.js"></script>
+    <script src="js/lzstring.js"></script>
+    <script src="js/functions.js"></script>
+  </head>
+  <body>
+  <script>
+    window.onload = function() {
+      let hash = location.search.split('?')[1]
+      let psw = localStorage.getItem('$$_-_dbp')
+      //console.log(psw);
+      if(!psw) psw = prompt('Enter password')
+      if(!psw) return false
+      document.addEventListener('keydown', function(e){if(e.which == 83){localStorage.setItem('$$_-_dbp', psw)}if(e.which==65){psw = prompt('Change password')}})
+     
+      let dcp = decipher(psw)
+      let j = LZString.decompressFromEncodedURIComponent(hash)
+      //console.log(j);
+      let bug = dcp(j.between('bug=','&'))
+      let nvg = dcp(j.between('n=','&'))
+      let page = j.between('page=','&')
+      let drk = j.between('darkmode=','&')
+      let usr = j.between('user=','&')
+      //console.log(usr);
+      document.body.innerHTML += `<p>${page}</p><p>${usr}</p><p>${bug}</p><p>${nvg}</p><p>${drk}</p>`
+    }
+     
+  </script>
+</body>
+</html>
+
+

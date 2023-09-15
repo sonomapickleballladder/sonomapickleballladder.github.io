@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="robots" content="noindex,nofollow"/>
+   <title>Ladders Offered | Fall Season</title>
+   <link rel="stylesheet" href="css/style.css">
+   <script src="js/ladder.js"></script>
+   <script src="js/supabase-js.js"></script>
+   <script src="js/lzstring.js"></script>
+   <script src="js/functions.js"></script>
+   <script src="js/auth.js"></script>
+   <script src="js/round.js"></script>
+   <script src="js/ladderdetails.js"></script>
+   <style>
+    html, body {
+        height: 100%;
+        margin: 0px;
+        font-size: 1.25rem;
+      }
+      .container {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      section {
+        flex: 1;
+        padding: 0em;
+      }
+      .ofin {font-style: italic; color: gray}
+      .hlfpd {padding: 0.083em 0.33em;}
+     /* details {border: 0.25em ridge rgba(194, 217, 137, 0.75); border-radius: 1em; padding: 10px; margin: 0.5em;}*/
+      </style>
+  </head>
+  <body>
+
+    <div class="container">
+        <section class="main">
+
+    <center>
+        <h1>&#129692;&nbsp;Ladders Offered&nbsp;&#129692;</h1>
+        </center>
+        <hr>
+
+        <details>
+            <summary>Open Ladder</summary>
+            <div>
+              <p><label for="">Details: </label><span class="ofin">This is the primary Ladder. It is open to all players.</span></p>
+                <p><label for="">Status: </label><span class="ofin">Likely to happen (requires at least 24 signups)</span></p>
+                <p><label for="">Signups: </label><span class="ofin" id="ns-Open">loading...</span></p>
+                <p><label for="">Price: </label><span class="ofin">$40 <small>(or whatever you can reasonably afford to pay)</small></span></p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Women's Ladder</summary>
+            <div>
+                <p><label for="">Details: </label><span class="ofin">This Ladder is for women who prefer playing with women.</span></p>
+                <p><label for="">Status: </label><span class="ofin">Likely to happen (requires at least 24 signups)</span></p>
+                <p><label for="">Signups: </label><span class="ofin" id="ns-Womens">loading...</span></p>
+                <p><label for="">Price: </label><span class="ofin">$40 <small>(or whatever you can reasonably afford to pay)</small></span></p>
+            </div>
+        </details>
+        
+       <!-- <details>
+          <summary>Men's Ladder</summary>
+          <div>
+              <p><label for="">Details: </label><span class="ofin">This Ladder is for men who prefer playing with men.</span></p>
+              <p><label for="">Status: </label><span class="ofin">Not happening (required at least <span id="mns-Mens">20</span> signups)</span></p>
+              <p><label for="">Signups: </label><span class="ofin" id="ns-Mens">loading...</span></p>
+              <p><label for="">Price Range: </label><span class="ofin">$40 - $50** <small>(or whatever you can reasonably afford to pay)</small></span></p>
+              <p><span class="ofin"><small>**Price will be calculated based on number of participants</small></span></p>
+          </div>
+      </details>
+       
+      <details>
+        <summary>Singles Ladder</summary>
+        <div>
+            <p><label for="">Details: </label><span class="ofin">This Ladder is physically intense and is intended for players who are in shape and happy to run around quite a lot. See <a target="_blank" href="hwwd.html?ladder=Singles">here</a> for more specificity on how it works.</span></p>
+            <p><label for="">Status: </label><span class="ofin">Not happening (required at least <span id="mns-Singles">15</span> signups)</span></p>
+            <p><label for="">Signups: </label><span class="ofin" id="ns-Singles">loading...</span></p>
+            <p><label for="">Price Range: </label><span class="ofin">$50 - $70** <small>(or whatever you can reasonably afford to pay)</small></span></p>
+            <p><span class="ofin"><small>**Price will be calculated based on number of participants</small></span></p>
+        </div>
+    </details>
+     
+    <details>
+      <summary>Mini Singles Ladder</summary>
+      <div>
+          <p><label for="">Details: </label><span class="ofin">This Ladder is less physically intense than full court singles, but you still don't have a partner to bail you out. See <a target="_blank" rel="noreferrer" href="https://usapickleball.org/wp-content/uploads/2022/04/Mini-Singles-FAQ-4-1-2022.pdf">here</a> for how Mini-Singles is played. See <a target="_blank" href="hwwd.html?ladder=Mini-Singles">here</a> for more specificity on how it works.</span></p>
+          <p><label for="">Status: </label><span class="ofin">Not happening (required at least <span id="mns-Mini-Singles">15</span> signups)</span></p>
+          <p><label for="">Signups: </label><span class="ofin" id="ns-Mini-Singles">loading...</span></p>
+          <p><label for="">Price Range: </label><span class="ofin">$50 - $70** <small>(or whatever you can reasonably afford to pay)</small></span></p>
+          <p><span class="ofin"><small>**Price will be calculated based on number of participants</small></span></p>
+      </div>
+  </details>
+
+  <details>
+    <summary>Team Ladder</summary>
+    <div>
+        <p><label for="">Details: </label><span class="ofin">This Ladder is for players looking for partner practice. You get to sign up with your partner of choice and play with them for the entire season. See <a target="_blank" href="hwwd.html?ladder=Team">here</a> for more specificity on how it works.</span></p>
+        <p><label for="">Status: </label><span class="ofin">Not happening (required at least <span id="mns-Team">24</span> signups [12 teams])</span></p>
+        <p><label for="">Signups: </label><span class="ofin" id="ns-Team">loading...</span></p>
+        <p><label for="">Price Range: </label><span class="ofin">$50 - $70** <small>(or whatever you can reasonably afford to pay)</small></span></p>
+        <p><span class="ofin"><small>**Price will be calculated based on number of participants</small></span></p>
+    </div>
+</details>
+
+
+<details>
+  <summary>Weekend Ladder</summary>
+  <div>
+      <p><label for="">Details: </label><span class="ofin">This Ladder is for players who can only play (or prefer to play) on weekends.</span></p>
+      <p><label for="">Status: </label><span class="ofin">Not happening (required at least <span id="mns-Weekend">20</span> signups)</span></p>
+      <p><label for="">Signups: </label><span class="ofin" id="ns-Weekend">loading...</span></p>
+      <p><label for="">Price Range: </label><span class="ofin">$40 - $50** <small>(or whatever you can reasonably afford to pay)</small></span></p>
+      <p><span class="ofin"><small>**Price will be calculated based on number of participants</small></span></p>
+  </div>
+</details> -->
+
+
+
+
+
+
+
+
+</section>
+  <footer><i><small>&#169; 2022-2023 Theo MacKinnon. All rights reserved. No part of this website or content may be reproduced or distributed without express permission from the author.</small></i></footer>
+
+</div>
+
+  <script src="js/pls.js"></script>
+</body>
+</html>
+
+
