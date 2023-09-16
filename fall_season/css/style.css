@@ -1,5 +1,5 @@
 :root {
-  --el-primo-gradient: linear-gradient(to right, rgba(185, 187, 102, 0.25), rgba(223, 155, 28, 0.25), rgba(196, 90, 63, 0.25));
+  --el-primo-gradient: linear-gradient(to right, rgba(198, 143, 54, 0.302), rgba(223, 126, 28, 0.285), rgba(225, 5, 12, 0.281));
   --color: black;
   --opcolor: white;
   --bgcolor: var(--el-primo-gradient);
