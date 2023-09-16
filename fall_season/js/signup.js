@@ -149,7 +149,7 @@ function validate(c) {
                 if(!response.error) {
                 try{snEm({email:['SPLinfo+newsignup@riseup.net'], subject: 'New Signup', bod: `Hi there,%0AJust wanted to let you know that ${c.first_name} ${c.last_name} just signed up for ${c.ladder}%0AHave a nice day!%0ABot`})}catch(ex){console.error(ex);}
                 localStorage.setItem(brick('$_hasRegistered'+ladderSeason), true); 
-                document.body.innerHTML = `Successfully submitted! You should receive a link to confirm your email address shortly. Please check both your inbox and spam folders. (If you didn't receive anything, it's possible your email provider can't receive automated emails in this context. Don't worry if this is the case. I will be able to see that you didn't receive it, and will send you another [non-automated] one ${getRound()!="null"?"as soon as possible":"after the initial registration deadline"}). Once you have confirmed your email, you are all set for now. I will send out more information ${getRound()!="null"?"before the start of the next round.":"in the week leading up to the first round. In the meantime, please encourage your friends to sign up as well if you are able to. The more players are involved, the better the experience will be for everyone."}<br><br><a href='signup.html#register'>&larr; Back to Signup Page</a>`; 
+                document.body.innerHTML = `Successfully submitted! You should receive a confirmation email shortly. <a href="javascript:void(0)" onclick="noConfirmationEmail()">Didn't get one?</a> Once you have confirmed your email, you are all set for now. I will send out more information ${getRound()!="null"?"before the start of the next round":"in the week leading up to the first round. In the meantime, please encourage your friends to sign up as well if you are able to. The more players are involved, the better the experience will be for everyone."}<br><br><a href='signup.html#register'>&larr; Back to Signup Page</a>`;
                 document.title = 'Success'
               }
                 else {
@@ -262,6 +262,8 @@ function toggleFields(f, tg) {
 }
 
 function unpulse() {
+  try{const viewportmeta = document.querySelector('meta[name=viewport]'); viewportmeta.setAttribute('content', "initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"); }
+  catch(ex){console.log(ex)}
   try{document.body.classList.remove('pulse')
   byId('submit_signup').disabled = false}
   catch(ex){}
@@ -512,8 +514,10 @@ async function register(a) {
           
     }
   
-  
 
-  
+    function noConfirmationEmail() {
+      alert(`Please check both your inbox and spam folders just in case. If there's nothing there, it's possible your email provider can't receive automated emails in this context. Don't worry if this is the case. I will be able to see that you didn't receive it, and will send you another [non-automated] one ${getRound()!="null"?"as soon as possible":"after the initial registration deadline"}`)
+    }
+
 
     
