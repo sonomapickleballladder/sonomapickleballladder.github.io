@@ -13,6 +13,7 @@
     <script src="js/lzstring.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/round.js"></script>
 </head>
 <body>
     <div class="container">
@@ -124,7 +125,8 @@
                 <details>
                     <summary>&nbsp;I am unable to log in.</summary>
                     <br>
-                    <span class="a">Firstly, make sure you have signed up and confirmed your email address. (If you didn't receive a confirmation email upon signing up, please check that it isn't in your spam folder, and then <a href="mailto:SPLinfo+confirmationemail@riseup.net?subject=Spring Ladder |  Confirmation Email&body=Hi Theo%0AI did not receive a confirmation email in my inbox or spam folder. Could you please resend it?%0AThanks,%0AYour name">email me</a>). Then check that you are entering your <b>email</b> (not your name) and secret key exactly as you did on the Sign-up Form. If you forgot your secret key, or you think you have entered everything correctly but it still isn't working, please email me. I will send you a one-time magic link, which should get you into your dashboard. From there, you can copy your permanent login link in your 'Messages' and make note of the credentials it autofills when you open it.</span>
+                    <script>function noConfirmationEmail() {alert(`Please check both your inbox and spam folders just in case. If there's nothing there, it's possible your email provider can't receive automated emails in this context. Don't worry if this is the case. I will be able to see that you didn't receive it, and will send you another [non-automated] one ${getRound()!="null"?"as soon as possible":"after the initial registration deadline"}`)}</script>
+                    <span class="a">Firstly, make sure you have signed up and confirmed your email address. <a href="javascript:void(0)" onclick="noConfirmationEmail()">Didn't get a confirmation email?</a> Then check that you are entering your <b>email</b> (not your name) and secret key exactly as you did on the Sign-up Form. Please also make sure you are not trying to use any credentials / saved logins you might have from previous ladder seasons, as these are only valid on a season by season basis. If you forgot the secret key you signed up with, or you think you have entered everything correctly but it still isn't working, please email me. I will send you a one-time magic link, which should get you into your dashboard. From there, you can copy your permanent login link under where it says 'Messages' and make note of the credentials it autofills when you open it.</span>
               </details>
             
             
@@ -151,7 +153,7 @@
                 <details>
                     <summary>&nbsp;A certain page isn't loading.</summary>
                     <br>
-                    <span class="a">Open it on another device or in a different browser if possible. Or it may just be taking a long time to load, so try walking away for a minute and then coming back.</span>
+                    <span class="a">Check your internet connection and open it on another device or in a different browser if possible. Or it may just be taking a long time to load, so try walking away for a minute and then coming back.</span>
                 </details>
             
               
