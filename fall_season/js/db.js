@@ -41,20 +41,20 @@ function showActions() {
  try{ if(j.ladder.toString().toLowerCase().split(',').includes('open')) {
    emst = 'Other '
    if (j.payment_method.toLowerCase() == 'paypal') {
-   byId('notifications').innerHTML += `
+   /*byId('notifications').innerHTML += `
    <details>
    <summary>Open Ladder Payment</summary>
    <p>Hi ${j.first_name},<br>If you haven't done so already, please pay at least $40 to <span class='copy' onclick='copy("SPLdeposits@riseup.net", 0, this)'>SPLdeposits@riseup.net</span> via <a rel="noreferrer" target="_blank" href="https://paypal.me/vq90lhInA1pD/40">PayPal</a> to complete your registration.<br>Thanks,<br>Theo</small></p>
-   </details>`
+   </details>`;*/
    }
    else {
-      byId('notifications').innerHTML += `
+      /*byId('notifications').innerHTML += `
    <details>
    <summary>Open Ladder Payment</summary>
    <p>Hi ${j.first_name},<br>If you haven't done so already, please pay me or my dad (Adam) at least $40 in cash or check to complete your registration. (Click <a target="_blank" href="pay_options${protoMap[location.protocol]}">here</a> for times we will be at the courts). If you pay my dad, please <a href="mailto:SPLinfo+payment@riseup.net?subject=Fall Ladder Payment&cc=adammackinnon+ladderpayment@gmail.com&body=Hi Theo,%0AI paid your dad $amount via cash/check.%0AYour name">email me</a> so that I know.<br>Thanks,<br>Theo</small></p>
    </details>`
       emst = 'Starred '
-      star = '*'
+      star = '*';*/
    }
   }
 } catch(ex){console.error(ex);}
