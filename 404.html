@@ -40,7 +40,8 @@ if(d_i > -1 && d_a.indexOf(d_e) < 0){location.replace(d_a.slice(0,d_i)+d_e+d_a.s
     let k = kys[i]
     if(pf == lso[k].url) { 
       if(hpng.includes(k)) {
-        document.body.innerHTML = `<pre style="font-size: larger; word-wrap: break-word; white-space: pre-wrap; color: tomato;">🚧 Under Construction 🚧</pre>`;
+       // document.body.innerHTML = `<pre style="font-size: larger; word-wrap: break-word; white-space: pre-wrap; color: tomato;">🚧 Under Construction 🚧</pre>`;
+          document.body.innerHTML = `<h1>🚧 Under Construction 🚧</h1> <h3><a href="../">Go to Fall Ladder Homepage &rarr;</a></h3>`;
       }
       else {
         document.body.innerHTML = `<pre style="word-wrap: break-word; white-space: pre-wrap;">The website for the ${k} Ladder does not exist yet. It will be created if enough players sign up by the registration deadline.</pre>`;
