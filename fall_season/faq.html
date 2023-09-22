@@ -136,10 +136,16 @@
                 </details>
 
                 <details>
+                    <summary>&nbsp;I signed up but didn't receive a confirmation email.</summary>
+                    <br>
+                    <span class="a" id="noConfirmationEmail"></span>
+                    <script>byId("noConfirmationEmail").innerHTML=`Please check both your inbox and spam folders just in case. If there's nothing there, it's possible your email provider can't receive automated emails in this context. Don't worry if this is the case. I will be able to see that you didn't receive it, and will send you another [non-automated] one ${getRound()!="null"?"as soon as possible":"after the initial registration deadline"}`</script>
+                </details>
+
+                <details>
                     <summary>&nbsp;I am unable to log in.</summary>
                     <br>
-                    <script>function noConfirmationEmail() {alert(`Please check both your inbox and spam folders just in case. If there's nothing there, it's possible your email provider can't receive automated emails in this context. Don't worry if this is the case. I will be able to see that you didn't receive it, and will send you another [non-automated] one ${getRound()!="null"?"as soon as possible":"after the initial registration deadline"}`)}</script>
-                    <span class="a">Firstly, make sure you have signed up and confirmed your email address. <a href="javascript:void(0)" onclick="noConfirmationEmail()">Didn't get a confirmation email?</a> Then check that you are entering your <b>email</b> (not your name) and secret key exactly as you did on the Sign-up Form. Please also make sure you are not trying to use any credentials / saved logins you might have from previous ladder seasons, as these are only valid on a season by season basis. If you forgot the secret key you signed up with, or you think you have entered everything correctly but it still isn't working, please email me. I will send you a one-time magic link, which should get you into your dashboard. From there, you can copy your permanent login link under where it says 'Messages' and make note of the credentials it autofills when you open it.</span>
+                    <span class="a">Firstly, make sure you have signed up AND confirmed your email address. Then check that you are entering your email (not your name) and secret key exactly as you did on the Sign-up Form. Please also make sure you are not trying to use any credentials / saved logins you might have from previous ladder seasons, as these are only valid on a season by season basis. If you forgot the secret key you signed up with, or you think you have entered everything correctly but it still isn't working, please email me. I will send you a one-time magic link, which should get you into your dashboard. From there, you can copy your permanent login link under where it says 'Messages' and make note of the credentials it autofills when you open it.</span>
               </details>
             
             
