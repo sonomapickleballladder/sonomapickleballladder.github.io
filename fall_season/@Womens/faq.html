@@ -52,6 +52,18 @@
 
         <div>
 
+            <details>
+                <summary>&nbsp;I signed up but didn't receive a confirmation email.</summary>
+                <br>
+                <span class="a" id="noConfirmationEmail"></span>
+                <script>byId("noConfirmationEmail").innerHTML=`Please check both your inbox and spam folders just in case. If there's nothing there, it's possible your email provider can't receive automated emails in this context. Don't worry if this is the case. I will be able to see that you didn't receive it, and will send you another [non-automated] one ${JSON.parse(getRound())>0?"as soon as possible":"after the initial registration deadline"}`</script>
+            </details>
+
+            <details>
+                <summary>&nbsp;I am unable to log in.</summary>
+                <br>
+                <span class="a">Firstly, make sure you have signed up AND confirmed your email address. Then check that you are entering your email (not your name) and secret key exactly as you did on the Sign-up Form. Please also make sure you are not trying to use any credentials / saved logins you might have from previous ladder seasons, as these are only valid on a season by season basis. If you forgot the secret key you signed up with, or you think you have entered everything correctly but it still isn't working, please email me. I will send you a one-time magic link, which should get you into your dashboard. From there, you can copy your permanent login link under where it says 'Messages' and make note of the credentials it autofills when you open it.</span>
+          </details>
 
             <details>
                 <summary>&nbsp;Do I have to be a certain skill level to join?</summary>
@@ -134,19 +146,6 @@
                 <span class="a">
                     All the information you submit through the Sign-up Form is stored in an encrypted database, which only I as the administrator can access. None of it will ever be shared with or sold to any 3rd party entities. Certain information though, such as your name, email, and phone number if you choose to provide one, will be entered into a spreadsheet which is visible to the other players in whichever ladder(s) you are in.<br><br>When signing up, you are welcome to use an <a href="https://addy.io" target="_blank" rel="noreferrer">email alias</a> if you don't want your real email address to be visible. You do not have to provide your real name either if you have a very good reason not to. Please do not provide any information which would cause you alarm if someone else were to somehow get their hands on it. Your secret key should not contain any confidential information, or be the same as a password you use for any important account. If you are hesitant to provide any of the information asked for, please email me. However, most of it is necessary to run the service.</span>
             </details>
-
-            <details>
-                <summary>&nbsp;I signed up but didn't receive a confirmation email.</summary>
-                <br>
-                <span class="a" id="noConfirmationEmail"></span>
-                <script>byId("noConfirmationEmail").innerHTML=`Please check both your inbox and spam folders just in case. If there's nothing there, it's possible your email provider can't receive automated emails in this context. Don't worry if this is the case. I will be able to see that you didn't receive it, and will send you another [non-automated] one ${JSON.parse(getRound())>0?"as soon as possible":"after the initial registration deadline"}`</script>
-            </details>
-
-            <details>
-                <summary>&nbsp;I am unable to log in.</summary>
-                <br>
-                <span class="a">Firstly, make sure you have signed up AND confirmed your email address. Then check that you are entering your email (not your name) and secret key exactly as you did on the Sign-up Form. Please also make sure you are not trying to use any credentials / saved logins you might have from previous ladder seasons, as these are only valid on a season by season basis. If you forgot the secret key you signed up with, or you think you have entered everything correctly but it still isn't working, please email me. I will send you a one-time magic link, which should get you into your dashboard. From there, you can copy your permanent login link under where it says 'Messages' and make note of the credentials it autofills when you open it.</span>
-          </details>
         
         
             <details hidden>
