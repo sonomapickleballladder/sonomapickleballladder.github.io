@@ -1,0 +1,31 @@
+:root {
+  --el-primo-gradient: linear-gradient(to right, rgba(198, 143, 54, 0.302), rgba(223, 126, 28, 0.285), rgba(225, 5, 12, 0.281));
+    --color: black;
+    --opcolor: white;
+    --bgcolor: var(--el-primo-gradient);
+    --error-message-bgcolor: red;
+    --nvl-drop: rgb(120, 182, 182);
+  
+    --light-bg-color: var(--el-primo-gradient);
+    --dark-bg-color: black;
+    --light-color: black;
+    --dark-color: white;
+
+    --input-padding: 0.5em;
+    --brdr: 0.25em;
+    --dark-wrap: rgba(60,60,60,0.75);
+    --light-wrap: rgba(238, 234, 212, 0.5);
+    --light-bx-sh: 2px 2px 8px rgba(0, 0, 0, 0.25);
+    --dark-bx-sh: -2px -2px 8px inset rgba(255, 255, 255, 0.25);
+    
+  
+    --dark-link-color: rgb(24, 109, 228);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+  :root {
+   --color: var(--dark-color);
+   --opcolor: black;
+   --bgcolor: var(--dark-bg-color);
+  }
+  }
