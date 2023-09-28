@@ -35,7 +35,7 @@
         <a class="nav" target="_blank" href="results.html">Results &#8599;</a>
         <a class="nav active" href="javascript: void(0)">FAQ<span class="mtheight">&#8599;</span></a>
         <a class="nav" target="_blank" rel="noreferrer" href="more.html">More &#8599;</a>
-        <!--<a class="nav wml" href="@Womens">Go to Women's Ladder &#8599;</a>-->
+        <a class="nav wml" href="@Womens">Go to Women's Ladder &#8599;</a>
 
         </center>
         <br>
@@ -139,7 +139,7 @@
                     <summary>&nbsp;I signed up but didn't receive a confirmation email.</summary>
                     <br>
                     <span class="a" id="noConfirmationEmail"></span>
-                    <script>byId("noConfirmationEmail").innerHTML=`Please check both your inbox and spam folders just in case. If there's nothing there, it's possible your email provider can't receive automated emails in this context. Don't worry if this is the case. I will be able to see that you didn't receive it, and will send you another [non-automated] one ${getRound()!="null"?"as soon as possible":"after the initial registration deadline"}`</script>
+                    <script>byId("noConfirmationEmail").innerHTML=`Please check both your inbox and spam folders just in case. If there's nothing there, it's possible your email provider can't receive automated emails in this context. Don't worry if this is the case. I will be able to see that you didn't receive it, and will send you another [non-automated] one ${JSON.parse(getRound())>0?"as soon as possible":"after the initial registration deadline"}`</script>
                 </details>
 
                 <details>
