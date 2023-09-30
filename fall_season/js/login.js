@@ -52,6 +52,11 @@ function attemptLogin(name,key,jm) {
     try{for (let i = 0; i < jm.ladder.length; i++) {
         try{if(document.referrer.indexOf(laddersOffered[jm.ladder[i]].url)>0) {jm.ladder.push(jm.ladder.splice(jm.ladder.indexOf(jm.ladder[i]), 1)[0]); }}catch(ex){}
     }}catch(ex){}
+
+    console.log(jm.ladder)
+    if(location.href.indexOf("return_to=")>-1 && location.href.indexOf("/@")>-1){jm.ladder = [location.href.split("/@")[1].split("/")[0]]}
+    else if(location.href.indexOf("return_to=")>-1){jm.ladder = ['Open']}
+    //return false;
     
 
     for (let iq = 0; iq < jm.ladder.length; iq++) {
