@@ -1,52 +1,3 @@
-/* function attemptLogin(name,key,jm) {
-try{jm.ladder = JSON.parse(jm.ladder)}catch(ex){}
-console.log(jm.ladder);
-return false
-let test;
-ptc('rdbusrs', '*', 'id', 1).then(function(res){
-    document.querySelector('.modal.login').classList.remove('pulse')
-    byId('submit').removeAttribute('disabled')
-    test = res;
-    let nm = name.replace(/(\s)/g,'').toLowerCase();
-    let st = nm+key;
-    let nve = 2;
-    let hsa = sha256x(st,nve);
-    test = test[0].list
-    let isvl = 0;
-    for (let i = 0; i < test.length; i++) {
-        if(test[i]==hsa) {isvl=1; test.length=i+1}
-    }
-    if(isvl){
-        let lm = {name: name, token: sha256x(st,1), expires: LZString.compress(key)};
-        localStorage.setItem(ladderId.ls+'logged_in_user', lsciph(lm));
-        localStorage.setItem(ladderId.ls+'session6', lsciph(reverseString(decipher(JSON.stringify(new Date().getFullYear()))('735079644d33456a646748'))))
-        localStorage.removeItem('payalert')
-        if(location.search.indexOf('return_to=')>-1){
-            let tr = location.search.split('return_to=')[1].split('&')[0];
-            if(tr.indexOf('initial_order')>-1) {localStorage.setItem(ladderId.ls+'ArprO_lA3RZxD5z', lsciph({name: nm, key: key}))}
-            location.replace(tr)
-        }
-        else {
-            location.replace(`dashboard${protoMap[location.protocol]}`)
-        }
-    }
-    else {
-        //byId('message').innerHTML='&nbsp;'
-        if(location.search.indexOf('return_to=')>-1){
-        setTimeout(function(){
-            alert('Login was successful, but the page you are trying to visit will not be accessible until after the Initial Registration Deadline')
-            location.replace(`dashboard${protoMap[location.protocol]}`)
-    },10)   
-    
-        }
-        else{setTimeout(function(){location.replace(`dashboard${protoMap[location.protocol]}`)},20)}
-        
-        //byId('message').innerHTML='Login failed. Invalid Credentials'
-    }
-})
-
-}  */
-
 function attemptLogin(name,key,jm) {
     try{jm.ladder = JSON.parse(jm.ladder)}catch(ex){}
     try{for (let i = 0; i < jm.ladder.length; i++) {
@@ -77,9 +28,10 @@ function attemptLogin(name,key,jm) {
             if(test[i]==hsa) {isvl=1; test.length=i+1}
         }
         if(isvl){
+            let crab = 1; // Current year - 2023
             let lm = {name: name, token: sha256x(st,1), expires: LZString.compressToEncodedURIComponent(key)};
             localStorage.setItem(ldr.ls+'logged_in_user', lsciph(lm,0,ldr.ls));
-            localStorage.setItem(ldr.ls+'session6', lsciph(reverseString(decipher(JSON.stringify(new Date().getFullYear()))('735079644d33456a646748'))))
+            localStorage.setItem(ldr.ls+'session6', lsciph(reverseString(decipher(JSON.stringify(new Date().getFullYear()-crab))('735079644d33456a646748'))))
             localStorage.removeItem('payalert')
             if(location.search.indexOf('return_to=')>-1){
                 let tr = location.search.split('return_to=')[1].split('&')[0];
