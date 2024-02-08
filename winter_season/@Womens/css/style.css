@@ -1,5 +1,6 @@
 :root {
-  --el-primo-gradient: linear-gradient(to right, rgba(198, 143, 54, 0.302), rgba(223, 126, 28, 0.285), rgba(225, 5, 12, 0.281));
+  /*--el-primo-gradient: linear-gradient(to right, hsla(37, 57%, 49%, 0.302), hsla(30, 78%, 49%, 0.285), hsla(358, 96%, 45%, 0.281));*/
+  --el-primo-gradient: linear-gradient(to right, hsla(-103, 57%, 49%, 0.302), hsla(-110, 78%, 49%, 0.285), hsla(218, 96%, 45%, 0.281));
   --color: black;
   --opcolor: white;
   --bgcolor: var(--el-primo-gradient);
@@ -13,6 +14,9 @@
   
 
   --dark-link-color: rgb(24, 109, 228);
+  --nav-background: hsl(230, 21%, 71%);
+
+  /*--iv: hue-rotate(200deg);*/
 }
 
 html,body{min-height: 100%;filter: var(--iv);}
@@ -47,13 +51,15 @@ body{background: var(--bgcolor); font-size: 1.25rem;word-break: break-word; colo
 .light_theme .cool_button {color: var(--light-color)!important;}
 
 section.main { padding: 0em 0.25em;}
-a.nav {display: inline-block; font-size: 1rem; margin: 8px; padding: 6px 12px; box-shadow: 1px 3px 6px maroon; background: rgba(130, 234, 123, 0.2); background: rgba(165, 196, 193, 1); }
+a:focus,.nav:focus{outline: auto!important;}
+a.nav {display: inline-block; font-size: 1rem; margin: 8px; padding: 6px 12px; box-shadow: 1px 3px 6px maroon; background: var(--nav-background); }
 a.nav:hover{filter: hue-rotate(40deg);}
 iframe{min-height: 400px; width: 100%; border: 0px; outline: none; overflow: auto; scrollbar-width: none; -moz-scrollbars: none;}
 iframe::-webkit-scrollbar {display: none;}
 table{max-width: 100%; overflow: scroll;border-collapse: collapse;}
 table.standard, td {border: 3px ridge black;outline: none;}
 hide,hidden,.hidden,.h{display:none;visibility: hidden;}
+.invisible {display: none !important;}
 h3.under{text-decoration: underline;}
 input.var{min-width: 0px; max-width: 20px;outline: none; border: none; height: 100%;background: transparent;}
 input.score {color: var(--color)}
@@ -62,7 +68,7 @@ td{text-align: center;}
 select{padding: 0.5em; outline: none; border: 2px solid gray}
 a.red{background: #6739ce; color: darkorange}
 a.orange{background:#08ab2f; color:navy;}
-a.active{background:  #b69ffff5; color: black; cursor:text;}
+a.active{background: #e39f45; color: black; cursor:text;}
 a.active.nav:hover {filter: none}
 a.hidden{display: none; visibility: hidden; width: 0px; height: 0px;}
 a.black{background: #90acf5}
@@ -90,7 +96,7 @@ img{max-width: 100%;margin: auto; display: block;}
 .descrip{box-shadow: 0px 4px 7px 7px #928cef; font-size: 120%;padding: 10px;}
 .mtheight {max-width: 0em; display: inline-block;visibility:hidden;}
 .mtwidth {max-height: 0em; display: inline-block;visibility:hidden;}
-footer{background: rgb(200 100 132 / 30%); padding: 10px; margin-top: 10px; clear: both; position: relative;}
+footer{background: hsla(241, 48%, 59%, 0.3); padding: 10px; margin-top: 10px; clear: both; position: relative;}
 label {cursor: pointer;}
 button, select {border-radius: 3px; cursor: pointer;}
 mark {border-radius: 3px; padding: 0em 0.125em;}
