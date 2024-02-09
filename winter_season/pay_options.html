@@ -55,8 +55,8 @@
                 let mn = bd.split(' ')[1];
                 mn = wms[mn];
                 let gf = bd.split(' ')[2].match(/\d+/g);
-                //console.log(`${mn}/${parseInt(gf[0])+1}/2023`);
-                let jn = new Date(`${mn}/${parseInt(gf[0])+1}/2023`)
+                //console.log(`${mn}/${parseInt(gf[0])+1}/2024`);
+                let jn = new Date(`${mn}/${parseInt(gf[0])+1}/2024`)
                 //console.log(jn);
                 if (jn >= new Date()) {byId('times').innerHTML += `<li><p><span class="person">${r[i].person}</span> will be at <span class="location">${r[i].location}</span> from <span class="time">${r[i].time}</span> on <span class="date">${r[i].date}</span>.</p></li>`
                  }

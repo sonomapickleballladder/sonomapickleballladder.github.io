@@ -122,13 +122,8 @@ document.addEventListener("DOMContentLoaded",function() {
 
 
 function authorize(d) {
-    try{var viewportmeta = document.querySelector('meta[name="viewport"]');
-              if (viewportmeta) {
-              viewportmeta.setAttribute('content', 'width=device-width, maximum-scale=1.0, initial-scale=1.0');
-              }
-              byId('submit').blur()
-            }catch(ex){}
-
+    try{var viewportmeta=document.querySelector('meta[name="viewport"]');viewportmeta&&viewportmeta.setAttribute("content","width=device-width, maximum-scale=1.0, initial-scale=1.0"),byId("submit").blur()}catch(t){}
+    
     try{if(d.email.length<1){alert('Email Address is required'); return false}
     if(d.key.length<1){alert('Secret Key is required'); return false}}catch(ex){}
 

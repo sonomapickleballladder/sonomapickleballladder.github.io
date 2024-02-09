@@ -118,7 +118,7 @@ function signupReminder() {
 
 }
 
-try{if(`${new Date().getFullYear()} ${new Date().getMonth()+1} ${new Date().getDate()}`=="2023 6 29"){signupReminder()}}catch(ex){}
+// try{if(`${new Date().getFullYear()} ${new Date().getMonth()+1} ${new Date().getDate()}`=="2023 6 29"){signupReminder()}}catch(ex){}
 
 
 
