@@ -60,7 +60,7 @@ function renderorder(al, ord) {
   let orord = awMisen.order.split(',');
   let hjson = lsdciph(localStorage.getItem(ladderId.ls+'ArprO_lA3RZxD5z'));
   let name = hjson.name.toLowerCase().replace(/(\s)/g,"")
-  console.log(hjson);
+  // console.log(hjson);
   for (let i = 0; i < ord.length; i++) {
       let orind = orord.indexOf(ord[i]);
       ord[i] = ord[i].split(':')[0]
