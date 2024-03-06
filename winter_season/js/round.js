@@ -47,6 +47,12 @@ function getRound() {
     }
   }
 
+  // Round Overrides
+  if (diny < 73) {
+    return 2;
+  }
+  // End of Round Overrides
+
 
   try{dateInfo.round = round} catch(ex) {}
   
