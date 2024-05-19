@@ -14,7 +14,7 @@
   
 
   --dark-link-color: rgb(24, 109, 228);
-  --nav-background: hsl(230, 21%, 71%);
+  --nav-background: hsl(167, 23%, 73%);
 
   /*--iv: hue-rotate(200deg);*/
 }
@@ -68,7 +68,7 @@ td{text-align: center;}
 select{padding: 0.5em; outline: none; border: 2px solid gray}
 a.red{background: #6739ce; color: darkorange}
 a.orange{background:#08ab2f; color:navy;}
-a.active{background: #e39f45; color: black; cursor:text;}
+a.active{background: #8abf45; color: black; cursor:text;}
 a.active.nav:hover {filter: none}
 a.hidden{display: none; visibility: hidden; width: 0px; height: 0px;}
 a.black{background: #90acf5}
@@ -96,7 +96,7 @@ img{max-width: 100%;margin: auto; display: block;}
 .descrip{box-shadow: 0px 4px 7px 7px #928cef; font-size: 120%;padding: 10px;}
 .mtheight {max-width: 0em; display: inline-block;visibility:hidden;}
 .mtwidth {max-height: 0em; display: inline-block;visibility:hidden;}
-footer{background: hsla(241, 48%, 59%, 0.3); padding: 10px; margin-top: 10px; clear: both; position: relative;}
+footer{background: hsla(164, 48%, 59%, 0.3); padding: 10px; margin-top: 10px; clear: both; position: relative;}
 label {cursor: pointer;}
 button, select {border-radius: 3px; cursor: pointer;}
 mark {border-radius: 3px; padding: 0em 0.125em;}
