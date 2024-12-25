@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{const currentSeason="winter_season",page=location.pathname.split("/").pop();location.replace(`../${currentSeason}/${page}`)})
