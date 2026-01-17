@@ -1,0 +1,24 @@
+<!doctype html><html lang="en" dir="ltr" hidden><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Confirm Availability | Women's Ladder</title><link rel="stylesheet" href="../css/style.css"><script src="../js/ladder.js"></script><script src="../js/supabase-js.js"></script><script src="../js/lzstring.js"></script><script src="../js/functions.js"></script><script src="../js/auth.js"></script><script src="../js/round.js"></script><script src="../js/cav.js"></script><style>html,body{height:100%;margin:0;font-size:1.25rem}.container{min-height:100%;display:flex;flex-direction:column}section{flex:1;padding:0 8px}.btn{padding:.75em;cursor:pointer}</style></head><body><div class="container"><section class="main"><center><h1>&#129692;&nbsp;Confirm Availability&nbsp;&#129692;</h1></center><hr><br><center><a class="nav" href="./">Home<span class="mtheight">&#8599;</span></a>
+<a class="nav" href="how_it_works.html">How it Works<span class="mtheight">&#8599;</span></a>
+<a class="nav" href="signup.html">Sign-up<span class="mtheight">&#8599;</span></a>
+<a class="nav" target="_blank" href="dashboard.html">Dashboard &#8599;</a>
+<a class="nav active" href="javascript:void(0)" tabindex="-1">Confirm Availability<span class="mtheight">&#8599;</span></a>
+<a class="nav" target="_blank" href="scores.html">Submit Scores &#8599;</a>
+<a class="nav" target="_blank" href="groups.html">Groups &#8599;</a>
+<a class="nav" target="_blank" href="results.html">Results &#8599;</a>
+<a class="nav" href="faq.html">FAQ<span class="mtheight">&#8599;</span></a>
+<a class="nav" target="_blank" rel="noreferrer" href="more.html">More &#8599;</a>
+<a class="nav wml" href="../">Go to Women's Ladder &#8599;</a></center><br><hr><h3 style="color:maroon" class="under" id="attention">Attention:</h3><p style="color:#bd7028" id="atmsg">By confirming below, you are attesting that you will be present (not
+traveling or otherwise unavailable) for the
+<b><i>entirety of the round</i></b>, and that you will be able to offer
+<b><i>a number of possible time-windows</i></b> in which to play.</p><label style="cursor:pointer" for="agree1">I understand</label>
+<input class="trsp" type="checkbox" id="agree1"><h3 class="under">Round you are confirming for:</h3><p><select id="round" class="trsp" onchange=dateRound(this)><option style="background-color:#eede8f" id="wkcalc" nextround value>Round null</option><option value="Round 1">Round 1</option><option value="Round 2">Round 2</option><option value="Round 3">Round 3</option><option value="Round 4">Round 4</option><option value="Round 5">Round 5</option><option value="Round 6">Round 6</option></select>
+<span id="dates"></span>
+<span id="rdlength"></span></p><p><button class="confirmav btn cool_button" onclick=vrfid() id="webconfirm">
+Confirm via Website (preferable)</button></p><small>Not working (nothing happening or error message)?</small><p><button class="confirmav cool_button" onclick='vrfrd("email")' style="padding:.75em">
+<a id="emailconfirmlink" href="javascript:">Confirm via Email</a></button></p><noscript><p>The above methods will not work without JavaScript.</p><p>Please instead send an email to
+<a href="mailto:SPLconfirmations@riseup.net?subject=Yes&body=Confirming that I am available for round [please specify the round].">SPLconfirmations@riseup.net</a>
+with the subjectline 'Yes' and specify the round.</p></noscript><h3 class="under">Confirmation Status:</h3><p><span id="confirmationstatus">checking...</span></p><p><button class="btn cool_button" onclick="this.disabled=!0,checkstatus(),this.disabled=!1">
+🔄 Refresh Status</button></p></section><footer><i><small>&#169; 2022-2026 Theo MacKinnon. All rights reserved. No part of
+this website or content may be reproduced or distributed without
+express permission from the author.</small></i></footer></div><script src="../js/pls.js"></script></body></html>
