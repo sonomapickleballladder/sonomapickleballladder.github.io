@@ -2,7 +2,7 @@ let isal=!1;try{localStorage.getItem(brick("$_enableAnalytics"))&&(isal=localSto
     <div>
       <span onclick="document.querySelector('.se_modal').classList.add('h')" style="position: absolute; top: 0.5em; left: 0.5em; cursor: pointer; height: 1em; width: 1em; line-height: 1;">✕</span>
       <h1 style="text-align: center;">Reminder!</h1>
-      <p>Today is the last day to sign up for the Winter Season if you want to be able to start in round 1.</p>
+      <p>Today is the last day to sign up for the Spring Season if you want to be able to start in round 1.</p>
     </div>
     <div>
       <p>
